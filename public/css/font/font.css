@@ -1,0 +1,14 @@
+
+@font-face{
+	font-family: 'FontAwesome';
+	src: url('fontawesome-webfont.ttf')format('truetype'),
+		 url('fontawesome-webfont')format('open-type'),
+		 url('fontawesome-webfont.svg')format('svg'),
+		 url('fontawesome-webfont.wof')format('woff'),
+		 url('fontawesome-webfont.eot')format('eot');
+}
+
+@font-face{
+	font-family:Roboto-Regular;
+	src: url('Roboto-Regular.ttf')format('truetype');
+}

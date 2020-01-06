@@ -1,0 +1,533 @@
+#repairTab, #repairMob, #repairMobXs{
+	display: none;
+}
+span.emptySpan{
+	color:grey;
+}
+
+.flexColumn{
+	display: flex;
+	flex-direction: column;
+}
+
+.flexrow{
+	display: flex;
+	flex-direction: row;
+}
+html{
+	height: 100%
+}
+body{
+	margin:0;
+	font-family:'Open Sans Condensed', sans-serif;
+	cursor: default;
+	background: url(../img/fond.jpg) no-repeat;
+
+    background-size: auto;
+height: 100%;
+background-size: cover;
+background-attachment: fixed;
+}
+body p{
+font-size: 1.2em;
+	}
+body p, body h2{
+	margin:0;
+}
+h1, h2, form p, form label{
+	font-family: 'Handlee', cursive;
+	color: #864002;
+	text-shadow: 0px 0px 1px #020202;
+}
+
+form label{
+font-size: 1.2em;
+	}
+a{
+	color:#645229;
+	text-decoration-style: dashed;
+}
+span{
+	color:white;
+	font-size: 1.2em;
+margin: 0 8px;
+text-shadow: 0 0 2px black;
+cursor: pointer;
+}
+span:hover{
+	color: #864002;
+}
+
+hr{
+		margin: 0;
+	margin-bottom: 20px;
+	border: 1px dashed #645229;
+}
+.formLogin input, .formLogin input:focus, a, button{
+		-webkit-transition:all 0.2s;
+-moz-transition:all 0.2s;
+-o-transition:all 0.2s;
+transition:all 0.2s
+}
+header #baniere,#validAllPlanningWeek, header nav#menu, span, #menuLoging, header nav#menu li, header #logo, header #logo img, header #logo div, header, header div#login img, header #login div, header #login, #shopRapel, #planningRapel,
+#actionCategory > div:nth-child(2), #actionCategory > div:nth-child(3), #actionCategory > div:nth-child(4){
+		transition: all 0.5s;
+}
+#recipesAlpha span, #listRecipeGroup span, #paginationRecipe span, section#recetteContainDiv h2, section#recetteContainDiv form span{
+	transition: all 0.2s;
+} 
+
+.barreTitle{
+	width: 200px;
+	margin: 0;
+	margin-bottom: 20px;
+	border: 1px dashed #645229;
+}
+fieldset{
+	border: 1px dashed #645229;
+}
+#loading{
+position: fixed;
+z-index: 9999999;
+display: none;
+left: 50%;
+right: 50%;
+transform: translateX(-50%);
+top: 200px;
+width: 50px;
+height: 50px;
+background:
+white;
+}
+#loading img{
+	width: 250px;
+position: absolute;
+top: -60px;
+left: -100px;
+}
+#containMessAndError{
+	height: auto;
+	position: fixed;
+	box-shadow: 0 0 15px white;
+	left: 50%;
+	right: 50%;
+	top: 150px;
+	z-index: 999999;
+	transform: translateX(-50%);
+	width: 50%;
+}
+#errorMessAjax, #errorMessImgNoBtn, #errorMessImgWithBtn, #errorMessSimple{
+background-color: #000000d4;
+height: auto;
+color:wheat;
+text-align: center;
+padding: 30px;
+display: none;
+}
+#errorMessImgNoBtn > div{
+	justify-content: center;
+align-items: center;
+}
+
+#errorMessImgNoBtn, #errorMessImgWithBtn, #idRecetteSelectToShow, #errorMessSimple, #contentModifViewRecipe, #contentViewRecipe, #contentNewViewRecipe, #modifIdRecette{
+	display: none;
+}
+
+#errorMessImgWithBtn div img, #errorMessImgNoBtn div img{
+	height: 60px;
+	margin-right:20px;
+}
+#errorMessImgWithBtn #messageBtn, #errorMessImgNoBtn #messageBtnNoBtn{
+	margin-top:10px;
+}
+#errorMessImgWithBtn #messageBtn p{
+	margin-right:10px;
+}
+#errorMessImgWithBtn span:hover{
+	cursor:pointer;
+	text-shadow: 0px 0px 5px #fff;
+}
+#errorMessImgWithBtn div div:nth-child(2){
+	align-items: center;
+}
+
+footer{
+	float: right;
+	width: 100%;
+	text-align: center;
+
+	background: linear-gradient(#373737ab,#2a2929);
+	color: white;
+	text-decoration: none;
+	bottom: 0;
+	box-shadow: 0px -2px 15px black;
+}
+footer div.flexrow{
+	justify-content: space-evenly;
+}
+footer div.flexrow div{
+	width:50%;
+}
+footer div.flexrow div hr{
+	width:100px
+}
+footer a{
+	color: white;
+	text-decoration: none;
+}
+
+header{
+	background:linear-gradient(#5310005c, #fff);
+	box-shadow: 2px 5px 15px #000;
+	height: 180px;
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 7000;
+}
+
+header #baniere{
+	height: 180px;
+	background-image: url(../img/baniere.png);
+	background-position: center;
+	background-size: cover;
+	width: 100%;
+	top: 0;
+	position: absolute;
+}
+header #loginMobile, header #menuMobile, header #btnMenuMobile, header #fondMenuMobile, header #btnMenuMobileOff{
+	display: none;
+}
+
+header #logo, header #logo img, header #logo div{
+	width:300px;
+	height:300px;
+
+}
+header #logo{
+	position: relative;
+	z-index: 9999;
+	height: 260px
+}
+header #logo img{
+	z-index: 7004;
+	position: relative;
+	height: 200px;
+	margin-left: 0;
+margin-top: 0;
+}
+header #logo div{
+	border: 3px solid #4b4b4b;
+	box-shadow: 10px 5px 15px #000;
+	border-radius: 300px;
+	border-top: 0;
+	border-left: 0;
+	height: 300px;
+	position: absolute;
+	top:-50px;
+	z-index: 7002;
+	background-image: url('../img/fondCajou.jpg');
+	left:0px;
+}
+
+header div#login img{
+	width:130px;
+	z-index: 7006;
+	position:relative;
+}
+header div#login a {
+	z-index: 7006;
+}
+header #login{
+
+	position: fixed;
+	right: 55px;
+	z-index: 9999;
+	top: 50px;
+}
+header #login div{
+	border: 3px solid #4b4b4b;
+	box-shadow: -10px 5px 15px #000;
+    border-radius: 300px;
+    border-top: 0;
+    border-right: 0;
+    height: 350px;
+        width: 350px;
+    position: absolute;
+    top: -100px;
+    z-index: 7002;
+   background-image: url('../img/fondCajou.jpg');
+
+    right: -100px;
+}
+header #login a:nth-child(2){
+	position: absolute;
+	color: rgb(210, 206, 190);
+	top: 130px;
+	right: 50px;
+	text-shadow: 0px 0px 1px #020202;
+	width: 100px;
+}
+header #login a:nth-child(2):hover{
+	color: #d27105;
+}
+
+#menuLoging{
+	width: 100%;
+	justify-content: center;
+	align-items: baseline;
+	position: fixed;
+	top: 80px;
+	z-index: 5000;
+	align-items: center;
+}
+header nav#menu{
+	width: 570px;
+	text-align: center;
+	position: relative;
+	z-index: 7000;
+}
+header nav#menu li{
+	width: 150px;
+	height: 125px;
+	background-position: center;
+	background-size: cover;
+	display: inline-block;
+	margin: 0 20px;
+	background-size: contain;
+background-repeat: no-repeat;
+}
+header nav#menu li a{
+	padding: 0 60px 90px 60px;
+}
+
+#btnRecette li, #btnPlaning li, #btnCourse li{
+  -webkit-animation: fade 4s infinite;
+  -moz-animation: fade 4s infinite;
+  -o-animation: fade 4s infinite;
+  animation: fade 4s infinite;
+}
+
+header nav#menu li#btnRecette{
+	background-image: url(../img/recette1.png);
+}
+header nav#menu li#btnRecette:hover{
+	background-image: url(../img/recette2.png);
+}
+header nav#menu li#btnPlaning{
+	background-image: url(../img/planing1.png);
+}
+header nav#menu li#btnPlaning:hover{
+	background-image: url(../img/planing2.png);
+}
+header nav#menu li#btnCourse{
+	background-image: url(../img/course11.png);
+}
+header nav#menu li#btnCourse:hover{
+	background-image: url(../img/course2.png);
+}
+aside{
+width: 70px;
+background-image: url('../img/fondCajou.jpg');
+background-position: top;
+box-shadow: 2px 2px 5px #000;
+border-radius: 0 80px 80px 0;
+height: 110px;
+float: left;
+position: fixed;
+top: 280px;
+z-index: 200;
+border: 3px solid #4b4b4b;
+border-top: 0;
+border-left: 0;
+justify-content: center;
+align-items: center;
+}
+aside#planningRapel{
+top: 280px;
+}
+aside#shopRapel{
+top: 410px;
+}
+
+aside div#rappelCookToday #txtRappelCookToday{
+	width: 200px;
+	height: 190px;
+	margin: auto;
+	padding-top: 20px;
+	transform: rotate(-4deg);
+	overflow: hidden;
+}
+aside div#rappelCookToday #txtRappelCookToday div.listIngRappel{
+	flex-wrap: wrap;
+}
+aside span{
+	font-size: 2.4em;
+	color: black;
+	text-shadow: 0 0 3px white;
+}
+aside #suiteRappelMobile{
+	display: none;
+}
+#suiteRappel{
+	transform: rotate(-4deg);
+	width: 200px;
+    padding-left: 40px;
+
+}
+#suiteRappel span{
+	margin: 4px 0 0 8px;
+	cursor: pointer;
+} 
+
+#menuLoging hr.barreDeco{
+	width:570px;
+	border-top:0;
+	border-left:0;
+	border-right: 0;
+	border: 2px dashed #bcbcbc;
+}
+section{
+	margin-top: 250px;
+	margin-bottom: 130px;
+	width: 100%;
+min-height: 100%;
+align-items: center;
+
+}
+section#homeSection #friseKajoo img{
+	height:80px;
+	margin:0 40px;
+}
+section#homeSection #friseKajoo{
+	width:100%;
+	justify-content: center;
+}
+section >div{
+	width:80%;
+}
+section h1{
+	font-size: 2em;
+	margin-bottom:0;
+	text-align: center;
+}
+
+.homePresentation{
+	text-align: center;
+	margin-top:50px;
+}
+.homePresentation h2{
+	margin-bottom: 15px;
+}
+
+.formLogin{
+	text-align: left;
+	margin: auto;
+	margin-top: 45px;
+}
+section#userAccompte form.formLogin label{
+width: 280px;
+}
+section#userAccompte form.formLogin input{
+margin-bottom: 30px;
+}
+section#userAccompte form.formLogin fieldset{
+	
+text-align: center;
+}
+fieldset{
+	padding: 40px;
+}
+label{
+	width: 150px;
+
+display: inline-block;
+}
+input, select {
+border-radius: 2px;
+margin-top: 5px;
+height: 30px;
+width: 280px;
+font-size: 1em;
+padding-left: 10px;
+background-color:#ffffff7a;
+
+border: 1px solid #fff;
+}
+select{
+height: 35px;
+}
+input[type='submit']{
+	margin: 10px;
+	padding:10px;
+	width: 110px;
+border-radius: 2px;
+height: 50px;
+border: 1px solid #fff;
+background-color:#fff0;
+font-size: 1.2em;
+box-shadow: 0px 0px 5px #6b6a6a;
+color:white;
+text-shadow: 0 0 1px black;
+}
+section#recetteContainDiv #divModifCateg form span:hover, section#recetteContainDiv #divAddCateg form span:hover,
+section#recetteContainDiv #divDelCateg form span:hover,
+input[type='submit']:hover{
+	background-color: #ffffff5e;
+	box-shadow: 2px 2px 5px black;
+}
+input:focus{
+	background-color: #fbf5cf;
+}
+
+#popupInfo{
+	background-color: white;
+	width: 0px;
+	height: 0px;
+	border-radius: 20px;
+	position: absolute;
+right: 50%;
+box-shadow: 0px 0px 5px #202020;
+left: 50%;
+transform: translateX(-50%);
+top: 250%;
+z-index: 9999;
+}
+#popupInfo #popTxt{
+	display: none;
+}
+#popupInfo > div{
+	display: none;
+}
+#popupInfo div.flexrow div#popImg img{
+	height:80px;
+	margin-right: 10px;
+}
+
+#popupInfo div div.flexrow{
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 10px;
+	width: 90%;
+	margin: auto;
+}
+#rappelShopToday #txtRappelShopToday{
+	text-align: center;
+}
+#rappelShopToday #txtRappelShopToday p{
+	padding-top:10px;
+	padding-right: 30px;
+}
+section#politique div p.titleInfos, section#mention div p.titleInfos{
+	color: #866802;
+	text-shadow: 1px 1px 1px #a7a7a7;
+	padding-top: 20px;
+	font-size: 1.3em;
+}
+section#politique div p.texteInfos, section#mention div p.texteInfos{
+	text-align: justify;
+}
+p.errorRouteur{
+	color:#d20505;
+}

@@ -1,0 +1,365 @@
+.flexrow.calendrier{
+    width:90%;
+    justify-content: space-around;
+}
+section#planningContainer{
+margin-top: 280px;
+}
+section#planningContainer > div{
+    width: 80%;
+}
+#divPlanningMonthAndWeek{
+    max-width: 650px;
+}
+
+div#divPlanningMonthAndWeek span#ShowCurentMonth, div#divPlanningMonthAndWeek span#ShowCurentWeek{
+    font-size: 1.4em;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+    align-items: first baseline;
+    cursor:pointer;
+    margin-bottom: 30px;
+}
+div#divPlanningMonthAndWeek span#ShowCurentMonth p, div#divPlanningMonthAndWeek span#ShowCurentWeek p{
+    color: #864002;
+ font-family: 'Handlee', cursive;
+    text-shadow: 0px 0px 1px #020202;
+    margin-left:15px;
+    text-decoration: underline;
+    text-decoration-style: dashed;
+    font-weight: bold;
+}
+#divAllDay span.cell.day{
+    color: white;
+    text-shadow: 1px 1px 1px  #000;
+    margin: 0 0 10px 0;
+}
+#divAllDay span.cell.number{
+    color: white;
+    text-shadow: 1px 1px 1px #4a4a4a;
+    font-size: 1.3em;
+}
+
+div#divPlanningMonthAndWeek{
+    justify-content: space-around;
+}
+
+.flexrow.planingWeek, #validAllPlanningWeek{
+    display: none;
+}
+#divAllDay{
+    margin-top:0px;
+    border: 2px solid white;
+}
+.calendar{
+    background-color: #0404040f;
+    border-radius:4px;
+    color:#222629;
+    overflow:hidden;
+    width: 50%;
+    max-width: 400px;
+    box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.51) inset;
+    margin-left: 15px;
+    
+}
+
+.calendar .header{
+    height:50px;
+    line-height:40px;
+    text-align:center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 2px solid white;
+}
+
+.calendar .month{
+    display:inline-block;
+    font-weight:bold;
+}
+
+.calendar button{
+    cursor: pointer;
+    font-size: 1.6em;
+    color: white;
+    text-shadow: 1px 1px 1px #ccc;
+    background: transparent;
+    border: 0;
+}
+
+.calendar button:hover{
+   color: #864002;
+}
+
+.calendar button:first-child{
+    float:left;
+}
+
+.calendar button:last-child{
+    float:right;
+}
+
+.calendar .cell{
+    color:#5E5E5E;
+    box-sizing:border-box;
+    display:inline-block;
+    padding:10px 0;
+    text-align:center;
+    width:calc(100% / 7);
+    cursor : pointer;
+}
+#divAllDay span.cell.number:hover{
+    color: #864002;
+    text-decoration: underline;
+    text-decoration-style: dashed;
+}
+
+.calendar .today{
+border-radius: 50px;
+    background: linear-gradient(#fffdfd00,#868686);
+}
+
+#divAllDay .day{
+    background: linear-gradient(#515151,#808080);
+    box-shadow: 0px 3px 1px #535353;
+}
+#divAllDay span.cell.number.eventHear{
+background: radial-gradient(circle at center, #ff9300 20%, #ffdb0000 50%);
+color: white;
+}
+
+#contentPlaningMonthDay, #nothingEvent, #addEventCalendar{
+    display: none;
+}
+#contentPlaningMonthDay{
+    margin-left:20px;
+}
+#contentPlaningMonthDay div.breakfast.flexColumn > p:nth-child(1), #contentPlaningMonthDay div.lunch.flexColumn > p:nth-child(1), #contentPlaningMonthDay div.dinner.flexColumn > p:nth-child(1){
+    font-size: 1.2em;
+    color: #d2a405;
+    text-shadow: 1px 1px 1px #ccc;
+}
+#titleEventView{
+    font-size: 1.2em;
+    text-decoration: underline;
+    color: #d2a405;
+    text-decoration-style: dashed;
+    text-shadow: 1px 1px 1px #ccc;
+    text-align: center;
+}
+div.month{
+    font-size: 1.4em;
+    text-shadow: 1px 1px 1px #ccc;
+}
+#contentPlaningMonthDay span{
+    color: #d2a405;
+    text-shadow: 1px 1px 1px #ccc;
+    margin-bottom:4px;
+}
+#contentPlaningMonthDay div.flexColumn div.flexColumn div.flexrow{
+    justify-content: space-between;
+    align-items: end;
+}
+#modiEventCalendar span{
+    margin-left:15px;
+}
+#modiEventCalendar span:hover{
+    cursor:pointer;
+    color: #ffbd00;
+}
+#calendarEvent{
+    width: 50%;
+    min-width: 300px;
+}
+/********************************************************/
+#planningAllWeek{
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+#planningAllWeek{
+    width:100%;
+
+}
+#planningAllWeek form{
+    display: none;
+}
+.contentPlaningWeek{
+    width: 300px;
+    margin: 20px;
+   background-color: #0404040f;
+   box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.51) inset;
+    padding: 0;
+    position: relative;
+    height: min-content;
+    border: 2px solid white;
+    border-radius: 4px;
+    }
+.contentPlaningWeek .dateWeek{
+    color:white;
+    text-align: center;
+    margin: 10px 0;
+}
+.contentPlaningWeek span.fa-clipboard-list{
+      font-size: 1.5em;
+}
+.contentPlaningWeek span.fa-clipboard-list.emptySpan{
+  color:white;
+cursor:pointer;
+}
+.contentPlaningWeek h3{
+    margin:0;
+    color: white;
+    background-image: url('../img/fondCajou.jpg');
+   font-family: 'Handlee', cursive;
+    text-align: center;
+    font-size: 2em;
+    cursor:pointer;
+}
+div.contentPlaningWeek > span:nth-child(2){
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2em;
+}
+
+div.contentPlaningWeek form input[type='text'], div.contentPlaningWeek form div.flexColumn div.flexrow input[type='text'], div.contentPlaningWeek form div.flexColumn div.flexrow textarea{
+    text-align: center;
+    width: 100%;
+    border-radius: 5px;
+    margin:10px 0;
+    
+}
+div.contentPlaningWeek form input[type='text'], div.contentPlaningWeek form div.flexColumn div.flexrow input[type='text']{
+    height: 25px;
+}
+div.contentPlaningWeek form div.flexColumn div.flexrow textarea{
+    height:100px;
+}
+
+div.contentPlaningWeek form div.flexColumn > p{
+    font-weight: bold;
+
+}
+div.contentPlaningWeek form div.breakfast{
+    border-bottom:1px dashed #864002;
+    padding-bottom:15px;
+   margin-bottom:15px;
+}
+div.contentPlaningWeek form div.lunch{
+     border-bottom:1px dashed #864002;
+    padding-bottom:15px;
+      margin-bottom:15px;
+}
+div.contentPlaningWeek form div.lunch p, div.contentPlaningWeek form div.breakfast p, div.contentPlaningWeek form div.dinner p{
+    text-align: center;
+color: #864002;
+}
+
+#planningAllWeek .contentPlaningWeek form input{
+
+    text-align: left;
+}
+#planningAllWeek .contentPlaningWeek form p{
+   font-family: 'Handlee', cursive;
+    text-shadow: 1px 1px 1px #ccc;
+    text-decoration: underline;
+    text-decoration-style: dashed;
+    margin-bottom:10px;
+}
+#planningAllWeek .contentPlaningWeek form div.flexColumn span{
+    cursor:pointer;
+    color:black;
+    margin-top: 10px;
+    text-shadow: none;
+}
+#planningAllWeek .contentPlaningWeek form div.flexColumn span:hover{
+   color: #d2a405;
+}
+#planningAllWeek .contentPlaningWeek form div.flexColumn p.flexColumn span{
+    margin-bottom:8px;
+    text-decoration:none;
+    cursor:pointer;
+
+}
+#planningAllWeek .contentPlaningWeek form div.flexColumn p.flexColumn span:hover{
+    color: #d27105;
+}
+#planningAllWeek.flexrow div.contentPlaningWeek form div.breakfast.flexColumn  div.flexrow.recipe{
+    justify-content: center;
+    align-items: center;
+}
+#planningAllWeek.flexrow div.contentPlaningWeek form div.flexColumn  div.flexrow.recipe span{
+    margin:0 5px;
+    }
+    #planningAllWeek.flexrow div.contentPlaningWeek form div.flexColumn  div.flexrow.recipe span.fa-child:hover{
+    color:black;
+    cursor:initial;
+    }
+#planningAllWeek.flexrow div.contentPlaningWeek form div.flexColumn  div.flexrow.recipe p{
+    color:black;
+    margin:1px 5px 0 5px;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+#planningAllWeek.flexrow div.contentPlaningWeek form div.flexColumn  div.flexrow.recipe textarea{
+    width: 140px;
+}
+#planningAllWeek.flexrow div.contentPlaningWeek form div.flexColumn  div.flexrow div.searchRecipe{
+    background-color: white;
+    width:100%;
+font-size: 0.7em;
+margin-bottom: 10px;
+
+}
+
+#planningAllWeek.flexrow div.contentPlaningWeek form div.flexColumn  div.flexrow div.searchRecipe span{
+margin: 10px 0 0 5px;
+
+display: flex;
+}
+#planningAllWeek .contentPlaningWeek form span.flexrow p{
+   font-family: 'Handlee', cursive;
+    color:black;
+    text-decoration-style: -moz-none;
+    padding-left: 5px;
+    font-weight: initial;
+}
+#planningAllWeek .contentPlaningWeek form >input{
+border-radius: 0;
+margin: 0 0 15px 0;
+padding: 5px 0;
+text-align: center;
+}
+#validAllPlanningWeek{
+    position: fixed;
+    top: 200px;
+    background-color: #fbedb2c4;
+    padding: 10px;
+    right: 30px;
+    box-shadow: -2px 2px 5px #020202;
+    cursor:pointer;
+    display: none;
+    right: 50%;
+left: 50%;
+transform: translateX(-50%);
+width: 180px;
+color: black
+}
+
+#validAllPlanningWeek p{
+    font-family: 'Handlee', cursive;
+    padding-left:10px;
+    font-weight: initial;
+    text-shadow: none;
+}
+#validAllPlanningWeek:hover, div.contentPlaningWeek > span:nth-child(2):hover{
+    cursor:pointer;
+}
+#validAllPlanningWeek:hover{
+    text-shadow: 0px 1px 1px #626262;
+}
+div.planingWeek.flexrow div#planningAllWeek.flexrow div.contentPlaningWeek form div.flexColumn div.flexrow.recipe{
+    align-items: center;
+}
+

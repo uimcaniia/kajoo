@@ -1,0 +1,192 @@
+@media screen and (max-width: 1200px){ /*min 767px*/
+#repairTab{
+	display: block;
+}
+#repairMob, #repairMobXs{
+	display: none;
+}
+
+
+header {
+height: 150px;
+	}
+header #logo, header #logo img, header #logo div {
+    width: 200px;
+    height: 200px;
+}
+header #logo{
+	height: 150px
+}
+header #logo img {
+height:150px;
+	}
+	header #logo div {
+top: -20px;
+	}
+
+	header nav#menu li a {
+		padding: 0 60px 70px 60px;
+	}
+header #login {
+    right: 25px;
+    top: 30px;
+}
+header #login div {
+height: 300px;
+width: 300px;
+top: -100px;
+}
+header #baniere {
+    height: 150px;
+    }
+header #login a:nth-child(2) {
+color: #864002;
+}
+#menuLoging {
+top: 80px;
+z-index: 9000;
+}
+header nav#menu li {
+margin: auto;
+height: 105px;
+	width: 120px;
+}
+header nav#menu {
+    width: 350px;
+    }
+aside {
+width: 40px;
+height: 80px;
+}
+    aside span {
+    font-size: 1.8em;
+}
+aside#planningRapel {
+    top: 250px;
+}
+aside#shopRapel {
+    top: 350px;
+}
+
+section#planningContainer > div {
+    width: 90%;
+}
+#validAllPlanningWeek {
+	top: 240px;
+}
+	footer div div h3{
+		margin:4px;
+	}
+	footer{
+		position: inherit;
+	}
+
+	section {
+		margin-top: 210px;
+		padding-left: 0;
+		margin-bottom: 40px;
+		padding-right: 0px;
+	}
+
+
+	.homePresentation {
+		text-align: left;
+	}
+	.formLogin {
+		width: auto;
+	}
+	section #btnCategory {
+		flex-wrap: wrap;
+		margin-bottom: 20px;
+	}
+	#actionCategory div h2, #contentNewRecipe h2{
+		padding-left:20px;
+				font-size: 1.2em;
+		text-shadow: unset;
+	}
+
+	section#recetteContainDiv h2:hover {
+		font-size: 1.3em;
+	}
+	#contentNewRecipe h2 + hr{
+		width: auto;
+	}
+
+	#contentViewRecipe, #contentModifViewRecipe{
+		width:90%;
+		margin-top: 30px;
+	}
+	#contentNewViewRecipe >div.flexColumn:nth-child(1), #contentViewRecipe >div.flexColumn:nth-child(3), #contentModifViewRecipe >div.flexColumn:nth-child(1){
+		width:100%;
+	}
+	#recipes #btnRecipeRight {
+		right: 20px;
+	}
+	#recipes #btnRecipeLeft {
+		left: 20px;
+	}
+	#contentViewRecipe, #contentModifViewRecipe, #contentNewViewRecipe {
+		margin-right:0;
+	}
+	#Newlove, #alphaNewRecipe{
+		width: auto;
+	}
+	#Modiflove{
+		padding-left:10px;
+	}
+	#alphaNewRecipe{
+		display: flex;
+		padding-right: 20px;
+	}
+
+	#contentNewEtape, #contentModifEtape{
+		padding-right:10px;
+	}
+	#contentModifEtape{
+		padding-left:10px;
+	}
+
+
+#contentNewRecipe, #contentViewRecipe, #contentModifViewRecipe {
+
+    width: 90%;
+}
+
+
+	#contentEtape{
+		padding-right: 20px;
+	}
+	/**********************************************************************/
+	div#divPlanningMonthAndWeek {
+		flex-direction: column;
+	}
+	.flexrow.calendrier {
+		width: auto;
+		flex-direction: column;
+		align-items: center;
+	}
+	#calendarEvent{
+		margin-top:20px;
+	}
+	#contentPlaningMonthDay span {
+		margin-left: 10px;
+	}
+	#contentPlaningMonthDay > div.flexColumn div div{
+		padding:2px 10px 2px 10px;
+	}
+	#contentPlaningMonthDay > div.flexColumn div div:hover{
+		background-color: #ffcf0024;
+	}
+	.contentPlaningWeek {
+		margin:10px;
+	}
+
+	#popupInfo {
+		top: 200px;
+	}
+
+
+
+
+
+}
