@@ -23,14 +23,14 @@
 					<label for="selectModifCateg"></label>
 					<select id="selectModifCategRecipe" name="selectModifCateg">
 
-	<?php for($i = 0 ; $i < count($aUserCategory) ; $i++):
+<?php if ($aUserCategory != false):
+	for($i = 0 ; $i < count($aUserCategory) ; $i++):
 			$id_category = $aUserCategory[$i]['id_category'];
 			$title = $aUserCategory[$i]['title']; ?>
-
 						<option value="<?=$id_category?>"><?=htmlspecialchars($title)?></option>
-
-	<?php endfor; ?>
-
+	<?php endfor;
+	endif;?>
+                        <option value="0">Autres</option>
 					</select>
 				</div>
 				<div id="alphaModifRecipe">
@@ -81,11 +81,13 @@
 						 <div id="imgRecipeModif">
 	            			<img src="" id="img">
 	        			</div>
-						<label for="file"></label>
-						<input type="file" id="file" accept="image/*" name="file"/>
+                        <div class="flexColumn">
+                            <label for="file"></label>
+                            <input type="file" id="file" accept="image/*" name="file"/>
 
-						<span id="submitImgRecipeModif" name="valider">charger</span>
-						<p></p>
+                            <span id="submitImgRecipeModif" name="valider">charger</span>
+                            <p></p>
+                        </div>
 
 						<div>
 						</div>

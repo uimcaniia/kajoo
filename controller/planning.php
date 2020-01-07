@@ -129,7 +129,6 @@ function createPlanning($arrWeek)
 		}
 		else // si déjà sauvegarde, on utilise l'id, pour mettre à jour le planning et supprimer le planning day 
 		{
-
 			$json_data[$i]['id_planning'] = $aPlaning[0]['id_planning'];
 
 			$aDataPlanning=array( 

@@ -135,7 +135,8 @@ border-bottom: 1px solid white;
 background: #ffffff7a;
 border-radius: 0px;
 text-align: center;
-
+	font-family: 'Handlee', cursive;
+	padding-left: 0px;
 }
 
 section#recetteContainDiv #contentModifViewRecipe #titleModifRecipe #titleNewModifRecipe, section#recetteContainDiv #newTitleRecipe{
@@ -455,7 +456,7 @@ border: 1px solid #fff;
  background-color: #fff0;
  border:1px solid white;
  	width: 100%;
-	height: 100px;
+
  }
 section#recetteContainDiv #contentModifViewRecipe input[type="file"], section#recetteContainDiv #contentNewViewRecipe input[type="file"]{
 	background:transparent;

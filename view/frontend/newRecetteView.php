@@ -30,15 +30,15 @@
 					<p id="categNewRecipe"></p>
 					<label for="selectNewCategRecipe"></label>
 					<select id="selectNewCategRecipe" name="selectNewCategRecipe">
-
-<?php for($i = 0 ; $i < count($aUserCategory) ; $i++):
+                        <?php if ($aUserCategory != false):
+for($i = 0 ; $i < count($aUserCategory) ; $i++):
 		$id_category = $aUserCategory[$i]['id_category'];
 		$title = $aUserCategory[$i]['title']; ?>
 
-					<option value="<?=$id_category?>"><?=htmlspecialchars($title)?></option>
-
-<?php endfor; ?>
-
+					    <option value="<?=$id_category?>"><?=htmlspecialchars($title)?></option>
+<?php endfor;
+endif;?>
+                        <option value="0">Autres</option>
 					</select>
 				</div>
 				<div class="flexrow">
@@ -107,11 +107,12 @@
                          <div id="imgRecipeNew">
                             <img src="" id="img">
                         </div>
-                        <label for="file"></label>
-                        <input type="file" id="file" accept="image/*" name="file"/>
-
-                        <span id="submitImgRecipeNew" name="valider">charger</span>
-                        <p></p>
+                        <div class="flexColumn">
+                            <label for="file"></label>
+                            <input type="file" id="file" accept="image/*" name="file"/>
+                            <span id="submitImgRecipeNew" name="valider">charger</span>
+                            <p></p>
+                        </div>
 
                         <div>
                         </div>
@@ -199,7 +200,7 @@
 									</div>
 									<div class="flexrow">
 										<label for="newEtapeText0"></label>
-										<textarea id="newEtapeText0" class="" name="newEtapeText0" autocomplete="off"></textarea>
+										<textarea id="newEtapeText0" class="" name="newEtapeText0" autocomplete="off" oninput="updateTextareaHeight(this);"></textarea>
 									</div>
 									<hr>
 									<span class="pushEtapeInside fas fa-plus flexrow"><p>Ajouter une étape ?</p></span>

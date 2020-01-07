@@ -14,6 +14,7 @@ namespace Model;
 	 	 private $_time; //temps de l'étape 
 	 	 private $_id_recette; //id de la recette correspondante 	
 
+        const TAB_ETP = 'etape'; // nom de la table
 
 		// **************************************************
 		// Methode
@@ -48,20 +49,34 @@ namespace Model;
 		 	}
 	 	 }
 
-	 	 //*********************************************
-	 	 //récupère un épisode suivant son id
-	 	 public function getOneRecette($idRecette)
-	 	 {
-	 	 	if(is_int($idEpisode)){
-	 	 		$aData = parent::get($idRecette);
-	 	 	}
-	 	 	else
-	 	 	{
-	 	 		throw new Exception('l\'identifiant n\'est pas un nombre'); 
-	 	 	}
-	 	 	return $aData;
-	 	 }
+        public function getMultiDataToPushInBdd($arrEtape){
+            if($arrEtape != false)
+            {
+                $request = 'INSERT INTO '. self::TAB_ETP.'(rang, text, img, time, id_recette) VALUES';
+                $separateur = ",";
+                $arr=array();
+                for($i = 0 ; $i <count($arrEtape) ; $i++){
+                    self::hydrate($arrEtape[$i]);
+                    if($i == count($arrEtape)-1){
+                        $separateur = ";";
+                    }
+                    $rang = $this->getRang();
+                    $text = $this->getText();
+                    $img = $this->getImg();
+                    $time = $this->getTime();
+                    $id_recette = $this->getId_recette();
 
+                    $request .= '(:rang'.$i.', :text'.$i.', :img'.$i.', :time'.$i.', :id_recette'.$i.')'.$separateur;
+
+                    array_push($arr, array(":rang".$i, $rang));
+                    array_push($arr, array(":text".$i, $text));
+                    array_push($arr, array(":img".$i, $img));
+                    array_push($arr, array(":time".$i, $time));
+                    array_push($arr, array(":id_recette".$i, $id_recette));
+                }
+                parent::reqPrepaExec($request,$arr);
+            }
+        }
 
 
 		// **************************************************

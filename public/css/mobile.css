@@ -282,6 +282,7 @@ margin:auto;
 	#contentNewEtape div.etapeRecipeFlex div div.flexColumn div.flexrow:nth-child(1){
 	 	flex-wrap: wrap;
 		margin: 10px 0;
+		align-items: end;
 	 }
 section#planningContainer > div {
     width: 95%;

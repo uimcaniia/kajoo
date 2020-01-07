@@ -199,39 +199,29 @@ function delEtapeRecipe($idRecette)
 }
 //**********************************************************************
 //actualize les ingrédients d'une recette
-function actualizeIngRecipe($quantity, $id_ingredient, $idRecette)
+function actualizeIngRecipe($arrIng)
 {
-	$ingRecette = new IngredientRecette();
-
-	$aDataIngrédient=array(
-	"quantity"      => $quantity,
-	"id_ingredient" => $id_ingredient,
-	"id_recette"    => $idRecette);
-
-	$ingRecette->hydrate($aDataIngrédient);
-	$saveIng = $ingRecette->add($ingRecette);
-
-	$res = responseAjax($saveIng);
-	echo json_encode($res);
+    $json_data = json_decode($arrIng, true);
+    if(count($json_data)>0){
+        $ingRecette = new IngredientRecette();
+        $ingRecette->getMultiDataToPushInBdd($json_data);
+        $res = responseAjax(true);
+    }else{
+        $res = responseAjax(false);
+    }
+    echo json_encode($res);
 }
 //**********************************************************************
 //actualize les étapes d'une recette
-function actualizeEtapeRecipe($rang, $text, $img, $time, $idRecette)
+function actualizeEtapeRecipe($arrEtape)
 {
-	$etapeRecette = new EtapeRecette();
+    $json_data = json_decode($arrEtape, true);
 
-	$aDataEtape=array(
-	"rang"       => $rang,
-	"text"       => $text,
-	"img"        => $img,
-	"time"       => $time,
-	"id_recette" => $idRecette);
+    $etapeRecette = new EtapeRecette();
+    $etapeRecette->getMultiDataToPushInBdd($json_data);
+    $res = responseAjax(true);
 
-	$etapeRecette->hydrate($aDataEtape);
-	$saveEtape = $etapeRecette->add($etapeRecette);
-
-	$res = responseAjax($saveEtape);
-	echo json_encode($res);
+    echo json_encode($res);
 }
 
 //***********************************************************************

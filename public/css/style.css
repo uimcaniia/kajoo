@@ -480,7 +480,11 @@ input[type='submit']:hover{
 input:focus{
 	background-color: #fbf5cf;
 }
-
+textarea{
+	font-family: 'Handlee', cursive;
+	padding: 10px;
+	height: auto;
+}
 #popupInfo{
 	background-color: white;
 	width: 0px;

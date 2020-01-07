@@ -151,12 +151,13 @@ $('#modifRecipe').click(function(){
 
 				etape2 = '<div class="flexColumn"><div class="flexrow"><p><span id ="removeEtape' + i + '" class="fas fa-minus"></span><p>Etape n°</p><p class="numEtape">' + parseInt(i + 1) + '</p>';
 				etape3 = '<p>temps</p>' + selecttime + '</div>';
-				etape4 = '<div class="flexrow"><label for="modifEtapeText' + i + '"></label><textarea id="modifEtapeText' + i + '" class=' + data[0]['id_etape'][i]['id_etape'] + '" name="modifEtapeText' + i + '" autocomplete="off">' + escapeHtml(data[0]['id_etape'][i]['text']) + '</textarea>';
+				etape4 = '<div class="flexrow"><label for="modifEtapeText' + i + '"></label><textarea id="modifEtapeText' + i + '" class="updateTextAreaHeight" name="modifEtapeText' + i + '" autocomplete="off" oninput="updateTextareaHeight(this);">' + escapeHtml(data[0]['id_etape'][i]['text']) + '</textarea>';
 				etape5 = '</div><hr><span class="pushEtapeInside fas fa-plus flexrow"><p>Ajouter une étape intermédiaire?</p></span><hr></div>';
 				etape = etape + etape2 + etape3 + etape4 + etape5;
 			}
 
 			$('#contentModifEtape .etapeRecipeFlex div').html(etape);
+			updateTextareaHeightInit('contentModifEtape .etapeRecipeFlex div');
 
 			var heightTwo = $('#modifBlockTwo').css("height");
 			var heightFour = $('#modifBlockFour').css("height");
@@ -166,6 +167,8 @@ $('#modifRecipe').click(function(){
 			}
 			if(heightFour == '0px'){
 				$('#modifBlockFourTitle').click()
+			}else{
+				resizeDivEtapeFood('#modifBlockFour', '#modifBlockFour div.hideDivAnim');
 			}
 		});
 });
@@ -294,7 +297,8 @@ $('#imgModifRecipe span:first-child').click(function(){
     					$("#imgRecipeModif img").attr("src", ''); 
 	                    $("#imgRecipeModif img").attr("src", adata['src']); 
 	                    $("#imgRecipeModif img").show(); // Display image element
-						resizeDivImg('#modifBlockThree', '#modifBlockThree div.hideDivAnim');
+						resizeDivEtapeFood('#modifBlockThree', '#modifBlockThree div.hideDivAnim');
+						//resizeDivImg('#modifBlockThree', '#modifBlockThree div.hideDivAnim');
 	                }
 	            },
 	        });
@@ -442,6 +446,7 @@ $('div#contentModifEtape').on('click', 'div.etapeRecipeFlex div div p span.fa-mi
 			$(baliseNum[i]).html(i+1);
 			$(textareaDivLabel[i]).attr('for', 'modifEtapeText'+[i]);
 			$(textareaDiv[i]).attr('id', 'modifEtapeText'+[i]);
+			$(textareaDiv[i]).attr('class', 'updateTextAreaHeight');
 			$(textareaDiv[i]).attr('name', 'modifEtapeText'+[i]);
 			$(textareaImg[i]).attr('name', 'imgEtape'+[i]);
 		}
@@ -488,7 +493,7 @@ function pushModifEtape(){ // pour rajouter une étape ou une étape intermédia
 			
 			etape2 = '<div class="flexColumn"><div class="flexrow"><p><span id ="" class="fas fa-minus"></span><p>Etape n°</p><p class="numEtape"></p>';
 			etape3 = '<p>temps</p>'+selecttime+'</div>';
-			etape4 = '<div class="flexrow"><label for=""></label><textarea id="" class="" name="" autocomplete="off"></textarea>';
+			etape4 = '<div class="flexrow"><label for=""></label><textarea id="" class="updateTextAreaHeight" name="" autocomplete="off" oninput="updateTextareaHeight(this);"></textarea>';
 			etape5 = '</div><hr><span class="pushEtapeInside fas fa-plus flexrow"><p>Ajouter une étape intermédiaire?</p></span><hr></div>';
 			etape  = etape+etape2+etape3+etape4+etape5;
 		

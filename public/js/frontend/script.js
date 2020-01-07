@@ -263,6 +263,7 @@ $('#newBlockThreeTitle').click(function(){
 $('#newBlockFourTitle').click(function(){
 	animNewRecipeTwo('#newBlockFour', this, '#newBlockFour div.hideDivAnim');
 });
+
 $('#modifBlockTwoTitle').click(function(){
 	animNewRecipeTwo('#modifBlockTwo', this, '#modifBlockTwo div.hideDivAnim');
 });
@@ -298,6 +299,24 @@ function resizeDivEtapeFood(block, divHide){
 function resizeDivImg(block, divHide){
 	var heightForm = $(divHide).outerHeight();
 	$(block).animate({'height': heightForm+200},400)
+}
+
+//adapte textarea
+function updateTextareaHeight(input) {
+	//console.log(input)
+	input.style.height = 'auto';
+	input.style.height = input.scrollHeight+'px';
+}
+
+function updateTextareaHeightInit(divTextArea){
+	var div=$('#'+divTextArea)
+	var child = $(div).children('div.flexColumn');
+	for(var i = 0 ; i < child.length ; i++){
+		var divId = $(child[i]).children('div:nth-child(2)').children('textarea').attr('id');
+		divText=document.getElementById(divId)
+		updateTextareaHeight(divText)
+	}
+
 }
 
 //****************************************************************************************************************

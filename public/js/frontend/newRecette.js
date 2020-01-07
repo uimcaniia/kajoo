@@ -326,7 +326,7 @@ function pushNewEtape(){
 			
 			etape2 = '<div class="flexColumn"><div class="flexrow"><p><span id ="" class="fas fa-minus"></span><p>Etape n°</p><p class="numEtape"></p>';
 			etape3 = '<p>temps</p>'+selecttime+'</div>';
-			etape4 = '<div class="flexrow"><label for=""></label><textarea id="" class="" name="" autocomplete="off"></textarea>';
+			etape4 = '<div class="flexrow"><label for=""></label><textarea id="" class="" name="" autocomplete="off" oninput="updateTextareaHeight(this);"></textarea>';
 			etape5 = '</div><hr><span class="pushEtapeInside fas fa-plus flexrow"><p>Ajouter une étape intermédiaire?</p></span><hr></div>';
 			etape  = etape+etape2+etape3+etape4+etape5;
 		
@@ -443,6 +443,7 @@ function pushNewEtape(){
 		var myData = new FormData(form);
 
         var files = $('#imgNewRecipe #file')[0].files[0];
+        //console.log(files['size'])
 
         if(files['size']>8388608){ //limite par défault de php (post_max_size)
         	$('#imgNewRecipe #submitImgRecipeNew').next('p').html('Le fichier est beaucoup trop gros pour le transfert');
@@ -465,7 +466,7 @@ function pushNewEtape(){
     					$("#imgRecipeNew img").attr("src", ''); 
 	                    $("#imgRecipeNew img").attr("src", adata['src']); 
 	                    $("#imgRecipeNew img").show(); // Display image element
-						resizeDivImg('#newBlockThree', '#newBlockThree div.hideDivAnim');
+						resizeDivEtapeFood('#newBlockThree', '#newBlockThree div.hideDivAnim');
 	                }
 					$('#loading').fadeOut(1000);
 	            },
@@ -542,13 +543,13 @@ function getTimeToBdd(idDivTime){
 	return prepare_time;
 }
 
-function verifCateg(divSelect){
+/*function verifCateg(divSelect){
 	var errorMess = '';
 	if($(divSelect).val() == null){
 		errorMess = 'Vous devez sélectionner une catégorie pour y ranger la recette. <br>';
 	}
 	return errorMess;
-}
+}*/
 
 	//----------------------------------------
 	//si on veut sauvegarder
@@ -562,208 +563,206 @@ function verifCateg(divSelect){
 function saveOrUpdateInBdd(divPrice, divEasy, divPeople, divEtape, divCateg,
 	divTitle, divAlpha, divLoveSpan, divIng, divSearchIng, divIdRecipe,
 	divQtIng, divContentEtape, divEtapeText, divEtapeHour, divEtapeMin,
-	divEtapeSec, divImgSpan, divFormImg, divImgSubmit, btnValidSave, fileImg, divPrivateSpan){
+	divEtapeSec, divImgSpan, divFormImg, divImgSubmit, btnValidSave, fileImg, divPrivateSpan) {
 
-		var messError = '';
+	var messError = '';
 
-		var price       = $(divPrice).children().length; // on sauvegarde le prix
-		var easy        = $(divEasy).children().length; // on sauvegarde la facilité
-		var people      = $(divPeople).html(); // on sauvegarde le nombre de personne
+	var price = $(divPrice).children().length; // on sauvegarde le prix
+	var easy = $(divEasy).children().length; // on sauvegarde la facilité
+	var people = $(divPeople).html(); // on sauvegarde le nombre de personne
+	var prepare_time = getTimeToBdd(divEtape);
 
-		var prepare_time = getTimeToBdd(divEtape);
-		//messError += verifCateg(divCateg); // renvoie message si erreur
-		messError += verifTitle(divTitle); // renvoie message si erreur
-		messError += verifAlpha(divAlpha); // Met en majuscule et renvoie message si erreur
+	messError += verifTitle(divTitle); // renvoie message si erreur
+	messError += verifAlpha(divAlpha); // Met en majuscule et renvoie message si erreur
 
-		if ($(divLoveSpan).hasClass('emptySpan')){ // on sauvegarde le j'aime
-		var	love = 0;
-		}else{
-			var	love = 1;
+	if ($(divLoveSpan).hasClass('emptySpan')) { // on sauvegarde le j'aime
+		var love = 0;
+	} else {
+		var love = 1;
+	}
+
+	if ($(divPrivateSpan).hasClass('fa-lock-open')) { // on sauvegarde le j'aime
+		var private = 0;
+	} else {
+		var private = 1;
+	}
+
+	var elemIngRecipe = $(divIng); // ingrédient et leur quantités
+
+	if (elemIngRecipe.length == 0) {
+		messError += 'Vous devez renseigner des ingrédients. <br>';
+	} else {
+		for (var i = 0; i < elemIngRecipe.length; i++) {
+			var id_ingredient = $(divSearchIng + i).attr('class');
+			if ((id_ingredient == '') || (id_ingredient == 0)) {
+				messError += 'l\'un des champs "ingrédient" est vide ou incorrect. Supprimez-le où réécrivez-le. <br>';
+			}
 		}
+	}
 
-		if ($(divPrivateSpan).hasClass('fa-lock-open')){ // on sauvegarde le j'aime
-			var	private = 0;
-		}else{
-			var	private = 1;
+	if (messError != '') {
+		showErrorWithImg(messError, aContainImg[0][0], aContainImg[0][0]);
+		//showErrorWithImg('#errorMessImgNoBtn', '#messErrorMessNoBtn', messError, '#imgErrorMessNoBtn', aContainImg[0][0], aContainImg[0][0])
+	} else { // si il n'y a pas d'erreur, on sauvegarde
+		title = $(divTitle).val();
+		alpha = $(divAlpha).val();
+		id_category = $(divCateg).val();
+		if (id_category == "") {
+			id_category = 0;
 		}
+		var newMessErrorSaveIng = '';
+		var newMessErrorSaveEtape = '';
+		var newMessErrorSave = '';
 
-			var elemIngRecipe = $(divIng); // ingrédient et leur quantités
-
-		if(elemIngRecipe.length==0){
-			messError += 'Vous devez renseigner des ingrédients. <br>';
-		}else{
-			for(var i = 0 ; i < elemIngRecipe.length ; i++){
-				var id_ingredient = $(divSearchIng+i).attr('class');
-				if((id_ingredient == '')||(id_ingredient == 0)){
-					messError += 'l\'un des champs "ingrédient" est vide ou incorrect. Supprimez-le où réécrivez-le. <br>';
+		if ($(divIdRecipe).html() == '') { // si c'est le premier enregistrement, pas de ID
+			useAjaxReqestJson('index.php?action=saveNewRecipes', 'POST', 'json', {
+				private: private,
+				price: price,
+				easy: easy,
+				people: people,
+				love: love,
+				id_category: id_category,
+				title: title.charAt(0).toUpperCase() + title.substring(1).toLowerCase(),
+				alpha: alpha.toUpperCase(),
+				prepare_time: prepare_time
+			}, function (data) {
+				if ((Object.keys(data).length == 1) && ("false" in data)) {
+					newMessErrorSave += 'La recette n\'a pas pu être créée. <br>';
+					//showErrorWithImg('#errorMessImgNoBtn', '#messErrorMessNoBtn', newMessErrorSave, '#imgErrorMessNoBtn', aContainImg[0][0], aContainImg[0][0])
+					showErrorWithImg(newMessErrorSave, aContainImg[0][0], aContainImg[0][1]);
+				} else {
+					id_recette = data[0]['id_recette']; // id de la nouvelle recette
+					$(divIdRecipe).html(id_recette);
+					saveRecipeInBdd(id_recette);
+					/*						saveEtapeInBdd(id_recette);
+                                            saveImgInBdd(id_recette);*/
 				}
-			}
+
+			});
+		} else {
+			id_recette = $(divIdRecipe).html();
+			useAjaxReqestJson('index.php?action=actualizeRecipes', 'POST', 'json', {
+				private: private,
+				id_recette: id_recette,
+				price: price,
+				easy: easy,
+				people: people,
+				love: love,
+				id_category: id_category,
+				title: title.charAt(0).toUpperCase() + title.substring(1).toLowerCase(),
+				alpha: alpha.toUpperCase(),
+				prepare_time: prepare_time
+			}, function (data) {
+				if (Array.isArray(data)) {
+					saveRecipeInBdd(id_recette);
+					/*						saveEtapeInBdd(id_recette);
+                                            saveImgInBdd(id_recette);*/
+				} else {
+					newMessErrorSave += 'La recette n\'a pas pu être modifiée. <br>';
+					showErrorWithImg(newMessErrorSave, aContainImg[0][0], aContainImg[0][1]);
+					//showErrorWithImg('#errorMessImgNoBtn', '#messErrorMessNoBtn', newMessErrorSave, '#imgErrorMessNoBtn', aContainImg[0][0], aContainImg[0][0])
+				}
+
+			});
 		}
 
-		if(messError != ''){
-			showErrorWithImg(messError, aContainImg[0][0], aContainImg[0][0]);
-			//showErrorWithImg('#errorMessImgNoBtn', '#messErrorMessNoBtn', messError, '#imgErrorMessNoBtn', aContainImg[0][0], aContainImg[0][0])
-		}
-		else{ // si il n'y a pas d'erreur, on sauvegarde
-			title = $(divTitle).val();
-			alpha = $(divAlpha).val();
-			id_category = $(divCateg).val();
-			if(id_category == ""){
-				id_category = 0;
-			}
-			var newMessErrorSaveIng = '';
-			var newMessErrorSaveEtape = '';
-			var newMessErrorSave = '';
-			
-			if ($(divIdRecipe).html()==''){ // si c'est le premier enregistrement, pas de ID
-				useAjaxReqestJson('index.php?action=saveNewRecipes', 'POST', 'json', {private:private, price:price, easy:easy, people:people, love:love, id_category:id_category, title:title.charAt(0).toUpperCase() + title.substring(1).toLowerCase(), alpha:alpha.toUpperCase(), prepare_time:prepare_time}, function(data){
-					if(Array.isArray(data)){
-						id_recette = data[0]['id_recette']; // id de la nouvelle recette
-						$(divIdRecipe).html(id_recette);
-						saveNewRecipesInBdd(id_recette);
-						saveEtapeInBdd(id_recette);
-						saveImgInBdd(id_recette);
-					}else{
-						newMessErrorSave += 'La recette n\'a pas pu être créée. <br>';
-						//showErrorWithImg('#errorMessImgNoBtn', '#messErrorMessNoBtn', newMessErrorSave, '#imgErrorMessNoBtn', aContainImg[0][0], aContainImg[0][0])
-						showErrorWithImg(newMessErrorSave, aContainImg[0][0], aContainImg[0][1]);
-					}
+		//-----------------------------------------------------------
+		function saveRecipeInBdd(id_recipe) {
+			$('#loading').fadeIn(0);
+			saveImgInBdd(id_recipe);
+			useAjaxReqestJson('index.php?action=delIngRecipe', 'POST', 'json', {id_recette: id_recipe}, function (data) {
 
-				});
-			}else{
-				id_recette = $(divIdRecipe).html();
-				useAjaxReqestJson('index.php?action=actualizeRecipes', 'POST', 'json', {private:private, id_recette:id_recette, price:price, easy:easy, people:people, love:love, id_category:id_category, title:title.charAt(0).toUpperCase() + title.substring(1).toLowerCase(), alpha:alpha.toUpperCase(), prepare_time:prepare_time}, function(data){
-					if(Array.isArray(data)){
-						saveNewRecipesInBdd(id_recette);
-						saveEtapeInBdd(id_recette);
-						saveImgInBdd(id_recette);
-					}else{
-						newMessErrorSave += 'La recette n\'a pas pu être modifiée. <br>';
-						showErrorWithImg(newMessErrorSave, aContainImg[0][0], aContainImg[0][1]);
-						//showErrorWithImg('#errorMessImgNoBtn', '#messErrorMessNoBtn', newMessErrorSave, '#imgErrorMessNoBtn', aContainImg[0][0], aContainImg[0][0])
+				if ((Object.keys(data).length == 1) && ("false" in data)) { // si les anciens ingrédient se sont bien fait supprimés on continue
+					var arrIng = new Object();
+					var elemIngRecipe = $(divIng);
+
+					for (var i = 0; i < elemIngRecipe.length; i++) {
+						arrIng[i] = new Object(); // initialisation de l'object qui contiendra les données
+						arrIng[i]['quantity'] = $(divQtIng + i).val();
+						arrIng[i]['id_ingredient'] = $(divSearchIng + i).attr('class');
+						arrIng[i]['id_recette'] = id_recipe;
 					}
-					
-				});
-			}
-			//-----------------------------------------------------------
-			function saveNewRecipesInBdd(id_recipe){
-				//console.log(id_recipe)
-				useAjaxReqestJson('index.php?action=delIngRecipe', 'POST', 'json', {id_recette:id_recipe}, function(data){
-					
-					if((Object.keys(data).length == 1)&&("false" in data)){ // si les anciens ingrédient se sont bien fait supprimés on continue
-						
-						var elemIngRecipe = $(divIng);
-						$('#loading').fadeIn(0);
-						for(var i = 0 ; i < elemIngRecipe.length ; i++){
-							var quantity      = $(divQtIng+i).val();
-							var id_ingredient = $(divSearchIng+i).attr('class');
-							useAjaxReqestJson('index.php?action=actualizeIngRecipe', 'POST', 'json', {id_recette:id_recipe, quantity:quantity, id_ingredient:id_ingredient}, function(data){
-								
-								if((Object.keys(data).length == 1)&&("false" in data)){
-									newMessErrorSaveIng ="les ingrédients et les étapes n'ont pas pu être enregistré... <br>";
-									showError('#errorMessAjax', newMessErrorSaveIng);	
-								}
-								else if (i == elemIngRecipe.length){
-									
+					var dataIng = JSON.stringify(arrIng);
+					useAjaxReqestJson('index.php?action=actualizeIngRecipe', 'POST', 'json', {arrIng: dataIng}, function (data) {
+						if ((Object.keys(data).length == 1) && ("false" in data)) {
+							$('#loading').fadeOut(1000);
+							newMessErrorSaveFinal += "La recette ,' pas pu être correctement sauvegardée. <br>";
+							showErrorWithImg(newMessErrorSaveFinal, aContainImg[1][0], aContainImg[1][1]);
+							$(btnValidSave).html('Sauvegarde incomplète');
+						} else {
+							useAjaxReqestJson('index.php?action=delEtapeRecipe', 'POST', 'json', {id_recette: id_recipe}, function (data) {
+								if ((Object.keys(data).length == 1) && ("false" in data)) {
+									var arrEtape = new Object();
+									var elemEtapeRecipe = $(divContentEtape); // on sauvegarde les étapes, leur temps
+
+									for (var i = 0; i < elemEtapeRecipe.length; i++) {
+										arrEtape[i] = new Object(); // initialisation de l'object qui contiendra les données
+										arrEtape[i]['rang'] = i + 1
+										arrEtape[i]['text'] = $(divEtapeText + i).val();
+										arrEtape[i]['img'] = '';
+										var hour = $(divEtapeHour + i).val();
+										var minute = $(divEtapeMin + i).val();
+										var seconde = $(divEtapeSec + i).val();
+										arrEtape[i]['time'] = hour + ':' + minute + ':' + seconde;
+										arrEtape[i]['id_recette'] = id_recipe;
+									}
+									var dataEtape = JSON.stringify(arrEtape);
+									useAjaxReqestJson('index.php?action=actualizeEtapeRecipe', 'POST', 'json', {arrEtape: dataEtape}, function (aData) {
+										if ((Object.keys(aData).length == 1) && ("false" in aData)) {
+											$('#loading').fadeOut(1000);
+											newMessErrorSaveFinal += "La recette ,' pas pu être correctement sauvegardée. <br>";
+											showErrorWithImg(newMessErrorSaveFinal, aContainImg[1][0], aContainImg[1][1]);
+											$(btnValidSave).html('Sauvegarde incomplète');
+										} else {
+											$('#loading').fadeOut(1000);
+											newMessResFinalOk = "La recette a bien été sauvegardée. <br>";
+											showErrorWithImg(newMessResFinalOk, aContainImg[1][0], aContainImg[1][1]);
+											$(btnValidSave).html('Recette sauvegardée!');
+										}
+									});
 								}
 							});
-						}$('#loading').fadeOut(1000);
-						//$('#loading').fadeOut(100);
-					
-					}else{
-						newMessErrorSaveIng ="Cependant, un problème à empêché de m'être à jour les ingrédients. <br>";
-						showError('#errorMessAjax', newMessErrorSaveIng);
-					}
-					//return resRequete;
-					
-				});
-			}
-			//-----------------------------------------------------------
-			function saveEtapeInBdd(id_recipe){
-				useAjaxReqestJson('index.php?action=delEtapeRecipe', 'POST', 'json', {id_recette:id_recipe}, function(data){
-					
-					if((Object.keys(data).length == 1)&&("false" in data)){
-						var elemEtapeRecipe=$(divContentEtape); // on sauvegarde les étapes, leur temps et les images
-						$('#loading').fadeIn(0);
-						for(var i = 0 ; i < elemEtapeRecipe.length ; i++){
-							var rang    = i+1;
-							var text    = $(divEtapeText+i).val();
-							var img     = '';
-							var hour    = $(divEtapeHour+i).val();
-							var minute  = $(divEtapeMin+i).val();
-							var seconde = $(divEtapeSec+i).val();
-							var time    = hour+':'+minute+':'+seconde;
-							
-							useAjaxReqestJson('index.php?action=actualizeEtapeRecipe', 'POST', 'json', {rang:rang, text:text, img:img, time:time, id_recette:id_recipe}, function(aData){
-							
-								if((Object.keys(aData).length == 1)&&("false" in aData)){
-									newMessErrorSaveEtape +="Les étapes n'ont pas pu être enregistrée... <br>";
-									showError('#errorMessAjax', newMessErrorSaveEtape);	
-							}
-							});
 						}
-						$('#loading').fadeOut(1000);
-						
-					}else{
-						newMessErrorSaveEtape +="Cependant, un problème à empêché de m'être à jour les étapes. <br>";
-						showError('#errorMessAjax', newMessErrorSaveEtape);	
-					}
-					
-				});
-				
-			}
-			//---------------------------------------------------------------
-			function saveImgInBdd(id_recipe){
-
-				if($(divImgSpan).is(":visible")){ 
-					var form = document.getElementById(divFormImg); // id du formulaire
-
-					if($(fileImg)[0].files[0]!=''){ // on vérifie si il y a une image de chargée
-						if($(divImgSubmit).next('p').html()==''){ // on vérifie qu'il n'y a pas d'erreur avec le fichier
-
-							var myData = new FormData(form);
-
-					        var files = $(fileImg)[0].files[0];
-					        
-					        myData.append('file',files);
-								 console.log(myData)
-
-						        $.ajax({
-						            url: 'index.php?action=saveImgRecipe',
-						            type: 'post',
-						            data: myData, 
-						            contentType: false,
-						            processData: false,
-						            success: function(response){
-					            },
-					        });
-						}
-					}
-
-				}
-				else{ // si pas d'image ou image retirée, on la supprime
-					$.post('index.php?action=deleteImgRecipe', {id_recette:id_recipe}, function(aData){
-						return false;
 					});
 				}
-				confirmSave();
-			}
+			});
+		}
 
-			//------------------------------------------------------------------------------------
-			function confirmSave(){
-				if((newMessErrorSaveEtape == '')&&(newMessErrorSaveIng=='')){
-					newMessResFinalOk="La recette a bien été sauvegardée. <br>";
-					//showErrorWithImg('#errorMessImgNoBtn', '#messErrorMessNoBtn', newMessResFinalOk, '#imgErrorMessNoBtn', aContainImg[1][0], aContainImg[1][1])
-					showErrorWithImg(newMessResFinalOk, aContainImg[1][0], aContainImg[1][1]);
-					$(btnValidSave).html('Recette sauvegardée!');
-				}else{
-					newMessErrorSaveFinal +="La recette ,' pas pu être correctement sauvegardée. <br>";
-					showErrorWithImg(newMessErrorSaveFinal, aContainImg[1][0], aContainImg[1][1]);
-					//showErrorWithImg('#errorMessImgNoBtn', '#messErrorMessNoBtn', newMessErrorSaveFinal, '#imgErrorMessNoBtn', aContainImg[0][0], aContainImg[0][0])
-					$(btnValidSave).html('Sauvegarde incomplète');
+		//---------------------------------------------------------------
+		function saveImgInBdd(id_recipe) {
+
+			if ($(divImgSpan).is(":visible")) {
+				var form = document.getElementById(divFormImg); // id du formulaire
+
+
+				if ($(fileImg)[0].files[0] != '') { // on vérifie si il y a une image de chargée
+					if ($(divImgSubmit).next('p').html() == '') { // on vérifie qu'il n'y a pas d'erreur avec le fichier
+
+						var myData = new FormData(form);
+
+						var files = $(fileImg)[0].files[0];
+
+						myData.append('file', files);
+						console.log(myData)
+
+						$.ajax({
+							url: 'index.php?action=saveImgRecipe',
+							type: 'post',
+							data: myData,
+							contentType: false,
+							processData: false,
+							success: function (response) {
+							},
+						});
+					}
 				}
+
+			} else { // si pas d'image ou image retirée, on la supprime
+				$.post('index.php?action=deleteImgRecipe', {id_recette: id_recipe}, function (aData) {
+					return false;
+				});
 			}
-			
-		}			
-		
-	};
+		}
+
+	}
+}

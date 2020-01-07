@@ -7,11 +7,9 @@
 
 <?php if( $aUserCategory != false):
 		for($i = 0 ; $i <count($aUserCategory) ; $i++): ?>
-
 		<button class="<?=$aUserCategory[$i]['id_category']?>" type="submit" name="<?=$aUserCategory[$i]['title']?>"><?=htmlspecialchars($aUserCategory[$i]['title'])?></button>
 <?php endfor; ?>
 <?php endif; ?>
-
 
 		<button class="otherRecipe" type="submit" name="otherRecipe">Autres</button>
 		<button class="allrecipes" type="submit" name="allrecipes">Toutes</button>
@@ -41,6 +39,7 @@
 						<input type ="text" id ="addCateg" name ="addCateg" value="" contenteditable ="true" autocomplete="off">
 						<label for="selectRangNewCateg">Emplacement</label>
 						<select id="selectRangNewCateg" name="selectRangNewCateg">
+
 <?php if(($aUserCategory!=false) && (count($aUserCategory) >0)):
 for($i = 0 ; $i <= count($aUserCategory) ; $i++):
 		$rang = $i+1;
@@ -68,12 +67,13 @@ for($i = 0 ; $i <= count($aUserCategory) ; $i++):
 						<p class='selectModifCateg'></p>
 						<label for="selectModifCateg">Choisissez le nom de la catégorie à modifier.</label>
 						<select id="selectModifCateg" name="selectModifCateg">
-
-<?php  for($i = 0 ; $i < count($aUserCategory) ; $i++):
+    <?php if( $aUserCategory != false):
+for($i = 0 ; $i < count($aUserCategory) ; $i++):
 		$id_category = $aUserCategory[$i]['id_category'];
 		$title = $aUserCategory[$i]['title']; ?>
 							<option value="<?=$id_category?>"><?=htmlspecialchars($title)?></option>
-<?php endfor;?>
+<?php endfor;
+endif;?>
 
 						</select>
 						
@@ -109,12 +109,13 @@ for($i = 0 ; $i <= count($aUserCategory) ; $i++):
 						<p class='selectDelCateg'></p>
 						<label for="selectDelCateg">Choisissez la catégorie à supprimer</label>
 						<select id="selectDelCateg" name="selectDelCateg">
-
-<?php for($i = 0 ; $i < count($aUserCategory) ; $i++):
+    <?php if( $aUserCategory != false):
+for($i = 0 ; $i < count($aUserCategory) ; $i++):
 		$id_category = $aUserCategory[$i]['id_category'];
 		$title = $aUserCategory[$i]['title']; ?>
 							<option value="<?=$id_category?>"><?=htmlspecialchars($title)?></option>
-<?php endfor; ?>
+<?php endfor;
+endif;?>
 						</select>
 						<span id='validDelCateg' class="divAddCateg">Supprimer</span>
 					

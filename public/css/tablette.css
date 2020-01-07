@@ -46,6 +46,7 @@ color: #864002;
 top: 80px;
 z-index: 9000;
 }
+
 header nav#menu li {
 margin: auto;
 height: 105px;
@@ -87,8 +88,28 @@ section#planningContainer > div {
 		margin-bottom: 40px;
 		padding-right: 0px;
 	}
-
-
+	#contentModifEtape > div.etapeRecipeFlex > div > div > div.flexrow,
+	#contentNewEtape > div.etapeRecipeFlex > div > div > div.flexrow,
+	#contentEtape > div.etapeRecipeFlex > div > div > div.flexrow{
+		flex-wrap: wrap;
+	}
+	section#recetteContainDiv div.etapeRecipeFlex select {
+		width: 50px;
+		height: 25px;
+	}
+	#imgModifRecipe, #imgNewRecipe, #imgRecipe {
+		flex-direction: column;
+	}
+	#imgRecipeModif img, #imgRecipeNew img, #imgViewRecipe img {
+		max-width: 300px;
+		padding-right: 0;
+	}
+	#contentModifViewRecipe textarea, #contentNewViewRecipe textarea {
+		max-width: 350px;
+	}
+	section#recetteContainDiv #contentNewRecipe span.fa-camera, section#recetteContainDiv #contentModifViewRecipe span.fa-camera {
+		padding: 10px;
+	}
 	.homePresentation {
 		text-align: left;
 	}
@@ -111,7 +132,9 @@ section#planningContainer > div {
 	#contentNewRecipe h2 + hr{
 		width: auto;
 	}
-
+	section#recetteContainDiv #contentNewRecipe span, section#recetteContainDiv #contentViewRecipe span, section#recetteContainDiv #contentModifViewRecipe span {
+		font-size: 0.9em;
+	}
 	#contentViewRecipe, #contentModifViewRecipe{
 		width:90%;
 		margin-top: 30px;
@@ -140,11 +163,10 @@ section#planningContainer > div {
 	}
 
 	#contentNewEtape, #contentModifEtape{
-		padding-right:10px;
+		padding-right:0px;
+		padding-left:20px;
 	}
-	#contentModifEtape{
-		padding-left:10px;
-	}
+
 
 
 #contentNewRecipe, #contentViewRecipe, #contentModifViewRecipe {

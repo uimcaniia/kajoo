@@ -10,7 +10,9 @@ namespace Model;
 		 private $_id_ingredient_recette;
 	  	 private $_quantity;// 	quantité de l'ingrédient (gr;cl;unité...) 	
 		 private $_id_ingredient;// id de l'ingrédient 	
-		 private $_id_recette;// id de l'ingrédient 	
+		 private $_id_recette;// id de l'ingrédient
+
+        const TAB_INGREC = 'ingredient_recette'; // nom de la table
 	
 		// **************************************************
 		// Methode
@@ -44,6 +46,30 @@ namespace Model;
 		 	}
 	 	 }
 
+	 	 public function getMultiDataToPushInBdd($arrIng){
+             if($arrIng != false)
+             {
+                 $request = 'INSERT INTO '. self::TAB_INGREC.'(quantity, id_ingredient, id_recette) VALUES';
+                 $separateur = ",";
+                 $arr=array();
+                 for($i = 0 ; $i <count($arrIng) ; $i++){
+                    self::hydrate($arrIng[$i]);
+                    if($i == count($arrIng)-1){
+                        $separateur = ";";
+                    }
+                    $quantity = $this->getQuantity();
+                    $id_ingredient = $this->getId_ingredient();
+                    $idRecette = $this->getId_recette();
+
+                     $request .= '(:quantity'.$i.', :id_ingredient'.$i.', :id_recette'.$i.')'.$separateur;
+
+                     array_push($arr, array(":quantity".$i, $quantity));
+                     array_push($arr, array(":id_ingredient".$i, $id_ingredient));
+                     array_push($arr, array(":id_recette".$i, $idRecette));
+                 }
+                 parent::reqPrepaExec($request,$arr);
+             }
+         }
 
 
 		// **************************************************

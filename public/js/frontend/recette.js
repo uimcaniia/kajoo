@@ -19,11 +19,11 @@ function createCategMenu(data, idCateg){
 		var nbr   = parseFloat(i)+1; // identifiant des options du select du rang d'affichage
 		var libel = 'place '+nbr+''; // libel de l'option du select
 
-		selectRangNewCateg     = selectRangNewCateg + '<option value="'+nbr+'">'+libel+'</option>';
-		selectModifCateg       = selectModifCateg + '<option value="'+ data[i]['id_category']+'">'+escapeHtml(data[i]['title'])+'</option>';
-		selectRangModifCateg   = selectRangModifCateg+'<option value="'+nbr+'">'+libel+'</option>';
-		selectDelCateg         = selectDelCateg+ '<option value="'+ data[i]['id_category']+'">'+escapeHtml(data[i]['title'])+'</option>';
-		selectModifCategRecipe = selectModifCategRecipe+ '<option value="'+ data[i]['id_category']+'">'+escapeHtml(data[i]['title'])+'</option>';
+		selectRangNewCateg     += '<option value="'+nbr+'">'+libel+'</option>';
+		selectModifCateg       += '<option value="'+ data[i]['id_category']+'">'+escapeHtml(data[i]['title'])+'</option>';
+		selectRangModifCateg   += '<option value="'+nbr+'">'+libel+'</option>';
+		selectDelCateg         += '<option value="'+ data[i]['id_category']+'">'+escapeHtml(data[i]['title'])+'</option>';
+		selectModifCategRecipe += '<option value="'+ data[i]['id_category']+'">'+escapeHtml(data[i]['title'])+'</option>';
 	}
 	// on actualise les select des autres section de la page recette
 	$('#btnCategory').html(btnMenu +'<button class="otherRecipe" type="submit" name="otherRecipe">Autres</button><button class="allrecipes" type="submit" name="allrecipes">Toutes</button><button class="privateRecipes" type="submit" name="privateRecipes">Privées</button>');
@@ -34,8 +34,8 @@ function createCategMenu(data, idCateg){
 	$('input#addCateg').val('')
 	$('#selectDelCateg').html(selectDelCateg);
 	$('#selectModifCategRecipe').html(selectModifCategRecipe);
-	$('#contentNewViewRecipe select#selectNewCategRecipe').html(selectModifCategRecipe);
-	$('#contentModifViewRecipe select#selectModifCategRecipe').html(selectModifCategRecipe);
+	$('#contentNewViewRecipe select#selectNewCategRecipe').html(selectModifCategRecipe+ '<option value="0">Autres</option>');
+	$('#contentModifViewRecipe select#selectModifCategRecipe').html(selectModifCategRecipe+ '<option value="0">Autres</option>');
 	//$('#'+selectAnimItem).delay(200).animate({'opacity':'9'},3000)
 }
 

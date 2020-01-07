@@ -698,12 +698,9 @@ try {
         {
             if (isset($_SESSION['idUser']) && $_SESSION['idUser'] > 0) // test id pour les utilisateur
             {
-/*                  echo $_POST['quantity'];
-                echo $_POST['id_ingredient'];*/
-
-                if (isset($_POST['quantity']) && isset($_POST['id_ingredient']) && isset($_POST['id_recette'])) // test id de la recette a voir
+                if (isset($_POST['arrIng'])) // test id de la recette a voir
                 {
-                    actualizeIngRecipe($_POST['quantity'], $_POST['id_ingredient'], $_POST['id_recette']); 
+                    actualizeIngRecipe($_POST['arrIng']);
                 }
                  else
                 {
@@ -768,9 +765,9 @@ try {
         {
             if (isset($_SESSION['idUser']) && $_SESSION['idUser'] > 0) // test id pour les utilisateur
             {
-                if (isset($_POST['rang']) && isset($_POST['text'])&& isset($_POST['img'])&& isset($_POST['time'])&& isset($_POST['id_recette'])) 
+                if (isset($_POST['arrEtape']))
                 {
-                    actualizeEtapeRecipe($_POST['rang'], $_POST['text'], $_POST['img'], $_POST['time'], $_POST['id_recette']); 
+                    actualizeEtapeRecipe($_POST['arrEtape']);
                 }
                  else 
                 {
