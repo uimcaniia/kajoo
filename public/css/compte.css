@@ -1,109 +1,111 @@
-section#userAccompte div.homePresentation{
-    margin-bottom: 30px;
-    padding: 20px 0 0 0;
-}
-section#userAccompte div.homePresentation , section#userAccompte div.homePresentation div {
-    text-align: center;
-}
-section#userAccompte > div{
-    width:85%;
-}
-#invitationReceiveContain > p{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-section#userAccompte span{
-    cursor: auto;
-}
-section#userAccompte span:hover{
-    cursor: auto;
-    color: white;
+section#userAccompte div.homePresentation {
+	margin-bottom: 30px;
+	padding: 20px 0 0 0;
 }
 
-section#userAccompte #containSpaceInfoDiv > div{
-    width:100%
+section#userAccompte div.homePresentation, section#userAccompte div.homePresentation div
+	{
+	text-align: center;
 }
 
-section#userAccompte #containSpaceInfoDiv #partOneSpaceUser > div{
-    margin: 20px 0;
+section#userAccompte>div {
+	width: 85%;
 }
-section#userAccompte #containSpaceInfoDiv #partOneSpaceUser #invitationSendContain #formInvitationToSend{
-    margin: 10px 0;
+
+#invitationReceiveContain>p {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
-#invitationSendContain > div:nth-child(3) > p:nth-child(1){
-    font-family: 'Handlee', cursive;
-    color: #864002;
-    text-shadow: 0px 0px 1px #020202;
+
+section#userAccompte span {
+	cursor: auto;
 }
-#partOneSpaceUser{
-    border-bottom: 1px solid white;
+
+section#userAccompte #containSpaceInfoDiv>div {
+	width: 100%
 }
-section#userAccompte #containSpaceInfoDiv #partOneSpaceUser #relationShipContain, #containSpaceInfoDiv, #invitationSendContain{
-    border-top: 1px solid white;
+
+section#userAccompte #containSpaceInfoDiv #partOneSpaceUser>div {
+	margin: 20px 0;
+	padding: 20px 0;
 }
-section#userAccompte #containSpaceInfoDiv #partOneSpaceUser #relationShipContain > div{
-    margin: 10px 0;
+
+section#userAccompte #containSpaceInfoDiv #partOneSpaceUser #invitationSendContain #formInvitationToSend
+	{
+	margin: 10px 0;
 }
+
+#invitationSendContain>div:nth-child(3)>p:nth-child(1) {
+	font-family: 'Handlee', cursive;
+	color: #9f0505;
+	text-shadow: 0px 0px 1px #020202;
+}
+
+#partOneSpaceUser {
+	border-bottom: 1px solid #9f0505;
+}
+
+section#userAccompte #containSpaceInfoDiv #partOneSpaceUser #relationShipContain,
+	#containSpaceInfoDiv, #invitationSendContain {
+	border-top: 1px solid #9f0505;
+}
+
+section#userAccompte #containSpaceInfoDiv #partOneSpaceUser #relationShipContain>div
+	{
+	margin: 10px 0;
+}
+
 section#userAccompte .formLogin {
-    text-align: center;
+	text-align: center;
 }
-#formInvitationToSend{
-    display: flex;
-    justify-content: center;
+
+section#userAccompte .formLogin label {
+	font-weight: bold;
 }
+
+#formInvitationToSend {
+	display: flex;
+	justify-content: center;
+}
+
 section#userAccompte #containSpaceInfoDiv #partOneSpaceUser #relationShipContain #relationShip,
-section#userAccompte #containSpaceInfoDiv #partOneSpaceUser #invitationSendContain #invitationSend,
-section#userAccompte #containSpaceInfoDiv #partOneSpaceUser #invitationReceiveContain #invitationReceive{
-    overflow: hidden;
-    height: 0px;
+	section#userAccompte #containSpaceInfoDiv #partOneSpaceUser #invitationSendContain #invitationSend,
+	section#userAccompte #containSpaceInfoDiv #partOneSpaceUser #invitationReceiveContain #invitationReceive
+	{
+	overflow: hidden;
+	height: 0px;
 }
+
 section#userAccompte #containSpaceInfoDiv #partOneSpaceUser #relationShipContain #relationShip #containAllRelation,
-section#userAccompte #containSpaceInfoDiv #partOneSpaceUser #invitationSendContain #containAllInvitation,
-section#userAccompte #containSpaceInfoDiv #partOneSpaceUser #invitationReceiveContain #containAllInvitationReceive{
-    opacity: 0;
-    border-bottom: 1px solid white;
+	section#userAccompte #containSpaceInfoDiv #partOneSpaceUser #invitationSendContain #containAllInvitation,
+	section#userAccompte #containSpaceInfoDiv #partOneSpaceUser #invitationReceiveContain #containAllInvitationReceive
+	{
+	opacity: 0;
+	border-bottom: 1px solid #9f0505;
 }
-section#userAccompte #containSpaceInfoDiv #partOneSpaceUser #invitationSendContain #containAllInvitation > div > div{
-    justify-content: center;
-    align-items: center;
+
+section#userAccompte #containSpaceInfoDiv #partOneSpaceUser #invitationSendContain #containAllInvitation>div>div
+	{
+	justify-content: center;
+	align-items: center;
 }
 /*section#userAccompte #containSpaceInfoDiv #partOneSpaceUser #invitationSendContain #containAllInvitation > div > div p,
 #invitationSendContain > p:nth-child(1), #containAllInvitationReceive div > p*/
-section#userAccompte .legende{
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 1em;
-    color: #864002;
-    text-shadow: 0px 0px 1px  #020202;
+section#userAccompte #containSpaceInfoDiv #partOneSpaceUser form.formLogin input
+	{
+	margin: 0;
 }
-section#userAccompte #containSpaceInfoDiv #partOneSpaceUser form.formLogin input{
-    margin: 0;
+
+section#userAccompte #containSpaceInfoDiv #partOneSpaceUser label {
+	width: auto;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 1em;
+	color: #9f0505;
+	text-shadow: 0px 0px 1px #020202;
 }
-section#userAccompte #containSpaceInfoDiv #partOneSpaceUser label{
-    width: auto;
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-size: 1em;
-    color: #864002;
-    text-shadow: 0px 0px 1px  #020202;
-}
-section#userAccompte #containSpaceInfoDiv #partOneSpaceUser form#formInvitationToSend div div.flexrow{
-    align-items: center;
-}
-section#userAccompte #containSpaceInfoDiv #partOneSpaceUser  button{
-    margin: 10px;
- /*   margin-bottom: 10px;*/
-    padding: 5px;
-    width: 110px;
-    border-radius: 2px;
-    height: 32px;
-    border: 1px solid #fff;
-    background-color: #fff0;
-    font-size: 1.2em;
-    box-shadow: 0px 0px 5px #6b6a6a;
-    color: white;
-    text-shadow: 0 0 1px black;
-}
-section#userAccompte #containSpaceInfoDiv #partOneSpaceUser button:hover{
-    background-color: #ffffff5e;
-    box-shadow: 2px 2px 5px black;
+
+section#userAccompte #containSpaceInfoDiv #partOneSpaceUser form#formInvitationToSend div div.flexrow
+	{
+	align-items: center;
 }

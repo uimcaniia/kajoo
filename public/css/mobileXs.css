@@ -1,92 +1,108 @@
-@media screen and (max-width: 499px){
-#repairMobXs{
-	display: block;
-}
-#repairTab, #repairMob{
-	display: none;
-}
-header {
-height: 80px;
+@media screen and (max-width: 499px) {
+	#repairMobXs {
+		display: block;
 	}
-header #logo, header #logo img, header #logo div {
-    width: 150px;
-    height: 200px;
-}
-h2{
-	font-size: 1em
-}
-header #logo img {
-height:100px;
+	#repairTab, #repairMob {
+		display: none;
+	}
+	header {
+		height: 80px;
+	}
+	header #logo, header #logo img, header #logo div {
+		width: 150px;
+	}
+	header #logo img {
+		height: 100px;
 	}
 	header #logo div {
-top: -20px;
-
-height: 150px;
+		top: -20px;
+		height: 150px;
+	}
+	section {
+		width: 100%;
+	}
+	#loginSection {
+		width: 95%
+	}
+	fieldset {
+		padding: 30px 10px;
+	}
+	section h1 {
+		font-size: 1.5em;
+	}
+	header #loginMobile {
+		right: 10px;
+	}
+	header #btnMenuMobile, header #btnMenuMobileOff {
+		right: 50px;
+	}
+	section #divAddCateg form, section #divModifCateg form, section #divDelCateg form
+		{
+		padding: 10px 10px;
+	}
+	.contentPlaningWeek h3 {
+		font-size: 1.5em
+	}
+	aside#planningRapel {
+		right: 125px;
+		top: 7px;
+	}
+	section#recetteContainDiv #recipes nav ul li span {
+		font-size: 0.8em;
+	}
+	div.contentPlaningWeek>span:nth-child(2) {
+		top: 4px;
+		font-size: 1.5em;
+	}
+	#actionCategory div h2, #contentNewRecipe h2 {
+		font-size: 1em;
+	}
+	#actionCategory span {
+		font-size: 1em;
+		margin: 0 3px;
+	}
+	section #btnCategory button {
+		padding: 0px 5px;
+		height: 40px;
+	}
+	section #btnCategory {
+		width: 95%;
+	}
+	#menuCategChoice {
+		flex-direction: column;
+		margin-top: 0px;
+		height: 95px;
+		align-items: center;
+	}
+	section#recetteContainDiv h2, #menuCategChoice h2 {
+		font-size: 1.2em;
+		height: 20px;
+	}
+	section#recetteContainDiv h2:hover, #menuCategChoice h2:hover {
+		font-size: 1.3em;
+	}
+	section#recetteContainDiv span#validNewRecipe p, section#recetteContainDiv  span#validModifRecipe p,
+		section#recetteContainDiv span#annulNewRecipe p, section#recetteContainDiv  span#annulModifRecipe p
+		{
+		font-size: 1em;
+	}
+	#contentSearchIng {
+    width: 100%;
 	}
 
-section h1 {
-    font-size: 1.5em;
-}
-header #loginMobile {
-    right: 10px;
-}
-header #btnMenuMobile,header #btnMenuMobileOff {
-    right: 50px;
-}
+	#contentInputAddIng, #contentInputAddIngInBdd {
 
-aside#shopRapel {
-
-    right: 90px;
-    top: 7px;
+    align-items: center;
+   flex-wrap: wrap;
 
 }
-.contentPlaningWeek h3 {
+#contentSearchAndQt {
+text-align: justify;
+padding: 10px;
+}
 
-	font-size: 1.5em
-}
-aside#planningRapel {
-    right: 125px;
-    top: 7px;
-}
-section#recetteContainDiv #recipes nav ul li span {
-    font-size: 0.8em;
-    }
 
-div.contentPlaningWeek > span:nth-child(2) {
-    top: 4px;
-    font-size: 1.5em;
-}
-#actionCategory div h2, #contentNewRecipe h2 {
-    font-size: 1em;
-    }
-    #actionCategory span{
-    	font-size: 1em;
-margin: 0 3px;
-    }
-    section #btnCategory button {
-padding: 0px 5px;
-height: 40px;
-    }
-    section #btnCategory {
 
-    width: 95%;
-}
-#menuCategChoice{
-    flex-direction: column;
-    margin-top: 0px;
-height: 95px;
-align-items: center;
 
-}
-section#recetteContainDiv h2, #menuCategChoice h2{
-    font-size: 1.2em;
-    height: 20px;
-}
-section#recetteContainDiv h2:hover, #menuCategChoice h2:hover{
-    font-size: 1.3em;
-}
-section#recetteContainDiv span#validNewRecipe p, section#recetteContainDiv  span#validModifRecipe p, section#recetteContainDiv span#annulNewRecipe p, section#recetteContainDiv  span#annulModifRecipe p{
-    font-size: 1em;
 
-}
 }

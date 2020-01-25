@@ -1,63 +1,76 @@
 <?php if (isset($_SESSION['idUser'])): ?>
 
-           <div id='menuLoging' class="flexColumn">
-                <nav id='menu' class='flexrow'>
-                    <li id='btnRecette' class="img1">
-                        <a href="index.php?action=showRecipeView"></a>
-                    </li>
-                    <li id='btnPlaning' class="img1">
-                        <a href="index.php?action=showPlanningMonth"></a>
-                    </li>
-                    <li id='btnCourse' class="img1">
-                        <a href="index.php?action=showListShop"></a>
-                    </li>
-                </nav>
+<div id='menuLoging' class="flexColumn">
+	<nav id='menu'>
+		<ul class='flexrow'>
+			<li id='btnHome' class="img1"><img src='public/img/btn/home.png'
+				alt='pain du site Kajoo'> <a href="index.php"></a></li>
+			<li id='btnRecette' class="img1"><img
+				src='public/img/btn/bouton10.png' alt='pain du site Kajoo'> <a
+				href="index.php?action=showRecipeView"></a></li>
+			<li id='btnPlaning' class="img1"><img
+				src='public/img/btn/bouton21.png' alt='pain du site Kajoo'> <a
+				href="index.php?action=showPlanningMonth"></a></li>
+			<li id='btnCourse' class="img1"><img
+				src='public/img/btn/bouton31.png' alt='pain du site Kajoo'> <a
+				href="index.php?action=showListShop"></a></li>
+			<li id='btnHelp' class="img1"><img src='public/img/btn/aide.png'
+				alt='pain du site Kajoo'> <a href="index.php?action=showListShop"></a>
+			</li>
+			<li id='btnUser' class="img1"><img src='public/img/btn/compte.png'
+				alt='pain du site Kajoo'> <a href="index.php?action=space"></a></li>
+		</ul>
+	</nav>
+</div>
 
-                <span id='btnMenuMobile' class="fas fa-bars"></span>
-                <span id='btnMenuMobileOff' class="fas fa-minus"></span>
-                <nav id='menuMobile' class='flexColumn'>
+<div id='loginContain'>
+	<nav>
+		<ul>
+			<li id='login' class="img1"><img src='public/img/btn/logout.png'
+				alt='pain du site Kajoo'> <a href="index.php?action=disconnect"></a>
 
-                    <li id='btnRecette' class="img1">
-                        <a href="index.php?action=showRecipeView">Recettes</a>
-                    </li>
-                    <li id='btnPlaning' class="img1">
-                        <a href="index.php?action=showPlanningMonth">Planning</a>
-                    </li>
-                    <li id='btnCourse' class="img1">
-                        <a href="index.php?action=showListShop">Shop</a>
-                    </li>
-                    <li id='btnUser' class="img1">
-                        <a href="index.php?action=space">Compte</a>
-                    </li>
-                </nav>
-                <div id='fondMenuMobile'></div>
+			</li>
 
-            
-            </div>
-            <div id='login'>
-                    <a href="index.php?action=disconnect"><img src='public/img/cerise2.png' alt='pain du site Kajoo'></a>
-                    <a href="index.php?action=space">Mon compte</a>
-                    <div></div>
-            </div>
-            <div id='loginMobile'>
-                    <a href="index.php?action=disconnect"><span class="fas fa-power-off"></span></a>
-            </div>
+		</ul>
+	</nav>
+</div>
+
 
 <?php endif; ?>
 <?php if (!isset($_SESSION['idUser'])): ?>
+<div id='menuLoging' class="flexColumn">
+	<nav id='menu'>
+		<ul class='flexrow'>
+			<li id='btnHome' class="img1"><img src='public/img/btn/home.png'
+				alt='pain du site Kajoo'> <a href="index.php"></a></li>
+			<li id='btnRecette' class="img1"><img
+				src='public/img/btn/bouton10.png' alt='pain du site Kajoo'> <a
+				href="index.php?action=spaceConnect"></a></li>
+			<li id='btnPlaning' class="img1"><img
+				src='public/img/btn/bouton21.png' alt='pain du site Kajoo'> <a
+				href="index.php?action=spaceConnect"></a></li>
+			<li id='btnCourse' class="img1"><img
+				src='public/img/btn/bouton31.png' alt='pain du site Kajoo'> <a
+				href="index.php?action=spaceConnect"></a></li>
+			<li id='btnHelp' class="img1"><img src='public/img/btn/aide.png'
+				alt='pain du site Kajoo'> <a href="index.php?action=spaceConnect"></a>
+			</li>
+		</ul>
+	</nav>
+</div>
 
-            <div id='menuLoging' class='flexrow'>
-                <nav>
-                </nav>
-            </div>
-            <div id='login'>
-                    <a href="index.php?action=spaceConnect"><img src='public/img/cerise.png' alt='pain du site Kajoo'></a>
 
-                    <div></div>
-            </div>
-            <div id='loginMobile'>
-                    <a href="index.php?action=spaceConnect"><span class="fas fa-user"></span></a>
-            </div>
+<div id='loginContain'>
+	<nav>
+		<ul>
+			<li id='login' class="img1"><img src='public/img/btn/logout2.png'
+				alt='pain du site Kajoo'> <a href="index.php?action=spaceConnect"></a>
+
+			</li>
+
+		</ul>
+	</nav>
+
             
 <?php endif; ?>
 

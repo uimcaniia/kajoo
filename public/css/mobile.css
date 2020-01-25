@@ -1,215 +1,175 @@
-@media screen and (max-width:767px){
-#repairMob{
-	display: block;
-}
-#repairTab, #repairMobXs{
-	display: none;
-}
-h2, h3, p{
-	text-shadow: none;
-	
-}
-h2{
-	color:#683101;
-}
-header {
-height: 100px;
+@media screen and (max-width:767px) {
+	#repairMob {
+		display: block;
 	}
-header #logo, header #logo img, header #logo div {
-    width: 200px;
-    height: 200px;
-}
-header #logo img {
-height:150px;
+	#repairTab, #repairMobXs {
+		display: none;
 	}
-	header #logo div {
-top: -40px;
+	h2, h3, p {
+		text-shadow: none;
 	}
-	#containMessAndError {
-		width: 90%;
+	h2 {
+		color: #9f0505;
 	}
-section > div {
+	header {
+		height: 70px;
+		z-index: 4000;
+	}
+	#loginMobile li {
+		list-style: none;
+		top: 0px;
+		width: 40px;
+		height: 40px;
+		right: 0px;
+	}
+	#loginMobile img {
+		width: 40px;
+		height: 40px;
+	}
+	#loginMobile ul {
+		padding: 0;
+		margin: 0;
+	}
+	#menuLoging, div#loginContain {
+		display: none;
+	}
+#contentSearchIng {
+
     width: 95%;
+
 }
-	header #loginMobile{
+	#loginMobile a {
+		right: 0px;
+		top: 0;
+		position: absolute;
+		padding: 25px;
+	}
+	section>div {
+		width: 95%;
+	}
+	#loginMobile {
+		display: block;
+		right: 20px;
+		top: 13px;
+	}
+	#menuMobile {
+		display: block;
+		height: 100%;
+		z-index: 70002;
+	}
+	#fondMenuMobile {
+		height: 0;
+		width: 0;
+		position: fixed;
+		top: 70px;
+		left: 50%;
+		right: 50%;
+		transform: translateX(-50%);
+		background-color: white;
+		z-index: 99999;
+	}
+	nav#menuMobile li img {
+		height: 70px;
+		margin: auto 20px;
+	}
+	nav#menuMobile li hr {
+		margin: 10px;
+		width: 50px;
+		border: 1px solid #9f0505;
+	}
+	nav#menuMobile a {
+		font-size: 1.5em;
+		text-decoration: none;
+	}
+	nav#menuMobile li {
+		display: flex;
+		width: 100%;
+		align-items: center;
+		margin: auto;
+	}
+	nav#menuMobile li:hover {
+		background-color: white;
+	}
+	#menuMobile ul {
+		height: 100%;
+		margin: auto;
+		padding: 0;
+		opacity: 0;
+		justify-content: space-evenly;
+		align-items: center;
+		width: 100%;
+		background-color: antiquewhite;
+	}
+	#btnMenuMobile, #btnMenuMobileOff {
 		display: block;
 		position: fixed;
-		right:20px;
-		font-size: 1.8em;
-		top:5px;
-		z-index: 2;
+		top: 15px;
+		font-size: 2.2em;
+		right: 90px;
+		color: #9f0505;
+		cursor: pointer;
+		z-index: 9999;
 	}
-	header hr.barreDeco{
+	#btnMenuMobileOff {
 		display: none;
-	}
-	header #loginMobile span{
-		color: #864002;
-		text-shadow: 0 0 3px white;
-		font-size: 0.9em;
-	}
-	 header #menuMobile{
-		display: flex;
-		width: 80px;
-		position: absolute;
-		top: 10px;
-		right: -80px;
-		text-align: left;
-		z-index: 100;
-	}
-	 header #btnMenuMobile{
-	 	display: block;
-		position: fixed;
-		top: 15px;
-		font-size: 1.5em;
-		right:70px;
-		color: #864002;
-		text-shadow: 0 0 3px white;
-		cursor: pointer;
-	 }
-	 header #btnMenuMobileOff{
-		cursor: pointer;
-		position: fixed;
-		top: 15px;
-		font-size: 1.5em;
-		right:70px;
-		color: #864002;
-		text-shadow: 1px 1px 1px #000;
-	 }
-	 header nav#menuMobile li {
-	 	text-decoration: none;
-		height: 30px;
-		width: 100px;
-		list-style: none;
-	 }
-	 header #menuMobile li a{
-    color: #fff;
-text-shadow: 1px 1px 1px #000;
-    padding: 3px 10px;
-    font-size: 1em;
-}
-	
-	 header #menuMobile li:hover {
-		color: #d27105;
-	 }
-	 header #menuMobile li a:hover{
-		color: #d27105;
 	}
 
-	header #login, header #menu{
-		display: none;
-	}
-	header #baniere{
-		height: 100px;
-		z-index: 0;
-		opacity: 0.4;
-	}
-	header #fondMenuMobile {
-	    display: block;
-	    width: 170px;
-	    height: 170px;
-	    position: absolute;
-	    right: -150px;
-	    border-radius: 150px;
-	    border: 3px solid #4b4b4b;
-	    border-top-color: rgb(75, 75, 75);
-	    border-top-style: solid;
-	    border-top-width: 3px;
-	    border-right-color: rgb(75, 75, 75);
-	    border-right-style: solid;
-	    border-right-width: 3px;
-	    border-top: 0;
-	    border-right: 0;
-	    background-image: url('../img/fondCajou.jpg');
-	    box-shadow: -10px 5px 15px #0000008c;
-	    top: -20px;
-	}
-	input{
+	/*	input{
 padding-left: 0px;
+	}*/
+	#validAllPlanningWeek {
+		top: 120px;
+		z-index: 9000;
 	}
-#validAllPlanningWeek {
-    top: 120px;
-    z-index: 9000;
-}
-	aside#planningRapel {
-right: 160px;
-top: 7px;
-}
-aside#shopRapel {
-right: 120px;
-top: 7px;
-}
-aside span {
-color:#864002;
+	section#homeSection #friseKajoo img {
+		margin: 0 20px;
+		height: 40px;
 	}
-aside {
-	
-	top: 8px;
-z-index: 9000;
-background: none;
-border: 0;
-border-radius: 0;
-box-shadow: none;
-width: 40px;
-
-height: 40px;
-}
-    aside span {
-    font-size: 1.5em;
-}
-section#homeSection #friseKajoo img {
-margin: 0 20px;
-    height: 40px;
-    }
-
-#menuLoging {
-    top: 80px;
-    }
-.contentPlaningWeek .dateWeek {
-    margin: 5px 0;
-    font-size: 0.8em;
-}
+	.contentPlaningWeek .dateWeek {
+		margin: 5px 0;
+		font-size: 0.8em;
+	}
 	#rappelShopToday #txtRappelShopToday p {
 		padding-right: 55px;
 		text-align: right;
 	}
 	section {
-    width: 90%;
-align-items: center;
-margin: auto;
-margin-bottom: 50px;
-}
-#recipesAlpha nav ul li {
+		width: 90%;
+		align-items: center;
+		margin: auto;
+		margin-bottom: 50px;
+	}
+	/*#recipesAlpha nav ul li {
     margin: 0 2px;
     font-size: 1em;
-}
-section#recetteContainDiv{
-	width: 100%;
-}
-section#homeSection, section#loginSection, section {
-    padding: 0;
-    margin-top: 170px;
-}
-.contentPlaningWeek h3 {
-
-	font-size: 1.8em
-}div.contentPlaningWeek > span:nth-child(2) {
-    top: 5px;
-    font-size: 1.5em;
-}
-#contentNewRecipe, #contentViewRecipe, #contentModifViewRecipe {
-    width: 100%;
-}
-#actionCategory{
-	width:95%;
-}
-#contentNewRecipe > h2:nth-child(1){
-	margin-left:10px;
-}
-	#actionCategory div h2, #contentNewRecipe h2{
-				font-size: 1em;
-				padding-left: 0px;
+}*/
+	section#recetteContainDiv {
+		width: 100%;
 	}
-
+	section#homeSection, section#loginSection, section {
+		padding: 0;
+		margin-top: 170px;
+	}
+	.contentPlaningWeek h3 {
+		font-size: 1.8em
+	}
+	div.contentPlaningWeek>span:nth-child(2) {
+		top: 5px;
+		font-size: 1.5em;
+	}
+	#contentNewRecipe, #contentViewRecipe, #contentModifViewRecipe {
+		width: 100%;
+	}
+	#actionCategory {
+		width: 95%;
+	}
+	#contentNewRecipe>h2:nth-child(1) {
+		margin-left: 10px;
+	}
+	#actionCategory div h2, #contentNewRecipe h2 {
+		font-size: 1em;
+		padding-left: 0px;
+	}
 	section#recetteContainDiv h2:hover {
 		font-size: 1.1em;
 	}
@@ -217,171 +177,178 @@ section#homeSection, section#loginSection, section {
 		font-size: 1.8em;
 		text-align: center;
 	}
-
+	/*	div.fondTitle{
+		height: 85px;
+	}*/
 	.homePresentation {
 		text-align: justify;
 		margin-top: 10px;
 	}
-section#recetteContainDiv #recipes nav ul li span:hover {
+	/*section#recetteContainDiv #recipes nav ul li span:hover {
     font-size: 0.9em;
-}
-#recipesAlpha li:hover, #paginationRecipe li:hover {
+}*/
+	/*#recipesAlpha li:hover, #paginationRecipe li:hover {
     font-size: 1.1em;
-}
-	#contentNewViewRecipe{
-		padding-top:10px;
-		margin-top:0;
+}*/
+	section#userAccompte #containSpaceInfoDiv #partOneSpaceUser form#formInvitationToSend div div.flexrow
+		{
+		align-items: center;
+		flex-direction: column;
+		padding: 10px 0;
 	}
-#contentModifViewRecipe #alphaModifRecipe{
+	#contentNewViewRecipe {
+		padding-top: 10px;
+		margin-top: 0;
+	}
+	#contentModifViewRecipe #alphaModifRecipe {
 		display: flex;
 	}
-	#contentNewViewRecipe > div:nth-child(1) > div:nth-child(6){
+	#contentNewViewRecipe>div:nth-child(1)>div:nth-child(6) {
 		flex-wrap: wrap;
 	}
-
-	#popupInfo {
-	    top: 160px;
+	#recipesAlpha nav ul li, #paginationRecipe nav ul li {
+		width: 20px;
 	}
-	#recipesAlpha nav ul li,#paginationRecipe nav ul li {
-
-    width: 20px;
-}
-#paginationRecipe nav ul li span {
-margin:0;
+	#paginationRecipe nav ul li span {
+		margin: 0;
 	}
-#contentViewRecipe, #contentModifViewRecipe, #contentNewViewRecipe {
+	/*#contentViewRecipe, #contentModifViewRecipe, #contentNewViewRecipe {
 border-radius: 0;
 overflow: hidden;
-border-right: 0;
-border-left: 0;
-padding: 20px 0;
+!*border-right: 0;
+border-left: 0;*!
+!*padding: 20px 0;*!
+
+}*/
+#contentNewFood div.whiteSpace input, #contentModifFood div.whiteSpace input {
+    margin: 0 5%;
 
 }
-	#contentNewFoodEtape, #contentModifFoodEtape{
+	#contentNewFoodEtape, #contentModifFoodEtape {
 		flex-direction: column;
 		margin-top: 0px;
 	}
-#contentModifEtape div.etapeRecipeFlex div div.flexColumn div.flexrow:nth-child(2) textarea, #contentNewEtape div.etapeRecipeFlex div div.flexColumn div.flexrow:nth-child(2) textarea {
-    max-width: 100%;
-    width: 100%;
-}
-#contentEtape {
-    padding-right: 0px;
-}
-#contentFood, #contentNewFood, #contentModifFood {
-padding: 10px 0;
-border-bottom:1px solid white;
+	#contentModifEtape div.etapeRecipeFlex div div.flexColumn div.flexrow:nth-child(2) textarea,
+		#contentNewEtape div.etapeRecipeFlex div div.flexColumn div.flexrow:nth-child(2) textarea
+		{
+		max-width: 100%;
+		width: 100%;
+	}
+	#contentEtape {
+		padding-right: 0px;
+	}
+	#contentFood, #contentNewFood, #contentModifFood {
+		padding: 10px 0;
+		/*border-bottom: 1px solid white;*/
 	}
 	#contentModifEtape, #contentNewEtape, #contentEtape {
-margin:auto;
+		margin: auto;
 	}
-#contentNewViewRecipe #newMessErrorTitle, #contentNewViewRecipe #newMessErrorCateg, #contentNewViewRecipe #newMessErrorAlpha, #contentNewViewRecipe #newMessErrorIng, #contentNewViewRecipe #newMessErrorEtape{
-	margin-top: 0px;
-}
+	#contentNewViewRecipe #newMessErrorTitle, #contentNewViewRecipe #newMessErrorCateg,
+		#contentNewViewRecipe #newMessErrorAlpha, #contentNewViewRecipe #newMessErrorIng,
+		#contentNewViewRecipe #newMessErrorEtape {
+		margin-top: 0px;
+	}
 	#contentModifEtape div.etapeRecipeFlex div div.flexColumn div.flexrow:nth-child(1),
-	#contentNewEtape div.etapeRecipeFlex div div.flexColumn div.flexrow:nth-child(1){
-	 	flex-wrap: wrap;
+		#contentNewEtape div.etapeRecipeFlex div div.flexColumn div.flexrow:nth-child(1)
+		{
+		flex-wrap: wrap;
 		margin: 10px 0;
 		align-items: end;
-	 }
-section#planningContainer > div {
-    width: 95%;
-}
-
-	#contentModifViewRecipe #alphaModifRecipe input, #contentNewViewRecipe #alphaNewRecipe input {
-	    width: 20px;
 	}
-	#contentModifViewRecipe #alphaModifRecipe, #contentNewViewRecipe #alphaNewRecipe{
+	section#planningContainer>div {
+		width: 95%;
+	}
+	#contentModifViewRecipe #alphaModifRecipe, #contentNewViewRecipe #alphaNewRecipe
+		{
 		align-items: center;
 		margin-bottom: 10px;
 	}
-	#titleNewRecipe, #titleModifRecipe{
+	#titleNewRecipe, #titleModifRecipe {
 		margin-bottom: 10px;
-		width:100%
+		width: 100%
 	}
-	section#recetteContainDiv #contentModifViewRecipe #titleModifRecipe #titleNewModifRecipe, section#recetteContainDiv #newTitleRecipe {
+	section#recetteContainDiv #contentModifViewRecipe #titleModifRecipe #titleNewModifRecipe,
+		section#recetteContainDiv #newTitleRecipe {
 		font-size: 1.4em;
 	}
-#contentNewRecipeInfos, #contentModifRecipe {
-    min-width: auto;
-
-}
+	#contentNewRecipeInfos, #contentModifRecipe {
+		min-width: auto;
+	}
 	#Newlove, #alphaNewRecipe {
-width: auto;
-
-}
- 
-
-#contentModifFoodEtape div.flexrow, #contentNewFoodEtape div.flexrow {
-    align-items: center;
-	margin: 0px 0;
-}
-
-	  #contentNewViewRecipe > div:nth-child(1) > div:nth-child(2){
-	  	align-items: center;
-	  }
-#contentNewViewRecipe  #actionNewRecipe, #contentModifViewRecipe #actionModifRecipe{
-flex-direction: row;
-	  }
-	  span#validNewRecipe, span#validModifRecipe {
-    width: 170px;
-}
-	  #contentNewViewRecipe > div.flexColumn:nth-child(1), #contentViewRecipe > div.flexColumn:nth-child(3), #contentModifViewRecipe > div.flexColumn:nth-child(1) {
-margin: auto;
-    width: 95%;
-}
-section #btnCategory {
-    width: 95%;
-}
-.calendar button, div.month {
-    font-size: 1.2em;
-    }
-    #divAllDay span.cell.day, #divAllDay span.cell.number {
-    font-size: 0.9em;
-}
-
-	#contentNewViewRecipe > div:nth-child(1) > div:nth-child(8),
-	#contentModifViewRecipe > div:nth-child(1) > div:nth-child(8){
+		width: auto;
+	}
+	#contentModifFoodEtape div.whiteSpace, #contentNewFoodEtape div.whiteSpace {
+		align-items: center;
+		margin: 10px 0;
+	}
+	#contentNewViewRecipe>div:nth-child(1)>div:nth-child(2) {
+		align-items: center;
+	}
+	#contentNewViewRecipe  #actionNewRecipe, #contentModifViewRecipe #actionModifRecipe
+		{
+		flex-direction: row;
+	}
+	span#validNewRecipe, span#validModifRecipe {
+		width: 170px;
+	}
+	section #btnCategory {
+		width: 95%;
+	}
+	.calendar button, div.month {
+		font-size: 1.2em;
+	}
+	#divAllDay span.cell.day, #divAllDay span.cell.number {
+		font-size: 0.9em;
+	}
+	#contentNewViewRecipe>div:nth-child(1)>div:nth-child(8),
+		#contentModifViewRecipe>div:nth-child(1)>div:nth-child(8) {
 		flex-direction: column;
 		margin-bottom: 10px;
-padding-bottom: 10px;
-margin-top: 10px;
-border: 0;
+		padding-bottom: 10px;
+		margin-top: 10px;
+		border: 0;
 	}
-	#imgNewRecipe, #imgModifRecipe{
-		margin:20px;
+	#imgNewRecipe, #imgModifRecipe {
+		margin: 20px;
 	}
-#contentFood, #contentNewFood, #contentModifFood, #contentModifEtape, #contentNewEtape, #contentEtape {
-    max-width: 100%;
-    width: 90%;
-text-align: left;
-
-}
-#contentNewRecipe, #contentViewRecipe, #contentModifViewRecipe {
-	
-}
+	#contentFood, #contentNewFood, #contentModifFood {
+		max-width: 100%;
+		width: 100%;
+		text-align: left;
+		padding:0;
+	}
+	 #contentModifEtape,#contentNewEtape, #contentEtape{
+		max-width: 90%;
+		width: 90%;
+		text-align: left;
+		padding:0;
+		}
+	#contentNewRecipe, #contentViewRecipe, #contentModifViewRecipe {
+		
+	}
 	#imgRecipeTitle img, #imgRecipe img, #imgViewRecipe img {
-	    max-width: 280px;
-	    padding-right: 0;
+		max-width: 280px;
+		padding-right: 0;
 	}
 	#imgNewRecipe, #imgModifRecipe {
 		flex-wrap: wrap;
-		}
-	#imgModifRecipe, #imgNewRecipe, #imgRecipe{
-		padding-left:10px;
+	}
+	#imgModifRecipe, #imgNewRecipe, #imgRecipe {
+		padding-left: 10px;
 		display: flex;
 		flex-direction: column;
-justify-content: center;
-	}
-	#contentNewEtape, #contentModifEtape {
-		margin-top:20px;
-	}
-	#recipesAlpha nav ul {
-		flex-wrap: wrap;
-		padding-left: 0;
 		justify-content: center;
 	}
-
+	#contentNewEtape, #contentModifEtape {
+		margin-top: 20px;
+		padding: 0;
+	}
+	#recipesAlpha nav ul {
+		/*flex-wrap: wrap;*/
+		padding-left: 0;
+		/*justify-content: center;*/
+	}
 	#divPlanningMonthAndWeek {
 		width: 100%;
 		padding-top: 20px;
@@ -389,78 +356,77 @@ justify-content: center;
 	.calendar {
 		width: 300px;
 		margin-left: 0px;
-		}
-	#contentPlaningMonthDay {
-
-	    margin-left: 0;
 	}
-	div#divPlanningMonthAndWeek span#ShowCurentMonth p, div#divPlanningMonthAndWeek span#ShowCurentWeek p {
+	#contentPlaningMonthDay {
+		margin-left: 0;
+	}
+	div#divPlanningMonthAndWeek span#ShowCurentMonth p, div#divPlanningMonthAndWeek span#ShowCurentWeek p
+		{
 		font-size: 0.9em
-		}
-
+	}
 	.contentPlaningWeek {
-	    margin: 0;
+		margin: 0;
 	}
 	#recipes nav ul li {
-	    cursor: pointer;
-	    font-size: 1.2em;
-	    padding-left: 20px;
+		cursor: pointer;
+		font-size: 1.2em;
+		padding-left: 20px;
 	}
-
-	#actionCategory input{
-		width:auto;
+	#actionCategory input {
+		width: auto;
 	}
-
-section #btnCategory button {
-    margin: 5px 10px;
-}
-section#planningContainer {
-    margin-top: 180px;
-}
-
-section#recetteContainDiv #recipes nav ul li {
-    margin: 5px 0;
-}
-#contentViewRecipe > div:nth-child(2) > div:nth-child(2){
-	flex-direction: column;
-}
-#contentRecipe > div.flexrow{
-	padding-top: 0px;
-}
-#contentRecipe {
-min-width: 90%;
-min-height: 130px;
-padding: 0 0px 0px 10px;
-margin: 10px 0;
-}
-#contentViewRecipe > div:nth-child(2) > div:nth-child(1), div.flexrow:nth-child(9){
-	justify-content: center;
-align-items: center;
-}
-#contentFoodEtape, #contentNewFoodEtape{
-	flex-direction: column;
-}
+	section #btnCategory button {
+		margin: 5px 10px;
+	}
+	section#planningContainer {
+		margin-top: 180px;
+	}
+	section#recetteContainDiv #recipes nav ul li {
+		margin: 5px 0;
+	}
+	#contentViewRecipe>div:nth-child(2)>div:nth-child(2) {
+		flex-direction: column;
+	}
+	#contentRecipe>div.flexrow {
+		padding-top: 0px;
+	}
+	#contentRecipe {
+		min-width: 90%;
+		min-height: 130px;
+		padding: 0 0px 0px 10px;
+		margin: 10px 0;
+	}
+/*	#contentViewRecipe>div:nth-child(2)>div:nth-child(1), div.flexrow:nth-child(9)
+		{
+		justify-content: center;
+		align-items: center;
+	}*/
+	#contentFoodEtape, #contentNewFoodEtape {
+		flex-direction: column;
+		border:0; 
+	}
 	#newBlockTwo div.hideDivAnim div, #modifBlockTwo div.hideDivAnim div {
-margin: 10px;
+		margin: 10px;
 	}
-	#newBlockTwo div.hideDivAnim, #modifBlockTwo div.hideDivAnim{
+	#newBlockTwo div.hideDivAnim, #modifBlockTwo div.hideDivAnim {
 		justify-content: space-evenly;
-padding: 0;
+		padding: 0;
 		margin: auto;
 		width: 100%;
-flex-wrap: wrap;
+		flex-wrap: wrap;
 	}
 	#newBlockThree div.hideDivAnim, #newBlockFour div.hideDivAnim,
-	#modifBlockThree div.hideDivAnim, #modifBlockFour div.hideDivAnim{
+		#modifBlockThree div.hideDivAnim, #modifBlockFour div.hideDivAnim {
 		flex-direction: column;
 	}
-	#newBlockThree > div:nth-child(2) > div:nth-child(1), #modifBlockThree > div:nth-child(2) > div:nth-child(1){
+	#newBlockThree>div:nth-child(2)>div:nth-child(1), #modifBlockThree>div:nth-child(2)>div:nth-child(1)
+		{
 		flex-direction: column;
 	}
-	#newBlockThree div.hideDivAnim, #modifBlockThree div.hideDivAnim{
+	#newBlockThree div.hideDivAnim, #modifBlockThree div.hideDivAnim {
 		padding: 0
 	}
-	#contentViewRecipe > div:nth-child(3) > div:nth-child(2){
+	#contentViewRecipe>div:nth-child(3)>div:nth-child(2) {
 		flex-wrap: wrap;
 		justify-content: center;
 	}
@@ -472,13 +438,14 @@ flex-wrap: wrap;
 	section#userAccompte div.homePresentation {
 		text-align: center;
 	}
-	section#userAccompte > div {
+	section#userAccompte>div {
 		width: 95%;
 	}
-	section#userAccompte #containSpaceInfoDiv > div {
+	section#userAccompte #containSpaceInfoDiv>div {
 		width: 100%;
 	}
-	section#userAccompte #containSpaceInfoDiv #partOneSpaceUser #relationShipContain {
+	section#userAccompte #containSpaceInfoDiv #partOneSpaceUser #relationShipContain
+		{
 		text-align: center;
 		display: flex;
 		justify-content: center;
@@ -492,8 +459,11 @@ flex-wrap: wrap;
 		max-height: 200px;
 		margin: 20px 0;
 	}
-	section#recetteContainDiv #contentNewRecipe span.fa-camera,
-	section#recetteContainDiv #contentModifViewRecipe span.fa-camera {
+	section#recetteContainDiv #contentNewRecipe span.fa-camera, section#recetteContainDiv #contentModifViewRecipe span.fa-camera
+		{
 		padding: 10px;
+	}
+	#partTwoSpaceUser form.formLogin>fieldset {
+		margin-bottom: 20px;
 	}
 }

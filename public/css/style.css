@@ -1,537 +1,629 @@
-#repairTab, #repairMob, #repairMobXs{
+#repairTab, #repairMob, #repairMobXs, #bacgroundMobile {
 	display: none;
 }
-span.emptySpan{
-	color:grey;
+
+span.emptySpan {
+	color: grey;
 }
 
-.flexColumn{
+.flexColumn {
 	display: flex;
 	flex-direction: column;
 }
 
-.flexrow{
+.flexrow {
 	display: flex;
 	flex-direction: row;
 }
-html{
+
+html {
 	height: 100%
 }
-body{
-	margin:0;
-	font-family:'Open Sans Condensed', sans-serif;
+
+body {
+	margin: 0;
+	font-family: 'Open Sans Condensed', sans-serif;
 	cursor: default;
 	background: url(../img/fond.jpg) no-repeat;
-
-    background-size: auto;
-height: 100%;
-background-size: cover;
-background-attachment: fixed;
-}
-body p{
-font-size: 1.2em;
-	}
-body p, body h2{
-	margin:0;
-}
-h1, h2, form p, form label{
-	font-family: 'Handlee', cursive;
-	color: #864002;
-	text-shadow: 0px 0px 1px #020202;
+	height: 100%;
+	background-size: cover;
+	background-attachment: fixed;
 }
 
-form label{
-font-size: 1.2em;
-	}
-a{
-	color:#645229;
+body p {
+	font-size: 1.2em;
+}
+
+body p, body h2 {
+	margin: 0;
+}
+
+h1, h2, form p, form label {
+	color: #9f0505;
+}
+
+form label {
+	font-size: 1.2em;
+}
+
+a {
+	color: #9f0505;
 	text-decoration-style: dashed;
 }
-span{
-	color:white;
+
+span {
+	color: #9f0505;
 	font-size: 1.2em;
-margin: 0 8px;
-text-shadow: 0 0 2px black;
-cursor: pointer;
-}
-span:hover{
-	color: #864002;
+	margin: 0 8px;
 }
 
-hr{
-		margin: 0;
-	margin-bottom: 20px;
-	border: 1px dashed #645229;
-}
-.formLogin input, .formLogin input:focus, a, button{
-		-webkit-transition:all 0.2s;
--moz-transition:all 0.2s;
--o-transition:all 0.2s;
-transition:all 0.2s
-}
-header #baniere,#validAllPlanningWeek, header nav#menu, span, #menuLoging, header nav#menu li, header #logo, header #logo img, header #logo div, header, header div#login img, header #login div, header #login, #shopRapel, #planningRapel,
-#actionCategory > div:nth-child(2), #actionCategory > div:nth-child(3), #actionCategory > div:nth-child(4){
-		transition: all 0.5s;
-}
-#recipesAlpha span, #listRecipeGroup span, #paginationRecipe span, section#recetteContainDiv h2, section#recetteContainDiv form span{
-	transition: all 0.2s;
-} 
-
-.barreTitle{
-	width: 200px;
+hr {
 	margin: 0;
 	margin-bottom: 20px;
 	border: 1px dashed #645229;
 }
-fieldset{
-	border: 1px dashed #645229;
-}
-#loading{
-position: fixed;
-z-index: 9999999;
-display: none;
-left: 50%;
-right: 50%;
-transform: translateX(-50%);
-top: 200px;
-width: 50px;
-height: 50px;
-background:
-white;
-}
-#loading img{
-	width: 250px;
-position: absolute;
-top: -60px;
-left: -100px;
-}
-#containMessAndError{
-	height: auto;
-	position: fixed;
-	box-shadow: 0 0 15px white;
-	left: 50%;
-	right: 50%;
-	top: 150px;
-	z-index: 999999;
-	transform: translateX(-50%);
-	width: 50%;
-}
-#errorMessAjax, #errorMessImgNoBtn, #errorMessImgWithBtn, #errorMessSimple{
-background-color: #000000d4;
-height: auto;
-color:wheat;
-text-align: center;
-padding: 30px;
-display: none;
-}
-#errorMessImgNoBtn > div{
-	justify-content: center;
-align-items: center;
+
+.formLogin input, .formLogin input:focus, a, button {
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	-o-transition: all 0.2s;
+	transition: all 0.2s
 }
 
-#errorMessImgNoBtn, #errorMessImgWithBtn, #idRecetteSelectToShow, #errorMessSimple, #contentModifViewRecipe, #contentViewRecipe, #contentNewViewRecipe, #modifIdRecette{
+header #baniere, #validAllPlanningWeek, header nav#menu, span,
+	#menuLoging, header nav#menu li, header #logo, header #logo img, header #logo div,
+	header, header div#login img, header #login div, header #login,
+	#shopRapel, #planningRapel, #actionCategory>div:nth-child(2),
+	#actionCategory>div:nth-child(3), #actionCategory>div:nth-child(4) {
+	transition: all 0.5s;
+}
+
+#recipesAlpha span, #listRecipeGroup span, #paginationRecipe span,
+	section#recetteContainDiv h2, section#recetteContainDiv form span,#listIngOffBdd li {
+	transition: all 0.2s;
+}
+
+.barreTitle {
+	width: 400px;
+	margin: 40px;
+	border: 1px dashed #645229;
+}
+
+fieldset {
+	border: 1px dashed #645229;
+}
+
+#loading {
+	position: fixed;
+	z-index: 9999999;
+	display: none;
+	left: 50%;
+	right: 50%;
+	transform: translateX(-50%);
+	top: 200px;
+	width: 50px;
+	height: 50px;
+	background: white;
+}
+
+#loading img {
+	width: 250px;
+	position: absolute;
+	top: -60px;
+	left: -100px;
+}
+
+#bacgroundBlack, #bacgroundBlackWithBtn,#bacgroundSearchIng {
+	height: 100%;
+	width: 100%;
+	background-color: #000000b5;
+	z-index: 5000;
+	position: fixed;
+	top: 0;
 	display: none;
 }
 
-#errorMessImgWithBtn div img, #errorMessImgNoBtn div img{
-	height: 60px;
-	margin-right:20px;
+#containMessAndError,#contentSearchIng{
+	transform: translateX(-50%);
+	z-index: 9999;
+	position: fixed;
+	left: 50%;
+	right: 50%;
+	overflow: hidden;
+	height: 0px;
+		background-color: antiquewhite;
+		top: 100px;
 }
-#errorMessImgWithBtn #messageBtn, #errorMessImgNoBtn #messageBtnNoBtn{
-	margin-top:10px;
+#contentSearchIng button, #contentSearchIng input, #contentSearchIng select{
+	width:auto;
+	height: auto;
 }
-#errorMessImgWithBtn #messageBtn p{
-	margin-right:10px;
+#contentSearchIng input:focus{
+background-color: white;
 }
-#errorMessImgWithBtn span:hover{
-	cursor:pointer;
+#contentSearchIng #insertNewQtIng{
+	width: 50px;
+}
+#unitNewIng{
+margin:0 20px;
+}
+#annulInsertNewIngAndQt{
+	text-align: right;
+	cursor: pointer;
+}
+#contentSearchIng button{
+cursor: pointer;
+}
+
+#contentSearchIng label{
+	opacity: 0;
+	width:0px;
+	height: 0px
+}
+#containMessAndError{
+	width: 0px;
+	box-shadow: 0 0 15px black;
+}
+#listIngOffBdd li{
+	cursor: pointer;
+	list-style: none;
+	display: flex;
+margin: 5px 0;
+color:#9f0505;
+font-weight: bold;
+padding-left: 10px;
+}
+#MessNoExistInBdd, #errorPushIngInBdd{
+	color:#9f0505;
+font-weight: bold;
+margin: 10px 0;
+}
+#listIngOffBdd li:hover{
+	cursor: pointer;
+	background-color: white;
+}
+#contentSearchIng{
+width: 70%;
+}
+#containMessAndError img {
+	height: 80px;
+	margin-right: 20px;
+}
+#MessNoExistInBdd, #errorPushIngInBdd, #addNewIngInBdd p.errorPushIngInBdd, #contentInputAddIng, #contentSearchAndQt p.legende, #listIngOffBdd, #validAddNewIngInRecipe,#contentActionNewIngInBdd,#addNewIngInBdd{
+	display: none
+}
+#contentInputAddIng, #contentInputAddIngInBdd{
+	align-items: center;
+}
+#navListIng{
+margin:20px 0px;
+padding: 0;
+}
+#errorMessAjax, #errorMessImgNoBtn, #errorMessImgWithBtn,
+	#errorMessSimple, #popupInfo{
+	width: auto;
+	position: absolute;
+	display: none;
+	color: #1c1c1c;
+	padding: 20px;
+/*	left: 50%;
+	right: 50%;
+	transform: translateX(-50%);*/
+}
+
+#contentSearchAndQt{
+/*	background-color: antiquewhite;*/
+	color: #1c1c1c;
+	padding: 20px;
+/*	opacity: 0;*/
+	width: auto;
+}
+
+#containMessAndError>div>div {
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: center;
+	text-align: center;
+	width: 100%;
+}
+
+#containMessAndError p {
+	font-size: 1.1em;
+}
+
+#contentModifViewRecipe, #contentViewRecipe, #contentNewViewRecipe,
+	#modifIdRecette {
+	display: none;
+}
+
+#errorMessImgWithBtn #messageBtn, #errorMessImgNoBtn #messageBtnNoBtn {
+	margin-top: 10px;
+}
+
+#errorMessImgWithBtn #messageBtn p {
+	margin-right: 10px;
+}
+
+#errorMessImgWithBtn span:hover {
+	cursor: pointer;
 	text-shadow: 0px 0px 5px #fff;
 }
-#errorMessImgWithBtn div div:nth-child(2){
+
+#errorMessImgWithBtn div div:nth-child(2) {
 	align-items: center;
 }
 
-footer{
+footer {
 	float: right;
 	width: 100%;
 	text-align: center;
-
-	background: linear-gradient(#373737ab,#2a2929);
-	color: white;
+	background-color: #1c1c1c;
+	color: antiquewhite;
 	text-decoration: none;
 	bottom: 0;
 	box-shadow: 0px -2px 15px black;
+	font-size: 0.9em;
+	height: 80px;
 }
-footer div.flexrow{
-	justify-content: space-evenly;
+
+footer h3{
+margin:0;
 }
-footer div.flexrow div{
-	width:50%;
+footer a, footer span{
+	color: antiquewhite;
 }
-footer div.flexrow div hr{
-	width:100px
+footer a:hover{
+	color: #9f0505;
 }
-footer a{
+footer div div{
+	width: 50%;
+	justify-content: center;
+align-items: center;
+}
+footer > div{
+	height: 100%;
+
+}
+
+footer a {
 	color: white;
 	text-decoration: none;
 }
 
-header{
-	background:linear-gradient(#5310005c, #fff);
+header {
+	/*background:linear-gradient(#0000005c, #fff);*/
 	box-shadow: 2px 5px 15px #000;
-	height: 180px;
+	height: 120px;
 	position: fixed;
 	top: 0;
 	right: 0;
 	left: 0;
-	z-index: 7000;
+	z-index: 4000;
+	background-color: #1c1c1c;
 }
 
-header #baniere{
-	height: 180px;
-	background-image: url(../img/baniere.png);
-	background-position: center;
-	background-size: cover;
-	width: 100%;
-	top: 0;
-	position: absolute;
+header #logo {
+	height: 120px;
 }
-header #loginMobile, header #menuMobile, header #btnMenuMobile, header #fondMenuMobile, header #btnMenuMobileOff{
+
+#loginMobile, #menuMobile, #btnMenuMobile, #fondMenuMobile,
+	#btnMenuMobileOff {
 	display: none;
 }
 
-header #logo, header #logo img, header #logo div{
-	width:300px;
-	height:300px;
-
-}
-header #logo{
-	position: relative;
-	z-index: 9999;
-	height: 260px
-}
-header #logo img{
+header #logo img {
 	z-index: 7004;
 	position: relative;
-	height: 200px;
+	height: 150px;
 	margin-left: 0;
-margin-top: 0;
+	margin-top: 0;
 }
-header #logo div{
-	border: 3px solid #4b4b4b;
+
+header #logo div, header #login div, #loginMobile div {
+	width: 250px;
+	height: 250px;
+}
+
+header #logo div {
 	box-shadow: 10px 5px 15px #000;
 	border-radius: 300px;
-	border-top: 0;
-	border-left: 0;
-	height: 300px;
 	position: absolute;
-	top:-50px;
+	top: -70px;
 	z-index: 7002;
-	background-image: url('../img/fondCajou.jpg');
-	left:0px;
+	left: -20px;
+	background-color: #ffffff91;
 }
 
-header div#login img{
-	width:130px;
+header div#loginContain img, #loginMobile img {
+	width: 50px;
 	z-index: 7006;
-	position:relative;
+	position: relative;
+	height: 50px;
 }
-header div#login a {
-	z-index: 7006;
-}
-header #login{
 
+header div#loginContain li, #loginMobile li {
+	right: 20px;
+	top: 20px;
+	position: relative;
+	box-shadow: black 2px 2px 5px;
+	border-radius: 50px;
+	width: 50px;
+	height: 50px;
+	z-index: 7006;
+}
+
+section#errorSection>div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	width: 100%;
+	margin-top: 50px;
+}
+
+section#errorSection p {
+	font-size: 2em;
+	color: #9f0505;
+}
+
+section#errorSection img {
+	max-width: 300px;
+}
+
+header #loginContain, #loginMobile {
 	position: fixed;
-	right: 55px;
+	right: 0;
 	z-index: 9999;
-	top: 50px;
+	top: 0;
 }
-header #login div{
-	border: 3px solid #4b4b4b;
+
+header li {
+	list-style: none;
+}
+
+/* header #loginContain div, #loginMobile div{
 	box-shadow: -10px 5px 15px #000;
     border-radius: 300px;
-    border-top: 0;
-    border-right: 0;
-    height: 350px;
-        width: 350px;
     position: absolute;
-    top: -100px;
+    top: -130px;
     z-index: 7002;
-   background-image: url('../img/fondCajou.jpg');
-
+	background-color: #ffffff91;
     right: -100px;
-}
-header #login a:nth-child(2){
+} */
+header #loginContain a, #loginMobile a {
 	position: absolute;
-	color: rgb(210, 206, 190);
-	top: 130px;
-	right: 50px;
-	text-shadow: 0px 0px 1px #020202;
-	width: 100px;
+	padding: 25px;
+	z-index: 7006;
+	right: 0px;
 }
-header #login a:nth-child(2):hover{
+
+header #loginContain a:hover, #loginMobile a:hover {
 	color: #d27105;
 }
 
-#menuLoging{
+#menuLoging {
 	width: 100%;
 	justify-content: center;
-	align-items: baseline;
 	position: fixed;
-	top: 80px;
+	top: 0px;
 	z-index: 5000;
 	align-items: center;
 }
-header nav#menu{
-	width: 570px;
+
+header nav#menu {
 	text-align: center;
 	position: relative;
 	z-index: 7000;
 }
-header nav#menu li{
-	width: 150px;
-	height: 125px;
-	background-position: center;
-	background-size: cover;
+
+header nav#menu li {
+	width: 89px;
+	height: 89px;
 	display: inline-block;
 	margin: 0 20px;
-	background-size: contain;
-background-repeat: no-repeat;
-}
-header nav#menu li a{
-	padding: 0 60px 90px 60px;
+	position: relative;
+	border-radius: 90px;
+	box-shadow: 2px 2px 5px black;
 }
 
-#btnRecette li, #btnPlaning li, #btnCourse li{
-  -webkit-animation: fade 4s infinite;
-  -moz-animation: fade 4s infinite;
-  -o-animation: fade 4s infinite;
-  animation: fade 4s infinite;
+header nav#menu li a {
+	position: absolute;
+	right: 50%;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 50px;
 }
 
-header nav#menu li#btnRecette{
-	background-image: url(../img/recette1.png);
-}
-header nav#menu li#btnRecette:hover{
-	background-image: url(../img/recette2.png);
-}
-header nav#menu li#btnPlaning{
-	background-image: url(../img/planing1.png);
-}
-header nav#menu li#btnPlaning:hover{
-	background-image: url(../img/planing2.png);
-}
-header nav#menu li#btnCourse{
-	background-image: url(../img/course11.png);
-}
-header nav#menu li#btnCourse:hover{
-	background-image: url(../img/course2.png);
-}
-aside{
-width: 70px;
-background-image: url('../img/fondCajou.jpg');
-background-position: top;
-box-shadow: 2px 2px 5px #000;
-border-radius: 0 80px 80px 0;
-height: 110px;
-float: left;
-position: fixed;
-top: 280px;
-z-index: 200;
-border: 3px solid #4b4b4b;
-border-top: 0;
-border-left: 0;
-justify-content: center;
-align-items: center;
-}
-aside#planningRapel{
-top: 280px;
-}
-aside#shopRapel{
-top: 410px;
+header nav#menu li img {
+	height: 90px;
+	right: 50%;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
 }
 
-aside div#rappelCookToday #txtRappelCookToday{
-	width: 200px;
-	height: 190px;
-	margin: auto;
-	padding-top: 20px;
-	transform: rotate(-4deg);
-	overflow: hidden;
+#btnRecette li, #btnPlaning li, #btnCourse li {
+	-webkit-animation: fade 4s infinite;
+	-moz-animation: fade 4s infinite;
+	-o-animation: fade 4s infinite;
+	animation: fade 4s infinite;
 }
-aside div#rappelCookToday #txtRappelCookToday div.listIngRappel{
-	flex-wrap: wrap;
-}
-aside span{
-	font-size: 2.4em;
-	color: black;
-	text-shadow: 0 0 3px white;
-}
-aside #suiteRappelMobile{
-	display: none;
-}
-#suiteRappel{
-	transform: rotate(-4deg);
-	width: 200px;
-    padding-left: 40px;
 
-}
-#suiteRappel span{
-	margin: 4px 0 0 8px;
-	cursor: pointer;
-} 
-
-#menuLoging hr.barreDeco{
-	width:570px;
-	border-top:0;
-	border-left:0;
-	border-right: 0;
-	border: 2px dashed #bcbcbc;
-}
-section{
-	margin-top: 250px;
+section {
+	margin-top: 150px;
 	margin-bottom: 130px;
 	width: 100%;
-min-height: 100%;
-align-items: center;
+	min-height: 100%;
+	align-items: center;
+}
 
+section>div {
+	width: 80%;
 }
-section#homeSection #friseKajoo img{
-	height:80px;
-	margin:0 40px;
-}
-section#homeSection #friseKajoo{
-	width:100%;
-	justify-content: center;
-}
-section >div{
-	width:80%;
-}
-section h1{
+
+section h1 {
 	font-size: 2em;
-	margin-bottom:0;
+	margin-bottom: 0;
 	text-align: center;
 }
 
-.homePresentation{
-	text-align: center;
-	margin-top:50px;
+div.fondTitle {
+	background-image: url('../img/deco_accueil.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position-x: center;
+	height: 245px;
 }
-.homePresentation h2{
+
+div.fondTitle h1 {
+	transform: rotate(-5deg);
+	margin-top: 55px;
+	text-shadow: 0px 0px 2px white;
+	font-size: 3em;
+}
+
+img.imgFloatL {
+	float: left;
+	margin-right: 20px;
+	height: 130px;
+}
+
+img.imgFloatR {
+	float: right;
+	margin-right: 50px;
+	height: 130px;
+}
+
+img.imgCenter {
+	height: 130px;
+}
+
+.homePresentation {
+	text-align: center;
+}
+
+.homePresentation h2 {
 	margin-bottom: 15px;
 }
 
-.formLogin{
+.formLogin {
 	text-align: left;
 	margin: auto;
 	margin-top: 45px;
 }
-section#userAccompte form.formLogin label{
-width: 280px;
+
+section#userAccompte form.formLogin label {
+	width: 280px;
 }
-section#userAccompte form.formLogin input{
-margin-bottom: 30px;
+
+section#userAccompte form.formLogin input {
+	margin-bottom: 30px;
 }
-section#userAccompte form.formLogin fieldset{
-	
-text-align: center;
+
+section#userAccompte form.formLogin fieldset {
+	text-align: center;
 }
-fieldset{
+
+fieldset {
 	padding: 40px;
 }
-label{
+
+label {
 	width: 150px;
+	display: inline-block;
+}
 
-display: inline-block;
-}
-input, select {
-border-radius: 2px;
-margin-top: 5px;
-height: 30px;
-width: 280px;
-font-size: 1em;
-padding-left: 10px;
-background-color:#ffffff7a;
-
-border: 1px solid #fff;
-}
-select{
-height: 35px;
-}
-input[type='submit']{
+input, select, button, #validNewRecipe, section#recetteContainDiv #contentModifViewRecipe form#modifFormImgRecipe span#submitImgRecipeModif,
+	section#recetteContainDiv #contentModifViewRecipe form#modifFormImgRecipe span#parcourirImgRecipeModif,
+	section#recetteContainDiv #contentNewViewRecipe form#formImgRecipe span#parcourirImgRecipeNew,
+	section#recetteContainDiv #contentNewViewRecipe form#formImgRecipe span#submitImgRecipeNew
+	{
 	margin: 10px;
-	padding:10px;
-	width: 110px;
-border-radius: 2px;
-height: 50px;
-border: 1px solid #fff;
-background-color:#fff0;
-font-size: 1.2em;
-box-shadow: 0px 0px 5px #6b6a6a;
-color:white;
-text-shadow: 0 0 1px black;
+	padding: 10px;
+	border-radius: 2px;
+	font-family: 'Open Sans Condensed', sans-serif;
+	border: 1px solid #9f0505;
+	background-color: #fff0;
+	font-size: 1.2em;
+	box-shadow: 0px 0px 5px #6b6a6a;
+	color: #9f0505;
+	text-shadow: 0 0 1px black;
+	justify-content: center;
 }
+
+input, select, button {
+	width: 110px;
+}
+
+#recetteContainDiv select, #recetteContainDiv input {
+	padding: 0px;
+	height: 40px;
+	text-align: center;
+}
+
+input, select {
+	width: 280px;
+	height: 25px;
+}
+
+input[type='submit'] {
+	height: 50px;
+	width: 110px;
+}
+
+.legende {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 1em;
+	color: #864002;
+	text-shadow: 0px 0px 1px #020202;
+}
+
 section#recetteContainDiv #divModifCateg form span:hover, section#recetteContainDiv #divAddCateg form span:hover,
-section#recetteContainDiv #divDelCateg form span:hover,
-input[type='submit']:hover{
-	background-color: #ffffff5e;
+	section#recetteContainDiv #divDelCateg form span:hover, button:hover,
+	section#recetteContainDiv #contentModifViewRecipe form#modifFormImgRecipe span#submitImgRecipeModif:hover,
+	section#recetteContainDiv #contentModifViewRecipe form#modifFormImgRecipe span#parcourirImgRecipeModif:hover,
+	section#recetteContainDiv #contentNewViewRecipe form#formImgRecipe span#parcourirImgRecipeNew:hover,
+	section#recetteContainDiv #contentNewViewRecipe form#formImgRecipe span#submitImgRecipeNew:hover,
+	span#validNewRecipe:hover, span#annulNewRecipe:hover, span#annulModifRecipe:hover,
+	span#validModifRecipe:hover
+input[type='submit']:hover {
+	background-color: antiquewhite;
 	box-shadow: 2px 2px 5px black;
 }
-input:focus{
-	background-color: #fbf5cf;
+input[type="number"] {
+-moz-appearance: textfield;
+	margin:0;
+-o-appearance: none;
+	margin:0
 }
-textarea{
+input:focus {
+	background-color: antiquewhite;
+}
+
+textarea {
 	font-family: 'Handlee', cursive;
 	padding: 10px;
 	height: auto;
 }
-#popupInfo{
-	background-color: white;
-	width: 0px;
-	height: 0px;
-	border-radius: 20px;
-	position: absolute;
-right: 50%;
-box-shadow: 0px 0px 5px #202020;
-left: 50%;
-transform: translateX(-50%);
-top: 250%;
-z-index: 9999;
-}
-#popupInfo #popTxt{
-	display: none;
-}
-#popupInfo > div{
-	display: none;
-}
-#popupInfo div.flexrow div#popImg img{
-	height:80px;
-	margin-right: 10px;
-}
 
-#popupInfo div div.flexrow{
-	justify-content: space-between;
-	align-items: center;
-	margin-top: 10px;
-	width: 90%;
-	margin: auto;
-}
-#rappelShopToday #txtRappelShopToday{
+/*#rappelShopToday #txtRappelShopToday{
 	text-align: center;
 }
 #rappelShopToday #txtRappelShopToday p{
 	padding-top:10px;
 	padding-right: 30px;
-}
-section#politique div p.titleInfos, section#mention div p.titleInfos{
+}*/
+section#politique div p.titleInfos, section#mention div p.titleInfos {
 	color: #866802;
 	text-shadow: 1px 1px 1px #a7a7a7;
 	padding-top: 20px;
 	font-size: 1.3em;
 }
-section#politique div p.texteInfos, section#mention div p.texteInfos{
+
+section#politique div p.texteInfos, section#mention div p.texteInfos {
 	text-align: justify;
 }
-p.errorRouteur{
-	color:#d20505;
+
+p.errorRouteur {
+	color: #d20505;
 }

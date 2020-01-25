@@ -8,14 +8,10 @@ function createCategMenu(data, idCateg){
 	var selectDelCateg         ='';
 	var selectModifCategRecipe ='';
 	var selectAnimItem         = "";
-	//console.log(idCateg);
+
 	for(var i = 0 ; i < data.length ; i++){
-/*		if((idCateg != "") && (idCateg == data[i]['id_category'])){
-			selectAnimItem = escapeHtml(data[i]['title']);
-			btnMenu   = btnMenu+'<button id ="'+escapeHtml(data[i]['title'])+'"  class="'+data[i]['id_category']+'" type="submit" name="'+escapeHtml(data[i]['title'])+'">'+escapeHtml(data[i]['title'])+'</button>';
-		}else{*/
-			btnMenu   = btnMenu+'<button id ="'+escapeHtml(data[i]['title'])+'" class="'+data[i]['id_category']+'" type="submit" name="'+escapeHtml(data[i]['title'])+'">'+escapeHtml(data[i]['title'])+'</button>';
-		//}
+		btnMenu   = btnMenu+'<button id ="'+escapeHtml(data[i]['title'])+'" class="'+data[i]['id_category']+'" type="submit" name="'+escapeHtml(data[i]['title'])+'">'+escapeHtml(data[i]['title'])+'</button>';
+
 		var nbr   = parseFloat(i)+1; // identifiant des options du select du rang d'affichage
 		var libel = 'place '+nbr+''; // libel de l'option du select
 
@@ -34,9 +30,8 @@ function createCategMenu(data, idCateg){
 	$('input#addCateg').val('')
 	$('#selectDelCateg').html(selectDelCateg);
 	$('#selectModifCategRecipe').html(selectModifCategRecipe);
-	$('#contentNewViewRecipe select#selectNewCategRecipe').html(selectModifCategRecipe+ '<option value="0">Autres</option>');
+	$('#contentNewViewRecipe select#selectNewCategRecipe').html('<option value="0" selected disabled>--Catégorie--</option>'+selectModifCategRecipe+ '<option value="0">Autres</option>');
 	$('#contentModifViewRecipe select#selectModifCategRecipe').html(selectModifCategRecipe+ '<option value="0">Autres</option>');
-	//$('#'+selectAnimItem).delay(200).animate({'opacity':'9'},3000)
 }
 
 //*****************************************************************************************************************
@@ -49,7 +44,7 @@ function createCategMenu(data, idCateg){
 		newCategClean = newCateg.replace(/ |\n|\r|\t/g, ''); // supprime les blancs les retours chariots saut de ligne
 
 		if(newCategClean.length > 2){ // on vérifie qu'il y a plus de 2 caractère minimum
-			useAjaxReqestJson('index.php?action=addCategorie', 'POST', 'json', {newCateg:newCategClean, rangNewCateg:rangNewCateg}, function(aData){
+			useAjaxReqestJson('index.php?action=addCategorie', 'POST', 'json', {newCateg:newCategClean, rangNewCateg:rangNewCateg}, true,true,function(aData){
 				createCategMenu(aData);
 				$('#actionCategory h2.divAddCateg').click();
 			});
@@ -70,14 +65,13 @@ function createCategMenu(data, idCateg){
 
 		if(labelCategClean.length > 2){
 
-			useAjaxReqestJson('index.php?action=modifLibelCategorie', 'POST', 'json', {idCategory:idCategory, labelCateg:labelCateg}, function(aData){
+			useAjaxReqestJson('index.php?action=modifLibelCategorie', 'POST', 'json', {idCategory:idCategory, labelCateg:labelCateg}, true,true,function(aData){
 				createCategMenu(aData, idCategory);
 				$('#actionCategory h2.divModifCateg').click();
 			});
 		}else{
 			showError("Le nom de la catégorie doit avoir plus de 2 caractères.")
 		}
-		
 	});
 
 //*****************************************************************************************************************
@@ -88,7 +82,7 @@ function createCategMenu(data, idCateg){
 		var idCategory = $('#selectModifCateg').val(); 
 		var rangCateg  = $('#selectRangModifCateg').val();
 
-		useAjaxReqestJson('index.php?action=modifRangCategorie', 'POST', 'json', {idCategory:idCategory, rangCateg:rangCateg}, function(aData){
+		useAjaxReqestJson('index.php?action=modifRangCategorie', 'POST', 'json', {idCategory:idCategory, rangCateg:rangCateg}, true,true,function(aData){
 			createCategMenu(aData);
 			$('#actionCategory h2.divModifCateg').click();
 		})
@@ -109,7 +103,7 @@ function createCategMenu(data, idCateg){
 			$('#actionCategory h2.divDelCateg').click();
 			$('#errorMessImgWithBtn #messageBtn #confirmDelCateg').unbind('click').click(function(){});
 			var idcategory = $('#selectDelCateg').val(); 
-			useAjaxReqestJson('index.php?action=delCategorie', 'POST', 'json', {idcategory:idcategory}, function(aData){
+			useAjaxReqestJson('index.php?action=delCategorie', 'POST', 'json', {idcategory:idcategory}, true,true,function(aData){
 				createCategMenu(aData);
 				closeErrorWithImgAndBtn('confirmDivInfo', 'closeDivInfo');
 
@@ -154,15 +148,13 @@ $('#btnCategoryFriend').on('click','button',function(){
 //-------------------------------------------------------------------
 
 	function callToRecupRecipe(idcategory, offset, pageSelect, alpha, friend){
-		//console.log("idcateg => "+ idcategory+" offset => "+offset+" pageSel => "+pageSelect+" alpha => "+alpha+" friend => "+friend)
-				
-				closeanimMenuRecipe();
-				$('#paginationRecipe').html('');
-				$('#recipesAlpha').html('');
+		closeanimMenuRecipe();
+		$('#paginationRecipe').html('');
+		$('#recipesAlpha').html('');
 
 		if((idcategory === 'allrecipes')&&(friend==="")){ // si on a cliqué sur le bouton pour tout afficher
-			useAjaxReqestJson('index.php?action=countNumberRecipe', 'POST', 'json', {alpha:alpha}, function(dataNumber){
-				useAjaxReqestJson('index.php?action=showRecipes', 'POST', 'json', {alpha:alpha, offset:offset}, function(data){
+			useAjaxReqestJson('index.php?action=countNumberRecipe', 'POST', 'json', {alpha:alpha}, true,true,function(dataNumber){
+				useAjaxReqestJson('index.php?action=showRecipes', 'POST', 'json', {alpha:alpha, offset:offset}, true,true,function(data){
 					
  					if((Object.keys(data).length === 1)&&("false" in data)){
 						makeListRecipe(data);
@@ -176,11 +168,8 @@ $('#btnCategoryFriend').on('click','button',function(){
 			});
 		}
 		else if((idcategory === '')&&(friend !== "")){ // recette amis
-			//console.log('ok')
-			useAjaxReqestJson('index.php?action=countNumberFriendRecipe', 'POST', 'json', {alpha:alpha, idFriend:friend}, function(dataNumber){
-				//console.log(dataNumber)
-				useAjaxReqestJson('index.php?action=showFriendRecipes', 'POST', 'json', {alpha:alpha, idFriend:friend, offset:offset}, function(data){
-
+			useAjaxReqestJson('index.php?action=countNumberFriendRecipe', 'POST', 'json', {alpha:alpha, idFriend:friend}, true,true,function(dataNumber){
+				useAjaxReqestJson('index.php?action=showFriendRecipes', 'POST', 'json', {alpha:alpha, idFriend:friend, offset:offset}, true,true,function(data){
 					if((Object.keys(data).length === 1)&&("false" in data)){
 						makeListRecipe(data);
 					}else{
@@ -193,8 +182,8 @@ $('#btnCategoryFriend').on('click','button',function(){
 			});
 		}
 		else if((idcategory === 'privateRecipes')&&(friend==="")){ // recette privée
-			useAjaxReqestJson('index.php?action=countNumberPrivateRecipe', 'POST', 'json', {alpha:alpha}, function(dataNumber){
-				useAjaxReqestJson('index.php?action=showPrivateRecipes', 'POST', 'json', {alpha:alpha, offset:offset}, function(data){
+			useAjaxReqestJson('index.php?action=countNumberPrivateRecipe', 'POST', 'json', {alpha:alpha}, true,true,function(dataNumber){
+				useAjaxReqestJson('index.php?action=showPrivateRecipes', 'POST', 'json', {alpha:alpha, offset:offset}, true,true,function(data){
 
 					if((Object.keys(data).length === 1)&&("false" in data)){
 						makeListRecipe(data);
@@ -208,8 +197,8 @@ $('#btnCategoryFriend').on('click','button',function(){
 			});
 		}
 		else if((idcategory === 'otherRecipe')&&(friend==="")){ // categorie par défault des recettes sans catégorie
-			useAjaxReqestJson('index.php?action=countNumberOtherRecipe', 'POST', 'json', {alpha:alpha}, function(dataNumber){
-				useAjaxReqestJson('index.php?action=showOtherRecipes', 'POST', 'json', {alpha:alpha, offset:offset}, function(data){
+			useAjaxReqestJson('index.php?action=countNumberOtherRecipe', 'POST', 'json', {alpha:alpha}, true,true,function(dataNumber){
+				useAjaxReqestJson('index.php?action=showOtherRecipes', 'POST', 'json', {alpha:alpha, offset:offset}, true,true,function(data){
 					
  					if((Object.keys(data).length === 1)&&("false" in data)){
 						makeListRecipe(data);
@@ -223,8 +212,8 @@ $('#btnCategoryFriend').on('click','button',function(){
 			});
 		}
 		else{// categorie  des recettes
-			useAjaxReqestJson('index.php?action=countNumberRecipeInCategorie', 'POST', 'json', {alpha:alpha, idcategory:idcategory}, function(dataNumber){
-				useAjaxReqestJson('index.php?action=showRecipesCateg', 'POST', 'json', {alpha:alpha, idcategory:idcategory, offset:offset}, function(data){
+			useAjaxReqestJson('index.php?action=countNumberRecipeInCategorie', 'POST', 'json', {alpha:alpha, idcategory:idcategory}, true,true,function(dataNumber){
+				useAjaxReqestJson('index.php?action=showRecipesCateg', 'POST', 'json', {alpha:alpha, idcategory:idcategory, offset:offset}, true,true,function(data){
  				
  					if((Object.keys(data).length === 1)&&("false" in data)){
 						makeListRecipe(data);
@@ -359,9 +348,8 @@ function makeListRecipe(data){
 	}
 	$('#recipes div#listRecipeGroup').html(recipes);
 						animMenuRecipe();
-	//$('#recipes').fadeIn(300);
+
 }
-	
 
 //*****************************************************************************************************************
 //AJAX pour afficher la recette sélectionnée
@@ -372,13 +360,12 @@ function showRecipeSelect(){
 
 		var idRecette = $(this).parent().attr('class');  // on récupère l'id de la recette sélectionnée
 		$('#idRecetteSelectToShow').html(idRecette);
-		//$('#confirmDelRecipe').addClass(idRecette)
 		closeanimMenuRecipe();
 		$('#contentNewViewRecipe').fadeOut(0);
-		//$('#actionRecipe').html('');
 
 		//------------------------------------------------------
-		useAjaxReqestJson('index.php?action=showOneRecipes', 'POST', 'json', {idRecette:idRecette}, function(data){
+		useAjaxReqestJson('index.php?action=showOneRecipes', 'POST', 'json', {idRecette:idRecette}, true,true,function(data){
+				//console.log(data)
 			// on récupère les données et on les affiche
 			$('#contentViewRecipe').fadeIn(500);
 			//console.log(data[0]['lecteur']);
@@ -407,24 +394,25 @@ function showRecipeSelect(){
 			$('#imgViewRecipe').html('<img src="" id="img">');
 
 			// on charge l'image de la recette
-			useAjaxReqestJson('index.php?action=loadImgRecipe', 'POST', 'json', {idRecette:idRecette}, function(dataImg){
+			useAjaxReqestJson('index.php?action=loadImgRecipe', 'POST', 'json', {idRecette:idRecette}, true,true,function(dataImg){
 				//console.log(dataImg)
 				if(Array.isArray(dataImg)){
-					$('#imgViewRecipe img').attr("src", dataImg[0]['img_src']);
+					$('#imgViewRecipe img').attr("src", dataImg[0]['img_src']+'.png');
 				}
 			});
 			//------------------------------------------------------
 			$('#nbrPeopleRecipe').html(data[0]['people']); // nombre de personne pour la recette
 			$('#timePrepareRecipe').html(data[0]['prepare_time']); // titre
 			//------------------------------------------------------
-			var spanPrice = '<span class="fas fa-coins emptySpan"></span>'; // cout de la recette
+
+			var spanPrice = ''; // cout de la recette
 			if (data[0]['price'] === "1"){
-				spanPrice = '<span class="fas fa-coins"></span>';
+				spanPrice = '<div class="price"></div>';
 			}
 			else{
 				spanPrice = '';
 				for(var i = 0 ; i < data[0]['price'] ; i++){
-					spanPrice = spanPrice + '<span class="fas fa-coins"></span>';
+					spanPrice = spanPrice + '<div class="price"></div>';
 				}
 			}
 			$('#PriceRecipe').html(spanPrice);
@@ -435,33 +423,40 @@ function showRecipeSelect(){
 				$('#love').html('<img src="public/img/fraise.png" alt="fraise">');
 			}
 			//------------------------------------------------------
-			var spanEasy = '<span class="fas fa-pepper-hot emptySpan"></span>'; // difficulté de la recette
+
+			var spanEasy = '';// difficulté de la recette
 			if (data[0]['easy'] === "1"){
-				spanEasy = '<span class="fas fa-pepper-hot"></span>';
+				spanEasy = '<div class="hard"></div>';
 			}
 			else{
 				spanEasy = '';
 				for(var i = 0 ; i < data[0]['easy'] ; i++){
-					spanEasy = spanEasy + '<span class="fas fa-pepper-hot"></span>';
+					spanEasy = spanEasy + '<div class="hard"></div>';
 				}
 			}
 			$('#easyRecipe').html(spanEasy); // facilité
 			//------------------------------------------------------
 			var ingredient = '<p>Ingrédient :</p>'; // ingrédient de la recette
+
 			for(var i = 0 ; i < data[0]['id_ingredient_recette'].length ; i++){
-				ingredient = ingredient + '<p class='+data[0]['id_ingredient_recette'][i]['id_ingredient_recette']+' '+data[0]['id_ingredient_recette'][i]['id_ingredient']+'>'+escapeHtml(data[0]['id_ingredient_recette'][i]['quantity'])+' '+data[0]['id_ingredient_recette'][i]['unit']+' '+escapeHtml(data[0]['id_ingredient_recette'][i]['title'])+'</p>';
+				var ajout = data[0]['id_ingredient_recette'][i]['ajout_recette'];
+				if(ajout == ""){
+					ingredient = ingredient + '<div class=" flexrow whiteSpace"><img src="'+data[0]['id_ingredient_recette'][i]['thumb']+'" alt=""><p>'+escapeHtml(data[0]['id_ingredient_recette'][i]['quantity'])+' '+data[0]['id_ingredient_recette'][i]['unit']+' '+escapeHtml(data[0]['id_ingredient_recette'][i]['title'])+'</p></div>';
+		
+				}else{
+					ingredient = ingredient + '<div class=" flexrow whiteSpace"><img src="'+data[0]['id_ingredient_recette'][i]['thumb']+'" alt=""><p>'+escapeHtml(data[0]['id_ingredient_recette'][i]['quantity'])+' '+data[0]['id_ingredient_recette'][i]['unit']+' '+escapeHtml(data[0]['id_ingredient_recette'][i]['title'])+'</p><p class="ingredien_ajout"> ('+escapeHtml(data[0]['id_ingredient_recette'][i]['ajout_recette'])+')</p></div>';
+				}
 			}
 			$('#contentFood').html(ingredient);
 			//------------------------------------------------------
 			var etape = ''; // étape de la recette
 			for(var i = 0 ; i < data[0]['id_etape'].length ; i++){
-				etape = etape + '<p class='+data[0]['id_etape'][i]['id_etape']+'> temps : '+data[0]['id_etape'][i]['time']+' </p><br><p>'+escapeHtml(data[0]['id_etape'][i]['text'])+'</p><img src="'+data[0]['id_etape'][i]['img']+'" alt=""><hr>';
+				etape = etape + '<p class="timeEtape"> temps : '+data[0]['id_etape'][i]['time']+' </p><br><p>'+escapeHtml(data[0]['id_etape'][i]['text'])+'</p><img src="'+data[0]['id_etape'][i]['img']+'" alt=""><hr>';
 			}
 
 			$('#contentEtape .etapeRecipeFlex div').html(etape);
-			//$('#contentEtape').before('<p>Etapes :</p>')
 			$('#modifRecipe').removeClass();
-			$('#modifRecipe').addClass('far fa-edit flexrow '+idRecette);
+			$('#modifRecipe').addClass(idRecette);
 			return false;
 		});
 	});
@@ -472,29 +467,30 @@ function showRecipeSelect(){
 $('#actionRecipeMenuUser #closeRecipe').click(function(){
 	$('#contentViewRecipe').fadeOut(0);
 	animMenuRecipe()
+	$('#idRecetteSelectToShow').html('');
 });
 $('#actionRecipeMenuFriend #closeRecipe').click(function(){
 	$('#contentViewRecipe').fadeOut(0);
 	animMenuRecipe()
+	$('#idRecetteSelectToShow').html('');
 });
 //*****************************************************************************************************************
 //pour copier une recette
 //*****************************************************************************************************************
-//function copyRecipe() {
+
 $('#copyRecipe').click(function() {
-	showMessWithImgAndBtn(aContainNotice[11][0], aContainImg[0][0], aContainImg[0][1],'confirmCopyRecipe', 'annulCopyRecipe')
+	showMessWithImgAndBtn(aContainNotice[11][0], aContainImg[5][0], aContainImg[0][1],'confirmCopyRecipe', 'annulCopyRecipe')
 	$('#annulCopyRecipe').click(function () {
 		$('#errorMessImgWithBtn #messageBtn #annulCopyRecipe').unbind('click').click(function(){
 		});
-		console.log('annul copy')
+		//console.log('annul copy')
 		closeErrorWithImgAndBtn('confirmCopyRecipe', 'annulCopyRecipe');
 	});
 	$('#confirmCopyRecipe').click(function() {
 		$('#errorMessImgWithBtn #messageBtn #confirmCopyRecipe').unbind('click').click(function(){
 		});
-		console.log('ok copy')
 		var idRecette = $('#idRecetteSelectToShow').html();
-		useAjaxReqestJson('index.php?action=copyRecipes', 'POST', 'json', {idRecette: idRecette}, function (data) {
+		useAjaxReqestJson('index.php?action=copyRecipes', 'POST', 'json', {idRecette: idRecette}, true,true,function (data) {
 			if ((Object.keys(data).length === 1) && ("false" in data)) {
 				showError("La recette n'a pas pu être copiée correctement !");
 			} else {
@@ -503,15 +499,16 @@ $('#copyRecipe').click(function() {
 			animMenuRecipe()
 			$('#btnCategory button.allrecipes').click();
 			closeErrorWithImgAndBtn('confirmCopyRecipe', 'annulCopyRecipe');
+			$('#idRecetteSelectToShow').html('');
 		});
 	});
 });
-//}
+
 
 //*****************************************************************************************************************
 //pour supprimer une recette
 //*****************************************************************************************************************
-//function delRecipe() {
+
 	$('#delRecipe').click(function () {
 
 		showMessWithImgAndBtn(aContainNotice[0][0], aContainImg[0][0], aContainImg[0][1], 'confirmDelRecipe', 'annulDelRecipe');
@@ -519,7 +516,6 @@ $('#copyRecipe').click(function() {
 			$('#errorMessImgWithBtn #messageBtn #annulDelRecipe').unbind('click').click(function(){
 
 			});
-			//console.log('annul del')
 			closeErrorWithImgAndBtn('confirmDelRecipe', 'annulDelRecipe');
 		});
 		$('#confirmDelRecipe').click(function () {
@@ -527,181 +523,262 @@ $('#copyRecipe').click(function() {
 
 			});
 
-			//console.log('ok del')
 			var idRecette = $('#idRecetteSelectToShow').html();
-			useAjaxReqestJson('index.php?action=delRecipes', 'POST', 'json', {idRecette: idRecette}, function (data) {
+			useAjaxReqestJson('index.php?action=delRecipes', 'POST', 'json', {idRecette: idRecette}, true,true,function (data) {
 				if ((Object.keys(data).length === 1) && ("false" in data)) {
 					showError("La recette à bien été supprimée !");
+
 				} else {
 					showError("Oups ! La recette n'a pas pu être supprimée !");
 				}
 				animMenuRecipe()
 				$('#btnCategory button.allrecipes').click();
 				closeErrorWithImgAndBtn('confirmDelRecipe', 'annulDelRecipe');
+				$('#idRecetteSelectToShow').html('');
 			});
 		});
 	});
 //}
+
+function pushNewIngInRecipe(newOrModif, btnClick, remove, qt, search, annul, ajout, valQt, valIng, valIdIng, valUnit){
+	if(newOrModif == 'new'){
+		var nbrIng     = document.querySelectorAll('#contentNewFood #contentAllOfNewIng div.whiteSpace');
+		var numBlock = '#newBlockFour';
+		var numBlockHidden = '#newBlockFour div.hideDivAnim';
+	}else{
+		var nbrIng = document.querySelectorAll('#contentModifFood #contentAllOfModifIng div.whiteSpace');
+		var numBlock = '#modifBlockFour';
+		var numBlockHidden = '#modifBlockFour div.hideDivAnim';
+	}
+	var numId      = nbrIng.length;
+
+var div='<div class="flexrow whiteSpace"><span id ="'+remove+numId+'" class="fa fa-times-circle"></span>';
+var div1 = div + '<p id="'+qt+numId+'">'+valQt+'</p>';
+var div2 = div1 +  '<p>'+valUnit+'</p>';
+var div3 = div2 + '<p id="'+search+numId+'" class="'+valIdIng+'">'+valIng+'</p>';
+var div4 = div3 + '<input id="'+ajout+numId+'" type="text" value="" placeholder="Une précision concernant l\'ingrédient ? ex : une marque, un parfum, une couleur..."></div>'
+
+	$(div4).insertBefore($(btnClick));
+
+	resizeDivEtapeFood(numBlock, numBlockHidden);
+}
 //*****************************************************************************************************************
 // pour créer un ingrédient en bdd
 //*****************************************************************************************************************
-function createIngBdd(spanCreate){
-	var div = '<p class="borderTop">Enregistré l\'unité de mesure et l\'appelation de cet ingrédient :</p><div class="flexrow">';
-	var div2 = div + '<br><label for="createIngUnit"></label><select id="createIngUnit" name="createIngUnit"><option value="unit">unit</option><option value="gr">gr</option><option value="cl">cl</option></select>';
-	var div3 = div2 + '<label for="createIngLabel"></label><input type="texte" name ="createIngLabel" id="createIngLabel" placeholder="ingrédient à créer" autocomplete="off"></div>';
-	var div4 = div3 + '<div class="flexrow"><span id ="annulCreateNewIng" class="fas fa-times"></span><span id ="validCreateNewIng" class="fas fa-check"></span></div>';
-	
-	$(div4).insertAfter($(spanCreate));
-	$('#createIngLabel').focus();
-	$(spanCreate).prev().fadeOut(0);
-	$(spanCreate).fadeOut(0);
+function closeFormToPushNewIng(){
 
-	$('#annulCreateNewIng').click(function(){ // lorsqu'on quitte, on supprime les div nouvellement créée
-		$(spanCreate).prev().fadeIn(100);
-		$(spanCreate).fadeIn(100);
-		$(spanCreate).next().remove();
-		$('#annulCreateNewIng').parent().prev().remove();
-		$('#annulCreateNewIng').parent().remove();
-	});
 
-	$('#validCreateNewIng').click(function(){ // en cas de validation, on enregistre en BDD
-		var regex   = /^\D+$/; 
-		newIngUnit  = $('#createIngUnit').val(); 
-		newIngLabel = $('#createIngLabel').val();
-
-		if((regex.test(newIngLabel)) && (newIngLabel != '') && (newIngLabel.length>2)){
-			useAjaxReqestJson('index.php?action=addNewIngBdd', 'POST', 'json', {newIngLabel:newIngLabel, newIngUnit:newIngUnit}, function(data){
-/*			$.post('index.php?action=addNewIngBdd', {newIngLabel:newIngLabel, newIngUnit:newIngUnit}, function(aData){
-				return false;*/
-			});
-
-		$('#annulCreateNewIng').click(); // on simule le click sur le span de fremeture
-		}else{
-			$('#validCreateNewIng').parent().prev().prev().html('<p>L\'ingrédient n\'est pas écrit correctement</p>');
-		}
-		resizeDivEtapeFood('#newBlockFour', '#newBlockFour div.hideDivAnim');
-		resizeDivEtapeFood('#modifBlockFour', '#modifBlockFour div.hideDivAnim');
+		$('#contentSearchIng').delay(0).animate({'height':'0px'},500);
+		$('#bacgroundSearchIng').fadeOut(500)
+		$('#contentSearchAndQt').animate({'opacity': '0'}, 500);
 		
+		$('#contentActionNewIngInBdd').css({'display':'none'});
+		$('#listIngOffBdd').css({'display':'none'});
+		$('#contentInputAddIng').css({'display':'none'});
+		$('#contentSearchAndQt p.legende').css({'display':'none'});
+		$('#validAddNewIngInRecipe').css({'display':'none'});
+		$('#addNewIngInBdd').css({'display':'none'});
+		$('#addNewIngInBdd p.errorPushIngInBdd').css({'display':'none'});
+
+		$('#unitNewIng').html('');
+		document.getElementById("insertNewQtIng").value = "1";
+		document.getElementById("insertNewIng").value = "";
+		document.getElementById("createIngLabel").value = "";
+		$('#insertNewIng').attr('class','');
+}
+
+function createIngInREcipe(newOrModif, btnClick, remove, qt, search, annul, ajout){
+	$('#contentSearchIng').clearQueue();
+	$('#contentSearchAndQt').clearQueue();
+	$('#bacgroundSearchIng').clearQueue();
+
+	$('#annulInsertNewIngAndQt').css({'display':'block'});	
+	$('#contentSearchAndQt p.legende').css({'display':'block'});
+	$('#contentInputAddIng').css({'display':'flex'})
+
+	var heightAll = $('#contentSearchAndQt').outerHeight()
+	$('#contentSearchIng').delay(0).animate({'height': heightAll}, 300);
+
+	$('#bacgroundSearchIng').fadeIn(300)
+	$('#contentSearchAndQt').animate({'opacity': '1'}, 400);
+
+	$('#validAddNewIngInRecipe').click(function(){
+		$('#validAddNewIngInRecipe').unbind('click').click(function(){});
+			pushNewIngInRecipe(newOrModif, btnClick, remove, qt, search, annul,ajout, $('#insertNewQtIng').val(), $('#insertNewIng').val(), $('#insertNewIng').attr('class'), $('#unitNewIng').html());
+			closeFormToPushNewIng()
+		});
+
+
+	$('#annulInsertNewIngAndQt span').click(function(){
+		closeFormToPushNewIng()				
+	});
+	$('#validAddNewIngInBdd').click(function(){
+		pushNewIngInBdd()
 	});
 }
+//--------------------------------------------------
+function pushNewIngInBdd(){
+	$('#contentActionNewIngInBdd').css({'display':'none'});
+	$('#MessNoExistInBdd').css({'display':'none'});
+	$('#listIngOffBdd').css({'display':'none'});
+	$('#contentInputAddIng').css({'display':'none'})
+	$('#contentSearchAndQt p.legende').css({'display':'none'})
+	$('#addNewIngInBdd p.errorPushIngInBdd').css({'display':'none'});
+
+	$('#addNewIngInBdd').css({'display':'block'});
+	$('#addNewIngInBdd p.legende').css({'display':'block'});
+			
+	resizeDivContentFormPushIng()
+
+	$('#validInsertNewIngAndQt').click(function(){
+	newIngUnit  =  document.getElementById("createIngUnit").value; 
+	newIngLabel = document.getElementById("createIngLabel").value;
+
+		useAjaxReqestJson('index.php?action=addNewIngBdd', 'POST', 'json', {newIngLabel:newIngLabel, newIngUnit:newIngUnit}, true,true,function(data){
+			if((Object.keys(data).length === 1)&&("false" in data)){
+				$('#addNewIngInBdd p.errorPushIngInBdd').css({'display':'block'});
+				resizeDivContentFormPushIng()
+			}else{
+				$('#unitNewIng').html(data[0]['unit']);
+				document.getElementById("insertNewIng").value = data[0]['title'];
+				$('#insertNewIng').attr('class', data[0]['id_ingredient'])
+				$('#annulInsertNewIngInBdd').click();
+			}
+		});
+	})
+	$('#annulInsertNewIngInBdd').click(function(){
+		$('#addNewIngInBdd').css({'display':'none'});
+		$('#addNewIngInBdd p.errorPushIngInBdd').css({'display':'none'});
+		$('#contentInputAddIng').css({'display':'flex'})
+		$('#contentSearchAndQt p.legende').css({'display':'block'});	
+		$('#validAddNewIngInRecipe').css({'display':'block'});
+		resizeDivContentFormPushIng()
+	});
+
+}
+//--------------------------------------------------
+function resizeListIngBdd(){	
+	$('#listIngOffBdd').css({'display':'block'});	
+	resizeDivContentFormPushIng()
+}
+function closeListInBdd(){
+	$('#listIngOffBdd').css({'display':'none'});
+	resizeDivContentFormPushIng()
+}
+//--------------------------------------------------
+function resizeDivForShowAction(){	
+
+	$('#validAddNewIngInRecipe').css({'display':'none'});
+	$('#MessNoExistInBdd').css({'display':'block'});
+	$('#contentActionNewIngInBdd').css({'display':'block'});
+	resizeDivContentFormPushIng()
+}
+function closeDivForShowAction(){
+	$('#contentActionNewIngInBdd').css({'display':'none'});
+	$('#MessNoExistInBdd').css({'display':'none'});
+	resizeDivContentFormPushIng()
+}
+
+function resizeDivContentFormPushIng(){
+		$('#contentSearchIng').clearQueue();
+	setTimeout(function(){
+		var heightDiv = $('#contentSearchAndQt').outerHeight();
+		$('#contentSearchIng').animate({'height': heightDiv},200)
+	}, 300)
+}
+//--------------------------------------------------
+
+searchBar('#insertNewQtIng', '#insertNewIng', '#unitNewIng', '#navListIng', '#validAddNewIngInRecipe');
 //*****************************************************************************************************************
 // barre de recherche
 //*****************************************************************************************************************
-function searchBar(idQuantity, idInput, idAnnulIng, idNewIng, idCreateIng){
-	var classActelle = '';
+function searchBar(idQuantity, idInput, idUnit, ulListIngBdd, idBtnAddIngInrecipe){
+		var classActelle = '';
 
-	$('#'+idInput).focus(function() {
+		$(idInput).change(function() {
+			if($(idInput).attr('class') == ""){
+				$(idInput).attr('value',"")
+			}
+		});
 
-		classActelle  = $(this).attr('class');
-		valueActuelle = $(this).val();
-		var showIng   = $(this).parent().next();
-		var valueNp   = $(this).val();
-		var value     = escapeHtml(valueNp);
-  		
+		$(idInput).focus(function() {
+			if($(idInput).attr('class') == ""){
+				$(idInput).attr('value',"")
+			}
 		
-		$('#'+idInput).keyup(function(){ // a chaque touche enfoncée
+			$(idInput).keyup(function(){ // a chaque touche enfoncée
+				var valueNp    = $(idInput).val();
+				var value      = escapeHtml(valueNp);
+				$(idInput).removeClass();
 
-			var elemActuel = $(this);
-			var valueNp    = $(this).val();
-			var value      = escapeHtml(valueNp);
-			$(this).removeClass();
+				if(value.length > 1){
+					useAjaxReqestJson('index.php?action=searchBarIngredient', 'POST', 'json', {value:value}, true,true,function(data){
+						if((Object.keys(data).length === 1)&&("false" in data)){
+							resizeDivForShowAction()
+							closeListInBdd()
+						}else{
+							closeDivForShowAction()
+							var list = ''; // on les récupère
+							for( var i = 0 ; i < data.length ; i++){
+								list = list + '<li class="'+data[i]['id_ingredient']+' '+data[i]['unit']+'"><p>'+escapeHtml(data[i]['title'])+'</p><img src=""></li>';
+								$(ulListIngBdd).html(list);// on les affiche
+								resizeListIngBdd()
 
-			if(value.length > 1){
-				useAjaxReqestJson('index.php?action=searchBarIngredient', 'POST', 'json', {value:value}, function(data){
-					if((Object.keys(data).length === 1)&&("false" in data)){
-						$(showIng).html('<p class="error">Cet ingrédient n\'existe pas dans le lexique...');
-					}else{
-						var list = '<div><i id="popSearch" class="far fa-question-circle"></i></div>'; // on les récupère
+								if(($(ulListIngBdd).children('li').length === 1) && (data[i]['title'].toLowerCase() === value.toLowerCase())){ // si la saisie correspond a un des ingredient de la liste
 
-						for( var i = 0 ; i < data.length ; i++){
-							list = list + '<span class="'+data[i]['id_ingredient']+' '+data[i]['unit']+'">'+escapeHtml(data[i]['title'])+'</span><br>';
-							$(showIng).html(list);// on les affiche
-
-							if(($(showIng).children('span').length === 1) && (data[i]['title'].toLowerCase() === value.toLowerCase())){ // si la saisie correspond a un des ingredient de la liste
-
-								$(elemActuel).attr('value', escapeHtml(data[i]['title']));
-								$(elemActuel).prev().prev().prev().attr('value', 1);
-
-								$(elemActuel).prev().prev().html(data[i]['unit']);
-								$(elemActuel).addClass(data[i]['id_ingredient']); // on ajoute l'id de l'ingredient en guise de classe
-
-								$('#'+idInput).prev().prev().prev().prev().prev().fadeIn()// affiche le span minus devant l'input qt
-								$('#'+idNewIng).fadeIn(100); // affiche "Ajouter un ingrédient à la recette"
-								$('#'+idCreateIng).fadeIn(100); // affiche "ajouter un ingrédient au lexique"
-
-								$('#'+idAnnulIng).parent().remove(); // supprime le bouton annulation d'ajout
-								$(showIng).html('');
-								break;
+									$(idInput).attr('value', escapeHtml(data[i]['title']));
+									$(idInput).attr('class', escapeHtml(data[i]['id_ingredient']));
+									$(idUnit).html(data[i]['unit']);
+									$(ulListIngBdd).html('');
+									closeListInBdd()
+									$(idBtnAddIngInrecipe).css({'display':'block'});
+									break;
+								}
 							}
-						}
+							var elementIng = $(ulListIngBdd).children('li'); 
 
-						var elemenSpanIng = $('#'+idInput).parent().next().children('span'); 
+							$(elementIng).hover(function(){ // en cas de hover sur la liste, on pré-remplis les champs
 
-						$(elemenSpanIng).hover(function(){ // en cas de hover sur la liste, on pré-remplis les champs
+								var classNewIng= $(this).attr('class');
 
-							var classNewIng= $(this).attr('class');
+								var newIdIngredient = classNewIng.split(' ')[0]; // on récupère l'id de l'ingrédient sélectionné
+								var newUnitIngredient = classNewIng.split(' ')[1]; // on récupère sa mesure
+								var newtitleIngredient = $(this).children('p').html();
 
-							var newIdIngredient = classNewIng.split(' ')[0]; // on récupère l'id de l'ingrédient sélectionné
-							var newUnitIngredient = classNewIng.split(' ')[1]; // on récupère sa mesure
-							var newtitleIngredient = $(this).html();
+								$(idUnit).html(newUnitIngredient); // on affiche la nouvelle
+								$(idInput).removeClass(); // on supprime la class actuelle
+								$(idInput).addClass(newIdIngredient); // on ajoute à la place l'id du nouvel ingrédient
+								$(idInput).val(newtitleIngredient); // on affiche la valeur
+							});
 
-							var parentQt = $('#'+idQuantity); // sélectionne le input des mesures
-							var parentUnit = $(this).parent().prev().children('p');
-							var parentLabel = $('#'+idInput); // selection le input pour insérer le nouvel ingrédient
+							$(elementIng).click(function(){ // lors du click sur l'un des ingrédients, on remplis les champs
+
+								var classNewIng= $(this).attr('class'); 
+
+								var newIdIngredient = classNewIng.split(' ')[0]; // on récupère l'id de l'ingrédient sélectionné
+								var newUnitIngredient = classNewIng.split(' ')[1]; // on récupère sa mesure
+								var newtitleIngredient = $(this).children('p').html();
+
+								$(idUnit).html(newUnitIngredient);
+								$(idInput).removeClass(); // on supprime la class actuelle
+								$(idInput).addClass(newIdIngredient); // on ajoute à la place l'id du nouvel ingrédient
+								$(idInput).val(newtitleIngredient); // on affiche la valeur
+
+								$(ulListIngBdd).html('');
+								$(idBtnAddIngInrecipe).css({'display':'block'});
+								closeListInBdd()
 							
-							$(parentQt).attr('value', 1); // valeur par défault
 
-							$(parentUnit).empty(); // supprime l'unité de mesure actuelle
-							$(parentUnit).html(newUnitIngredient); // on affiche la nouvelle
+							});
+						}
+					});
+				}else{
+					$(ulListIngBdd).html('');
+					closeListInBdd()
+					closeDivForShowAction();
+				}
+			});
 
-							$(parentLabel).removeClass(); // on supprime la class actuelle
-							$(parentLabel).addClass(newIdIngredient); // on ajoute à la place l'id du nouvel ingrédient
-							$(parentLabel).val(newtitleIngredient); // on affiche la valeur
-						});
-
-						$(elemenSpanIng).click(function(){ // lors du click sur l'un des ingrédients, on remplis les champs
-
-							var classNewIng= $(this).attr('class'); 
-
-							var newIdIngredient = classNewIng.split(' ')[0]; // on récupère l'id de l'ingrédient sélectionné
-							var newUnitIngredient = classNewIng.split(' ')[1]; // on récupère sa mesure
-							var newtitleIngredient = $(this).html();
-
-							var parentQt = $('#'+idQuantity); // sélectionne le input des mesures
-							var parentUnit = $(this).parent().prev().children('p');
-							var parentLabel = $('#'+idInput); // selection le input pour insérer le nouvel ingrédient
-
-							$(parentQt).attr('value', 1);
-							$(parentQt).prev().prev().fadeIn(0);
-							$('#'+idAnnulIng).parent().remove();
-
-							$('#'+idNewIng).fadeIn(100);
-							$('#'+idCreateIng).fadeIn(100);
-
-							$(parentUnit).html(newUnitIngredient);
-
-							$(parentLabel).addClass(newIdIngredient);
-							$(parentLabel).val(newtitleIngredient);
-
-							$(this).parent().empty(); // on vide la liste des ingrédients
-
-						});
-					}
-					return false;
-				});
-			}
-		});
-		$('#'+idInput).change(function() {
-			if($(this).val().length < 3){
-				$(this).attr('value', '');
-				$(this).attr('class', '');
-			}
-			if(($(this).attr('class')=== '')&&($('#okCreateNewIng') === undefined)){
-				$(this).addClass(classActelle);
-				$(this).val(valueActuelle);
-				$(showIng).empty();
-			}
-		});
+		
 	});
 }
-

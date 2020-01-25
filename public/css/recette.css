@@ -1,305 +1,306 @@
+section#recetteContainDiv div.fondTitle, section#userAccompte div.fondTitle
+	{
+	height: 155px;
+	background-image: url('../img/kajoo/kajoo7.png');
+}
 
+section#recetteContainDiv div.fondTitle h1, section#userAccompte div.fondTitle h1
+	{
+	margin-top: 90px;
+}
 
-section #btnCategory, #btnCategoryFriend{
+section #btnCategory, #btnCategoryFriend {
 	display: flex;
-	justify-content: left;
 	width: 80%;
-flex-wrap: wrap;
-	height: auto;
-	margin-bottom: 10px;
+	flex-wrap: wrap;
+	margin: 30px 0 10px 0;
 	justify-content: center;
 	height: auto;
 }
-section #btnCategory button, #btnCategoryFriend button{
-	margin: 10px;
-	padding:10px;
-font-family: 'Open Sans Condensed', sans-serif;
-border-radius: 2px;
-height: 50px;
-border: 1px solid #fff;
-background-color:#fff0;
-font-size: 1.2em;
-box-shadow: 0px 0px 5px #6b6a6a;
-color:white;
-background-image: url('../img/fondCajou.jpg');
-text-shadow: 0 0 1px black;
-	cursor:pointer;
-}
-section #btnCategory button:hover, #btnCategoryFriend button:hover{
-	background-color: #ffffff5e;
-	box-shadow: 2px 2px 5px black;
 
+section #btnCategory button, #btnCategoryFriend button {
+	cursor: pointer;
 }
-section#recetteContainDiv #actionCategory input, section#recetteContainDiv #actionCategory select{
-width: 280px;
+
+section#recetteContainDiv #actionCategory input, section#recetteContainDiv #actionCategory select
+	{
+	width: 280px;
 }
+
 section#recetteContainDiv .formLogin {
-
-    text-align: left;
-    margin: auto;
-        margin-top: auto;
-    margin-top: 15px;
-
+	text-align: left;
+	margin: auto;
+	margin-top: auto;
+	margin-top: 15px;
 }
 
-#contentModifViewRecipe > div:nth-child(1) > div:nth-child(1){
-	justify-content: space-evenly;
-}
-#contentNewViewRecipe > div:nth-child(1) > div:nth-child(2), #contentViewRecipe > div:nth-child(2) > div:nth-child(1){
-	justify-content: center;
-}
-#contentViewRecipe > div:nth-child(2) > div:nth-child(1)
-{
-	margin: 20px 0
-}
-#contentModifEtape select, #contentNewEtape select{
+#contentModifEtape select, #contentNewEtape select {
 	width: 50px;
 }
-#contentModifEtape select option, #divAddCateg select option, #divModifCateg select option, #divDelCateg select option, #contentModifViewRecipe select option, #contentNewViewRecipe select option{
-	font-size: 0.6em;
-}
-section#recetteContainDiv h2{
-	display:inline-block;
-	margin:0px 0 10px 0;
+
+section#recetteContainDiv h2 {
+	display: inline-block;
+	margin: 0px 0 10px 0;
 	cursor: pointer;
 	font-family: 'Open Sans Condensed', sans-serif;
+	color: black;
 }
-section#recetteContainDiv h2:hover{
-font-size: 1.7em;
-text-shadow:2px 2px 5px #02020280;
-	}
-section#recetteContainDiv #contentNewRecipe p, section#recetteContainDiv #contentViewRecipe p, section#recetteContainDiv #contentModifViewRecipe p{
-color:black;
-font-weight: bold;
-text-shadow: 0px 0px 2px #fff;
-font-family: 'Handlee', cursive;
-font-size: 0.9em;
+.hiddenIngDiv{
+	opacity: 0;
 }
-#contentNewRecipe, #contentViewRecipe, #contentModifViewRecipe{
-    width: 80%;
-    text-align: center;
-    height: auto;
+.hiddenIngDiv.whiteSpace{
+	padding: 20px 0 0 35px;
+}
+section#recetteContainDiv h2:hover {
+	font-size: 1.7em;
+	text-shadow: 2px 2px 5px #02020280;
+}
 
-overflow: hidden;
-    }
-    #contentViewRecipe{
-    	text-align: left;
-    }
-section#recetteContainDiv #contentNewRecipe span, section#recetteContainDiv #contentViewRecipe span, section#recetteContainDiv #contentModifViewRecipe span{
-color: white;
-text-shadow: 1px 1px 1px #000;
-font-size:1em;
+/*#contentNewRecipe, #contentViewRecipe, #contentModifViewRecipe {
+
+}*/
+
+#contentViewRecipe {
+	text-align: left;
 }
+
 section#recetteContainDiv #contentNewRecipe span.fa-pepper-hot, section#recetteContainDiv #contentModifViewRecipe span.fa-pepper-hot,
-section#recetteContainDiv #contentNewRecipe span.fa-coins, section#recetteContainDiv #contentModifViewRecipe span.fa-coins{
-color: #864002;
-text-shadow: none;
+	section#recetteContainDiv #contentNewRecipe span.fa-coins, section#recetteContainDiv #contentModifViewRecipe span.fa-coins
+	{
+	color: #864002;
+	text-shadow: none;
 }
-section#recetteContainDiv #contentNewRecipe span.fa-times, section#recetteContainDiv #contentModifViewRecipe span.fa-times{
-padding: 10px;
+
+section#recetteContainDiv #contentNewRecipe span.fa-times, section#recetteContainDiv #contentModifViewRecipe span.fa-times
+	{
+	padding: 10px;
 }
-section#recetteContainDiv  #contentNewFood div.flexrow, section#recetteContainDiv  #contentModifFood div.flexrow{
-margin-top:10px;
-}
-section#recetteContainDiv p.borderTop{
+
+/*section#recetteContainDiv  #contentNewFood div.flexrow, section#recetteContainDiv  #contentModifFood div.flexrow
+	{
+	margin-top: 10px;
+}*/
+
+section#recetteContainDiv p.borderTop {
 	padding-top: 10px;
 }
-#menuCategChoice{
+
+#menuCategChoice {
 	justify-content: space-around;
 	margin-top: 20px;
 	height: 35px;
 }
-#actionCategory > div:nth-child(2), #actionCategory > div:nth-child(3), #actionCategory > div:nth-child(4){
+
+#actionCategory>div:nth-child(2), #actionCategory>div:nth-child(3),
+	#actionCategory>div:nth-child(4) {
 	justify-content: center;
 }
-section#recetteContainDiv #contentNewRecipe > h2:nth-child(1){
+
+section#recetteContainDiv #contentNewRecipe>h2:nth-child(1) {
 	text-align: center;
 	height: 35px;
 	margin-top: 20px;
 }
-section#recetteContainDiv #alphaNewModifRecipe, section#recetteContainDiv #newAlphaRecipe{
-width:40px;
-}
-section#recetteContainDiv #selectNewCategRecipe, section#recetteContainDiv #selectModifCategRecipe{
-width:180px;
-}
-#titleModifRecipe{
-	width: 80%
-}
-section#recetteContainDiv #contentNewViewRecipe input, 
-section#recetteContainDiv #selectNewCategRecipe, section#recetteContainDiv #selectModifCategRecipe,
-section#recetteContainDiv #contentModifViewRecipe #titleNewModifRecipe, section#recetteContainDiv #newTitleRecipe, 
-section#recetteContainDiv #contentModifViewRecipe input{
-border:0;
-border-bottom: 1px solid white;
-background: #ffffff7a;
-border-radius: 0px;
-text-align: center;
-	font-family: 'Handlee', cursive;
-	padding-left: 0px;
+
+section#recetteContainDiv #alphaNewModifRecipe, section#recetteContainDiv #newAlphaRecipe
+	{
+	width: 40px;
 }
 
-section#recetteContainDiv #contentModifViewRecipe #titleModifRecipe #titleNewModifRecipe, section#recetteContainDiv #newTitleRecipe{
-width:100%;
-font-family: 'Handlee', cursive;
-font-size: 1.7em;
+section#recetteContainDiv #selectNewCategRecipe, section#recetteContainDiv #selectModifCategRecipe
+	{
+	width: 180px;
 }
-section#recetteContainDiv div#titleNewRecipe{
-	width:70%;
-}
-section#recetteContainDiv select{
+
+section#recetteContainDiv select {
 	width: 80px;
 }
-section#recetteContainDiv div.etapeRecipeFlex select{
+
+section#recetteContainDiv div.etapeRecipeFlex select {
 	width: 50px;
 	height: 30px;
 }
-section#recetteContainDiv #contentViewRecipe span.fas.fa-heart.emptySpan,section#recetteContainDiv #contentNewRecipe span.fas.fa-heart.emptySpan, section#recetteContainDiv #contentModifViewRecipe span.fas.fa-heart.emptySpan{
+
+section#recetteContainDiv #contentViewRecipe span.fas.fa-heart.emptySpan,
+	section#recetteContainDiv #contentNewRecipe span.fas.fa-heart.emptySpan,
+	section#recetteContainDiv #contentModifViewRecipe span.fas.fa-heart.emptySpan
+	{
 	font-size: 1.9em;
-	margin:0;
+	margin: 0;
 	height: 30px;
 	width: 30px;
 }
-div.pushIngDiv > p:nth-child(4){
-	width:30px;
+
+div.pushIngDiv>p:nth-child(4) {
+	width: 30px;
 }
 
-section#recetteContainDiv form label{
-	width:auto;
+section#recetteContainDiv form label {
+	width: auto;
 	margin-top: 20px;
 	color: white;
 }
-/*#actionCategory > div:nth-child(2), #actionCategory > div:nth-child(3), #actionCategory > div:nth-child(4){
-width: 100%;
-justify-content: center;
 
-}*/
-#divAddCateg, #divModifCateg, #divDelCateg{
+#divAddCateg, #divModifCateg, #divDelCateg {
 	overflow: hidden;
-height: 0px;
+	height: 0px;
 }
-section #divAddCateg form, section #divModifCateg form, section #divDelCateg form{
-	box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.51) inset;
-border-radius: 5px;
-border: 1px solid white;
-background: #848383c4;
+
+section #divAddCateg form, section #divModifCateg form, section #divDelCateg form
+	{
+	box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.6) inset;
+	border-radius: 5px;
+	border: 1px solid #1c1c1c;
+	background: #7b0e02;
 	display: flex;
-padding: 10px 30px;
-flex-direction: column;
-justify-content: center;
-margin-top:20px;
-align-items: center;
-width: max-content;
-opacity: 0;
-}
-section #divAddCateg form label, section #divModifCateg form label, section #divDelCateg form label{
-font-family: 'Open Sans Condensed', sans-serif;
-font-size: 1.1em;
-}
-section#recetteContainDiv #divModifCateg form span, section#recetteContainDiv #divAddCateg form span,
-section#recetteContainDiv #divDelCateg form span{
-margin: 10px;
-padding: 8px 15px 15px 15px;
-border-radius: 2px;
-height: 20px;
-text-align: center;
-border: 1px solid #fff;
-background-color: #fff0;
-font-size: 1.2em;
-box-shadow: 0px 0px 5px #6b6a6a;
-color: white;
-text-shadow: 0 0 1px black;
-}
-#contentViewRecipe, #contentModifViewRecipe, #contentNewViewRecipe{
-/*background: linear-gradient(#ffcfacab,#392626);*/
-background: #aeaeaec7;
-padding: 20px;
-margin-bottom: 30px;
-box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.51) inset;
-border-radius: 20px;
-border: 2px solid white;
-}
-
-
-
-
-#contentViewRecipe hr, #contentModifViewRecipe hr, #contentNewViewRecipe hr{
-border:1px dashed #864002
-}
-
-#contentRecipesMenu{
-overflow: hidden;
-height: 0px;
-}
-#recipesAlpha, #paginationRecipe{
-	height:35px;
+	padding: 10px 30px;
+	flex-direction: column;
+	justify-content: center;
+	margin-top: 20px;
+	align-items: center;
+	width: max-content;
 	opacity: 0;
 }
-#recipesAlpha nav ul{
-	margin-top:0;
+
+section #divAddCateg form label, section #divModifCateg form label,
+	section #divDelCateg form label {
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 1.1em;
+}
+
+section #divAddCateg form input, section #divModifCateg form input,
+	section #divDelCateg form input, section #divAddCateg form select,
+	section #divModifCateg form select, section #divDelCateg form select {
+	background-color: #ffffffb0;
+}
+
+section#recetteContainDiv #divModifCateg form span, section#recetteContainDiv #divAddCateg form span,
+	section#recetteContainDiv #divDelCateg form span {
+	margin: 10px;
+	padding: 8px 15px 15px 15px;
+	border-radius: 2px;
+	height: 20px;
+	text-align: center;
+	border: 1px solid #fff;
+	background-color: #fff0;
+	font-size: 1.2em;
+	box-shadow: 0px 0px 5px #6b6a6a;
+	color: white;
+	text-shadow: 0 0 1px black;
+	cursor: pointer;
+}
+ #contentNewRecipe{
+ 	width: 100%;
+ 	text-align: center;
+ }
+section#recetteContainDiv #divModifCateg form span:hover, section#recetteContainDiv #divAddCateg form span:hover,
+	section#recetteContainDiv #divDelCateg form span:hover {
+	color: #6a0a00c4;
+}
+
+#contentViewRecipe, #contentModifViewRecipe, #contentNewViewRecipe {
+	margin-bottom: 30px;
+	box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.51);
+	background-color: #faebd791;
+	font-size: 0.9em;
+		width: 100%;
+	text-align: center;
+	height: auto;
+	overflow: hidden;
+}
+
+#contentModifViewRecipe, #contentNewViewRecipe {
+	background-color: #ffffff91;
+}
+
+#recipesAlpha span {
+	color: antiquewhite;
+}
+
+#contentViewRecipe hr, #contentModifViewRecipe hr, #contentNewViewRecipe hr
+	{
+	border: 1px dashed #9f0505
+}
+
+#contentRecipesMenu {
+	overflow: hidden;
+	height: 40px;
+}
+
+#recipesAlpha, #paginationRecipe {
+	opacity: 0;
+}
+
+#recipesAlpha {
+	background-color: #9f0505;
+}
+
+#recipesAlpha nav ul {
+	margin-top: 0;
 	display: flex;
 	flex-direction: row;
 	text-decoration: none;
 	list-style: none;
+	height: 39px;
 }
-#recipesAlpha nav ul li{
+
+#recipesAlpha nav ul li, #paginationRecipe nav ul li {
 	margin: 0 5px;
 	cursor: pointer;
 	font-size: 1.3em;
-	width:30px;
-}
-#recipesAlpha li:hover, #paginationRecipe li:hover{
-	font-size: 1.4em;
-}
-
-#recipesAlpha nav ul li span{
 	width: 30px;
-	padding: 0 2px;
+	color: white;
 }
-/*#recipesAlpha nav ul li:hover{
-	color:#d2a405;
-}*/
 
-#paginationRecipe span{
-	color:white;
-		width:30px;
+#recipesAlpha li:hover, #paginationRecipe li:hover {
+	font-size: 1.4em;
+	font-weight: bold;
+	text-shadow: 0px 0px 2px #020202;
 }
-#paginationRecipe nav ul{
+
+#paginationRecipe span {
+	
+}
+
+#paginationRecipe nav ul {
 	display: flex;
-		margin-top:0;
+	margin-top: 0;
 	flex-direction: row;
 	text-decoration: none;
 	list-style: none;
-	}
-	#paginationRecipe nav ul li{
-	margin: 0 5px;
-	cursor: pointer;
-width:30px;
-	}
-#paginationRecipe span.active{
-	color:#864002;
 }
-#recipes #btnRecipeLeft, #recipes #btnRecipeRight{
-	width:15px;
+
+#paginationRecipe span.active {
+	color: #9f0505;
+}
+
+#recipes #btnRecipeLeft, #recipes #btnRecipeRight {
+	width: 15px;
 	position: absolute;
 }
-#recipes #btnRecipeLeft{
-	left:0;
+
+#recipes #btnRecipeLeft {
+	left: 0;
 }
-#recipes #btnRecipeRight{
-	right:0;
+
+#recipes #btnRecipeRight {
+	right: 0;
 }
-#recipes #btnRecipeLeft span, #recipes #btnRecipeRight span{
-	cursor:pointer;
+
+#recipes #btnRecipeLeft span, #recipes #btnRecipeRight span {
+	cursor: pointer;
 	display: none;
 }
-#recipes div#listRecipeGroup{
-	width:100%;
+
+#recipes div#listRecipeGroup {
+	width: 100%;
 }
-section#recetteContainDiv #recipes{
-	width:100%;
+
+section#recetteContainDiv #recipes {
+	width: 100%;
 }
-section#recetteContainDiv #recipes nav ul{
+
+section#recetteContainDiv #recipes nav ul {
 	text-decoration: none;
 	list-style: none;
 	display: flex;
@@ -310,408 +311,510 @@ section#recetteContainDiv #recipes nav ul{
 	margin: 0;
 }
 
-section#recetteContainDiv #recipes nav ul div{
+section#recetteContainDiv #recipes nav ul div {
 	display: flex;
 	flex-direction: column;
-	width:100%;
+	width: 100%;
 	flex-wrap: wrap;
+}
 
+#contentNewRecipe>hr {
+	margin-bottom: 10px;
 }
-#contentNewRecipe > hr{
-margin-bottom: 10px;
-}
-section#recetteContainDiv #recipes nav ul img{
-	width:20px;
+
+section#recetteContainDiv #recipes nav ul img {
+	width: 20px;
 	margin-right: 5px;
 }
-#love img, #Modiflove img, #Newlove img{
-	width:30px;
-	height:30px;
+
+#love img, #Modiflove img, #Newlove img {
+	width: 30px;
+	height: 30px;
 }
-#recipes nav ul li span:nth-child(1){
+
+#recipes nav ul li span:nth-child(1) {
 	margin-right: 18px;
 }
-section#recetteContainDiv #recipes nav ul li{
-	height: 20px;
-align-items: center;
-display: flex;
 
-margin: 5px;
+section#recetteContainDiv #recipes nav ul li {
+	height: 20px;
+	align-items: center;
+	display: flex;
+	margin: 5px;
 }
-section#recetteContainDiv #recipes nav ul li span{
+
+section#recetteContainDiv #recipes nav ul li span {
 	cursor: pointer;
 	font-size: 1.1em;
 	color: rgb(134, 64, 2);
 	text-shadow: 0px 0px 1px #020202;
-	
-	}
-section#recetteContainDiv #recipes nav ul li span:hover{
-	color:rgb(210, 206, 190);
-	font-size: 1.3em;
 }
-#titleRecipe{
-	font-size: 1.5em;
-	font-family: 'Handlee', cursive;
 
-color:#864002;
+section#recetteContainDiv #recipes nav ul li span:hover {
+	color: white;
+	font-size: 1.2em;
+	font-weight: bold;
+	text-shadow: 0px 0px 2px #020202;
+}
+
+#titleRecipe {
+	font-size: 2em;
+	font-family: 'Handlee', cursive;
+	color: #9f0505;
 	text-shadow: 1px 1px 1px #a7a7a7;
 	font-weight: bold;
 }
-#Modiflove, #love{
-	width:40px;
+
+#Modiflove, #love {
+	width: 40px;
 	height: 40px;
 }
 
-
-.upload-zone-wait{
-	height:150px;
-	border:2px dashed #ccc;
+.upload-zone-wait {
+	height: 150px;
+	border: 2px dashed #ccc;
 	line-height: 150px;
-	color : #ccc;
+	color: #ccc;
 	text-align: center;
 	margin-bottom: 12px;
 }
-.upload-zone-wait.over{
+
+.upload-zone-wait.over {
 	background-color: #F8DADA;
 }
 
-#formImgRecipe, #modifFormImgRecipe{
+#formImgRecipe, #modifFormImgRecipe, #idRecetteSelectToShow {
 	display: none;
 }
-#contentRecipe{
-	padding: 0 20px 20px 20px;
+
+.price, .hard {
+	height: 40px;
+	width: 40px;
+	background-size: contain;
+	background-repeat: no-repeat;
 }
 
-#contentNewRecipeInfos, #contentModifRecipe{
-	min-height: 250px;
+.hard {
+	background-image: url('../img/kajoo/kajoo9.png');
+}
+
+.price {
+	background-image: url('../img/kajoo/kajoo10.png');
+}
+
+#contentRecipe, #contentNewRecipeInfos, #contentModifRecipe {
+	padding: 0 20px 20px 20px;
 	justify-content: space-evenly;
-	background-color: #ffffff45;
-	min-width: 315px;
+	min-height: 180px;
+	min-width: 350px;
 }
-#imgViewRecipe{
+
+#contentNewRecipeInfos>div, #contentRecipe>div, #contentModifRecipe>div
+	{
+	align-items: center;
+	height: 40px
+}
+
+#imgViewRecipe {
 	justify-content: center;
-align-items: center;
-margin: auto;
+	align-items: center;
+	margin: auto;
 }
-#contentRecipe{
-justify-content: space-evenly;
-background-color: #ffffff45;
-min-height: 180px;
-min-width: 280px;
-}
-#contentModifRecipe p{
+
+#contentModifRecipe p {
 	margin-left: 20px;
 }
 
+#contentModifEtape, #etapeRecipeFlex {
+	width: 100%;
+}
 
- #contentModifEtape, #etapeRecipeFlex{
- 	width:100%;
- }
-#contentFoodEtape{
+#contentFoodEtape {
 	margin-top: 50px;
+	margin-top: 50px;
+
+border-top: 2px dotted #9f0505;
+
+padding-top: 20px;
 }
-#contentFood p{
-	margin:0 0 10px 20px;
+
+#contentFood p {
+	margin: 0 0 10px 20px;
 }
-/*#contentFood > p:nth-child(1){
-	margin: 0 0 20px 0;
-}*/
-#contentFood, #contentNewFood, #contentModifFood{
+
+#contentFood, #contentNewFood, #contentModifFood {
 	max-width: 400px;
 	margin-bottom: 30px;
 	width: 40%;
+	text-align: left;
 }
-#contentNewFood label, #contentModifFood label,#contentNewEtape label, #contentModifEtape label{
-width: 10px;
+#contentNewFood div.whiteSpace input, #contentModifFood div.whiteSpace input{
+font-size: 1em;
+padding: 2px 0 2px 4px;
+height: 20px;
+width: 100%;
+min-width: 100px;
+text-align: left;
 }
-html body section#recetteContainDiv.flexColumn div#contentNewRecipe div#contentNewViewRecipe div.flexColumn div#contentNewFoodEtape.flexrow div#contentNewFood.flexColumn div{
-	display: flex;
-	flex-direction: row;
-}
-/*#contentFood p:nth-child(1), #contentEtape div.etapeRecipeFlex div p:nth-child(1), #contentEtape div.etapeRecipeFlex div hr+p, #contentNewEtape div.etapeRecipeFlex div hr+p{
-	font-weight: bold;
-	color: #d2a405;
-	text-shadow: 1px 1px 1px #a7a7a7;
-	font-size: 1.2em;
-}*/
-
-#okCreateNewIng, #noCreateNewIng{
-	margin-right:15px;
-}
-
-#contentNewViewRecipe #newMessErrorIng{
-	height:0;
-}
-/*#contentModifViewRecipe input, #contentModifViewRecipe textarea, #contentNewViewRecipe input, #contentNewViewRecipe textarea{
-	border-radius: 2px;
-    height: 30px;
-    width: 200px;
-    font-size: 0.9em;
-    padding-left: 10px;
-    margin: 5px 5px 0 5px;
-    background-color:#ffffff7a;
-border: 1px solid #fff;
-}*/
-#contentModifViewRecipe textarea, #contentNewViewRecipe textarea{
- background-color: #fff0;
- border:1px solid white;
- 	width: 100%;
-
+#contentFood img{
+height:40px;
+width:40px;
+	}
+ #contentNewFood div.whiteSpace, #contentModifFood div.whiteSpace ,#contentFood div.whiteSpace{
+flex-wrap: wrap;
+margin-left: 10px;
  }
-section#recetteContainDiv #contentModifViewRecipe input[type="file"], section#recetteContainDiv #contentNewViewRecipe input[type="file"]{
-	background:transparent;
-border: 0;
-font-size: 0.8em;
-}
-section#recetteContainDiv #contentModifViewRecipe form#formImgRecipe  span#submitImgRecipeModif, section#recetteContainDiv #contentNewViewRecipe form#formImgRecipe span#submitImgRecipeNew{
-padding: 5px 15px;
-}
-#alphaModifRecipe input, #alphaNewRecipe input{
-	width:20px;
-}
-#contentModifFood div.flexrow.pushIngDiv > input:nth-child(3), #contentNewFood div.flexrow > input:nth-child(3){
-	width:50px;
-}
-#contentModifFood div.flexrow.pushIngDiv > span.fa-minus:nth-child(1), #contentNewFood div.flexrow > span.fa-minus:nth-child(1){
-	margin-top: 8px;
+#contentModifFood div.flexrow.pushIngDiv>span.fa-minus:nth-child(1),
+	#contentNewFood div.flexrow>span.fa-minus:nth-child(1) {
 	margin: 0 10px;
 }
+#okCreateNewIng, #noCreateNewIng {
+	margin-right: 15px;
+}
 
-
-#contentModifFoodEtape div.flexrow, #contentNewFoodEtape div.flexrow{
-	align-items: center;
-	margin-bottom: 15px
+#contentNewViewRecipe #newMessErrorIng {
+	height: 0;
 }
-#contentModifFoodEtape div.flexrow p, #contentNewFoodEtape div.flexrow p, #contentModifFoodEtape div.flexrow div.flexrow, #contentNewFoodEtape div.flexrow div.flexrow{
-	padding:0 5px;
+#contentFood{
+	background: linear-gradient(0.25turn, #fff, #fff0);
 }
-#contentModifFoodEtape div.flexrow div.flexrow, #contentNewFoodEtape div.flexrow div.flexrow{
-	align-items: flex-end;
-}
-#contentModifFoodEtape, #contentNewFoodEtape{
-	margin-top:30px;
+#contentModifViewRecipe textarea, #contentNewViewRecipe textarea {
+	background-color: #fff;
+	border: 1px solid #9f0505;
 	width: 100%;
 }
-#pushIng > p:nth-child(1), #createIng > p:nth-child(1), #pushNewIng > p:nth-child(1), #createNewIng > p:nth-child(1), #contentModifEtape span.pushEtapeInside > p:nth-child(1), #contentNewEtape span.pushEtapeInside > p:nth-child(1){
-	font-weight: initial;
-	padding-left:8px;
+
+section#recetteContainDiv #contentModifViewRecipe form#modifFormImgRecipe>div.flexrow,
+	section#recetteContainDiv #contentNewViewRecipe form#formImgRecipe>div.flexrow
+	{
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+section#recetteContainDiv #contentModifViewRecipe form#modifFormImgRecipe>div.flexrow p,
+	section#recetteContainDiv #contentNewViewRecipe form#formImgRecipe>div.flexrow p
+	{
+	font-size: 0.9em;
+}
+
+section#recetteContainDiv #contentModifViewRecipe input[type="file"],
+	section#recetteContainDiv #contentNewViewRecipe input[type="file"] {
+	background: transparent;
+	border: 0;
+	height: 0px;
+	width: 0px;
+	cursor: pointer;
+}
+
+section#recetteContainDiv #contentModifViewRecipe form#modifFormImgRecipe  span#submitImgRecipeModif,
+	section#recetteContainDiv #contentModifViewRecipe form#modifFormImgRecipe  span#parcourirImgRecipeModif,
+	section#recetteContainDiv #contentNewViewRecipe form#formImgRecipe span#parcourirImgRecipeNew,
+	section#recetteContainDiv #contentNewViewRecipe form#formImgRecipe span#submitImgRecipeNew
+	{
+	width: 130px;
+	cursor: pointer;
+}
+
+#actionNewRecipe #validNewRecipe, #actionNewRecipe #annulNewRecipe,
+	#actionModifRecipe #validModifRecipe, #actionModifRecipe #annulModifRecipe
+	{
+	width: 180px;
+	cursor: pointer;
+}
+
+#alphaModifRecipe input, #alphaNewRecipe input {
+	width: 20px;
+}
+
+/*#contentModifFood div.flexrow>input:nth-child(3), #contentNewFood div.flexrow>input:nth-child(3)
+	{
+	width: 50px;
+	margin: 0;
+}*/
+
+
+
+#contentModifFoodEtape div.flexrow, #contentNewFoodEtape div.flexrow {
+	align-items: baseline;
+	margin-bottom: 15px
+}
+
+#contentModifFoodEtape div.flexrow p, #contentNewFoodEtape div.flexrow p,
+	#contentModifFoodEtape div.flexrow div.flexrow, #contentNewFoodEtape div.flexrow div.flexrow
+	{
+	padding: 0 5px;
+}
+
+#contentModifFoodEtape, #contentNewFoodEtape {
+	margin-top: 30px;
+	width: 100%;
+}
+
+#pushIng>p:nth-child(1), #createIng>p:nth-child(1), #pushNewIng>p:nth-child(1),
+	#createNewIng>p:nth-child(1), #contentModifEtape span.pushEtapeInside>p:nth-child(1),
+	#contentNewEtape span.pushEtapeInside>p:nth-child(1) {
+	padding-left: 8px;
 	font-size: 0.9em;
 	font-weight: bold;
 }
 
-#pushIng, #createIng, #contentModifEtape span.pushEtapeInside, #pushNewIng, #createNewIng, #contentNewEtape span.pushEtapeInside{
+#pushIng, #createIng, #contentModifEtape span.pushEtapeInside,
+	#pushNewIng, #createNewIng, #contentNewEtape span.pushEtapeInside {
 	align-items: center;
 }
-#pushIng, #createIng, #pushNewIng, #createNewIng{
-	margin-top:20px;
+
+#pushIng, #createIng, #pushNewIng, #createNewIng {
+	margin-top: 20px;
+	cursor: pointer;
 }
-#contentModifEtape hr, #contentNewEtape hr{
-	border: 1px dashed #864002;
-	width:100%;
+
+#contentModifEtape hr, #contentNewEtape hr {
+	border: 1px dashed #9f0505;
+	width: 100%;
 	margin: 20px 0;
 }
 
-span.fa-pepper-hot{
-	color: #b30000;
-}
-span.fas.fa-coins{
-	color:#eea42b;
-}
-#annulCreateNewIng, #validCreateNewIng, #validNewIng, #annulNewIng, #validNewIng, #annulNewIng, #validCreateNewIng, #annulCreateNewIng{
-	margin:0 10px;
-}
-#annulCreateNewIng:hover, #validCreateNewIng:hover, #validNewIng:hover, #annulNewIng:hover, #validNewIng:hover, #annulNewIng:hover, #validCreateNewIng:hover, #annulCreateNewIng:hover,
-#contentModifFoodEtape span:hover, #contentNewFoodEtape span:hover, #contentNewRecipe span.fa-minus:hover, #contentModifRecipe span.fa-minus:hover,
-#contentNewRecipe span.fa-plus:hover, #contentModifRecipe span.fa-plus:hover{
-	color: #ffbd00;
-}
-/*#contentNewViewRecipe > div:nth-child(1) > div:nth-child(8), #contentModifViewRecipe > div:nth-child(1) > div:nth-child(7){
-	justify-content: space-between;
-}*/
-
-span.fa-question-circle, #contentNewFood span.fa-question-circle, #popPushIng, #popCreateIng, #contentNewEtape #popEtape{
-	color:grey;
-	margin:0 10px;
-	text-shadow: none;
-	z-index: 1000;
+#annulCreateNewIng, #validCreateNewIng, #validNewIng, #annulNewIng,
+	#validNewIng, #annulNewIng, #validCreateNewIng, #annulCreateNewIng {
+	margin: 0 10px;
 }
 
-span.fa-question-circle:hover, #contentNewFood span.fa-question-circle:hover, #popPushIng:hover, #popCreateIng:hover, #contentNewEtape #popEtape:hover{
-	color:#864002;
-	cursor:help;
+span.fa-question-circle:hover, #contentNewFood span.fa-question-circle:hover,
+	#popPushIng:hover, #popCreateIng:hover, #contentNewEtape #popEtape:hover
+	{
+	color: #9f0505;
+	cursor: help;
 }
 
-div#contentModifFood.flexColumn div.titleIngRecipe span:hover{
- 	color:#ffbd00;
- 	cursor:pointer;
- }
-div#contentModifFood.flexColumn div.titleIngRecipe i, div#contentNewFood.flexColumn div.titleIngRecipe i{
+div#contentModifFood.flexColumn div.titleIngRecipe span:hover {
+	color: #440202;
+	cursor: pointer;
+}
+
+div#contentModifFood.flexColumn div.titleIngRecipe i, div#contentNewFood.flexColumn div.titleIngRecipe i
+	{
 	color: grey;
 	margin: 0 10px;
 	text-shadow: none;
 }
-div#contentModifFood.flexColumn div.titleIngRecipe i:hover, div#contentNewFood.flexColumn div.titleIngRecipe i:hover{
+
+div#contentModifFood.flexColumn div.titleIngRecipe i:hover, div#contentNewFood.flexColumn div.titleIngRecipe i:hover
+	{
 	color: #6c6c6c;
 	text-shadow: 1px 1px 1px #373636;
 	cursor: help;
- }
-div#contentModifEtape.flexColumn div.etapeRecipeFlex div div.flexColumn div.flexrow span.fas.fa-camera, div#contentNewEtape.flexColumn div.etapeRecipeFlex div div.flexColumn div.flexrow span.fas.fa-camera{
-	color:black;
-} 
-#imgModifRecipe, #imgNewRecipe, #imgRecipe{
-	flex:1;
+}
+
+div#contentModifEtape.flexColumn div.etapeRecipeFlex div div.flexColumn div.flexrow span.fas.fa-camera,
+	div#contentNewEtape.flexColumn div.etapeRecipeFlex div div.flexColumn div.flexrow span.fas.fa-camera
+	{
+	color: black;
+}
+
+#imgModifRecipe, #imgNewRecipe, #imgRecipe {
+	flex: 1;
 	display: flex;
 	justify-content: flex-start;
 	padding-left: 20px;
 	align-items: inherit;
 }
-#imgRecipeModif img, #imgRecipeNew img, #imgViewRecipe img{
-	max-width: 450px;
-    padding-right: 10px;
-    max-height: 200px;
-    margin: 10px;
-}
-#contentModifViewRecipe input, #contentNewViewRecipe input{
-	width: 140px;
-}
-#formImgRecipe input{
 
+#imgRecipeModif img, #imgRecipeNew img, #imgViewRecipe img {
+	max-width: 450px;
+	padding-right: 10px;
+	max-height: 300px;
+	margin: 10px;
+}
+
+#contentModifViewRecipe input, #contentNewViewRecipe input {
+	width: 140px;
+	margin: 0;
+}
+
+#formImgRecipe input {
 	width: 270px;
 }
 
-#submitImgRecipe:hover{
-	cursor:pointer;
+#submitImgRecipe:hover {
+	cursor: pointer;
 }
-#contentModifEtape, #contentNewEtape, #contentEtape{
+
+#contentModifEtape, #contentNewEtape, #contentEtape {
 	align-items: center;
 	width: 60%;
 }
-#contentModifEtape > div.etapeRecipeFlex, #contentNewEtape > div.etapeRecipeFlex, #contentEtape > div.etapeRecipeFlex{
-width: 100%;
+
+#contentModifEtape>div.etapeRecipeFlex, #contentNewEtape>div.etapeRecipeFlex,
+	#contentEtape>div.etapeRecipeFlex {
+	width: 100%;
 }
-#actionNewRecipe, #actionModifRecipe{
-	padding-left:10px;
+
+#actionNewRecipe, #actionModifRecipe {
+	padding-left: 10px;
 	flex-direction: row;
 	justify-content: space-evenly;
 	margin-top: 20px;
 }
-#actionRecipe{
-	margin-bottom:20px;
-	flex-direction: row;
 
+#actionRecipe {
+	margin: 0 0 40px 0;
+	background: #7b0e02;
 }
-#actionRecipe div#actionRecipeMenuUser, #actionRecipe div#actionRecipeMenuFriend{
+
+#actionRecipe div#actionRecipeMenuUser, #actionRecipe div#actionRecipeMenuFriend
+	{
 	display: none;
 	flex-direction: row;
 	width: 100%;
 	justify-content: space-evenly;
-}
-#actionNewRecipe span, #actionRecipe span, #actionModifRecipe span, #contentViewRecipe span#closeRecipe {
-	padding:5px;
-	cursor: pointer
-}
-#actionNewRecipe span p, #actionRecipe span p, #actionModifRecipe span p, #contentViewRecipe span#closeRecipe  p{
-	padding-left:10px;
-
+	height: 40px;
+	align-items: center;
 }
 
-#newMessErrorTitle p,#newMessErrorCateg p, #newMessErrorAlpha p, #newMessErrorIng p, #modifMessErrorTitle p, #modifMessErrorAlpha p, #modifMessErrorIng p, p.error{
-	color:#d20505;
-
+#actionRecipe div#actionRecipeMenuUser button, #actionRecipe div#actionRecipeMenuFriend button
+	{
+	color: antiquewhite;
+	cursor: pointer;
+	height: 40px;
+	padding: 5px 
 }
-#newIdRecette{
+#actionRecipe div#actionRecipeMenuUser button:hover, #actionRecipe div#actionRecipeMenuFriend button:hover{
+color: #7b0e02;
+}
+#actionRecipe div#actionRecipeMenuUser p, #actionRecipe div#actionRecipeMenuFriend p
+	{
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: bold;
+	margin-left: 10px;
+	color: antiquewhite;
+	font-size: 1em;
+}
+
+#newMessErrorTitle p, #newMessErrorCateg p, #newMessErrorAlpha p,
+	#newMessErrorIng p, #modifMessErrorTitle p, #modifMessErrorAlpha p,
+	#modifMessErrorIng p, p.error {
+	color: #d20505;
+}
+
+#newIdRecette {
 	display: none;
 }
-p.borderTop{
+
+p.borderTop {
 	border-top: 1px dashed;
 	margin-top: 10px;
 }
-span#validNewRecipe, span#annulNewRecipe, span#validModifRecipe, span#annulModifRecipe{
-	margin: 10px;
-padding: 10px;
-border-radius: 2px;
-height: 40px;
-border: 1px solid #fff;
-background-color: #fff0;
-justify-content: center;
-align-items: center;
-box-shadow: 0px 0px 5px #6b6a6a;
-}
-span#validNewRecipe, span#validModifRecipe{
+
+span#annulNewRecipe, span#annulModifRecipe {
 	width: 180px;
 }
-span#annulNewRecipe, span#annulModifRecipe{
-width: 180px;
-}
-section#recetteContainDiv span#validNewRecipe p, section#recetteContainDiv  span#validModifRecipe p, section#recetteContainDiv span#annulNewRecipe p, section#recetteContainDiv  span#annulModifRecipe p{
-	font-size: 1.2em;
-	font-family: 'Open Sans Condensed', sans-serif;
-	color: white;
-text-shadow: 0 0 1px black;
-}
-span#validNewRecipe:hover, span#annulNewRecipe:hover, span#annulModifRecipe:hover, span#validModifRecipe:hover{
-	background-color: #ffffff5e;
-box-shadow: 2px 2px 5px black;
-}
+
 /************************************************************************************************/
-#newBlockTwo, #newBlockThree, #newBlockFour, #modifBlockTwo, #modifBlockThree, #modifBlockFour{
+#newBlockTwo, #newBlockThree, #newBlockFour, #modifBlockTwo,
+	#modifBlockThree, #modifBlockFour {
 	overflow: hidden;
 	height: 0px;
-
-	/*margin: 20px 0;*/
-
 }
- #newBlockTwoTitle:hover,  #newBlockThreeTitle:hover,  #newBlockFourTitle:hover,
- #modifBlockTwoTitle:hover,  #modifBlockThreeTitle:hover,  modifBlockFourTitle:hover{
-background: linear-gradient(0.25turn, #e6c17a6b , #0000);
-cursor: pointer;
-	}
- #newBlockTwoTitle,  #newBlockThreeTitle,  #newBlockFourTitle,
- #modifBlockTwoTitle,  #modifBlockThreeTitle,  #modifBlockFourTitle{
+
+#newBlockTwo span, #newBlockThree span, #newBlockFour span,
+	#modifBlockTwo span, #modifBlockThree span, #modifBlockFour span {
+	cursor: pointer;
+}
+
+#contentModifFoodEtape span p, #contentNewFoodEtape span p {
+	font-family: 'Open Sans Condensed', sans-serif;
+}
+
+#newBlockTwoTitle, #newBlockThreeTitle, #newBlockFourTitle,
+	#modifBlockTwoTitle, #modifBlockThreeTitle, #modifBlockFourTitle {
+	cursor: pointer;
 	height: 40px;
-	opacity: 9;
-	align-items: center;
-	 border-bottom: 1px solid white;
-	 border-top: 1px solid white;
-	}
- #newBlockTwoTitle h4,  #newBlockThreeTitle h4,  #newBlockFourTitle h4,
- #modifBlockTwoTitle h4,  #modifBlockThreeTitle h4,  #modifBlockFourTitle h4{
+	background: #7b0e02;
+	box-shadow: 2px 5px 15px #000;
+}
+
+#newBlockTwoTitle h4, #newBlockThreeTitle h4, #newBlockFourTitle h4,
+	#modifBlockTwoTitle h4, #modifBlockThreeTitle h4, #modifBlockFourTitle h4
+	{
 	margin: auto;
 	font-size: 1em;
-	height: 40px;
-	 padding: 8px;
-	 color: #683101;
+	color: antiquewhite;
 }
-#newBlockTwo div.hideDivAnim, #newBlockThree div.hideDivAnim, #newBlockFour div.hideDivAnim,
-#modifBlockTwo div.hideDivAnim, #modifBlockThree div.hideDivAnim, #modifBlockFour div.hideDivAnim{
+
+#newBlockTwoTitle span, #newBlockThreeTitle span, #newBlockFourTitle span,
+	#modifBlockTwoTitle span, #modifBlockThreeTitle span,
+	#modifBlockFourTitle span {
+	color: antiquewhite;
+}
+
+#newBlockTwo div.hideDivAnim, #newBlockThree div.hideDivAnim,
+	#newBlockFour div.hideDivAnim, #modifBlockTwo div.hideDivAnim,
+	#modifBlockThree div.hideDivAnim, #modifBlockFour div.hideDivAnim {
 	opacity: 0;
 }
 
 #newBlockTwo div.hideDivAnim, #newBlockThree div.hideDivAnim,
-#modifBlockTwo div.hideDivAnim, #modifBlockThree div.hideDivAnim{
-	padding: 15px 0 
+	#modifBlockTwo div.hideDivAnim, #modifBlockThree div.hideDivAnim {
+	padding: 15px 0
 }
 
-#newBlockTwo div.hideDivAnim, #modifBlockTwo div.hideDivAnim{
+#newBlockTwo div.hideDivAnim, #modifBlockTwo div.hideDivAnim {
 	justify-content: center;
 	align-items: center;
 }
-#newBlockTwo div.hideDivAnim div, #modifBlockTwo div.hideDivAnim div{
-margin:0 10px;
-align-items: center;
-	}
-	#alphaNewRecipe label, #alphaModifRecipe label{
-margin-right: 10px;
-margin-top: 0px;
-	}
-	#newBlockTwo div.hideDivAnim div >label, #modifBlockTwo div.hideDivAnim div >label{
-		width: auto;
-	}
-	#modifBlockOne, #newBlockOne{
-		justify-content: center;
 
-	}
-		#modifBlockOne input#titleNewModifRecipe, #newBlockOne input#newTitleRecipe{
+#newBlockTwo div.hideDivAnim div, #modifBlockTwo div.hideDivAnim div {
+	margin: 0 10px;
+	align-items: center;
+}
 
-		height: 40px;
-	}
+#alphaNewRecipe label, #alphaModifRecipe label {
+	margin-right: 10px;
+	margin-top: 0px;
+}
+
+#newBlockTwo div.hideDivAnim div>label, #modifBlockTwo div.hideDivAnim div>label
+	{
+	width: auto;
+}
+
+#modifBlockOne, #newBlockOne {
+	justify-content: center;
+	align-items: center;
+	margin: 10px 0;
+}
+
+#newBlockOne div#titleNewRecipe {
+	width: 100%
+}
+
+#newBlockOne label, #modifBlockOne label {
+	width: 0px;
+}
+
+#newBlockOne input, #modifBlockOne input {
+	width: 80%;
+}
+
+#modifBlockOne>div:first-child, #newBlockOne>div:first-child {
+	width: 100%
+}
+
+#blockTwo {
+	margin: 0 0 30px 20px;
+	align-items: center;
+}
+
+#blockThree #contentRecipe>div>p:first-child, #contentFood>p:first-child,
+	#contentEtape p.timeEtape {
+	font-weight: bold;
+	color: #9f0505;
+	margin-right: 20px;
+}
+#contentFood > p:first-child{
+	background-color:#9f0505;
+margin: 0 0 10px 0;
+padding: 5px 0 5px 40px;
+color: antiquewhite;
+}

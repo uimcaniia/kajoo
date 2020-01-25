@@ -18,14 +18,39 @@ var aContainNotice = [
 					['Êtes-vous sûr(e) de vouloir supprimer cette invitation ?', 'confirmDelInvit', 'annulDelInvit'],
     				[]
     				];
-    				
+
+
+var aContainPopMess = [
+	['En activant la fraise, votre recette sera plus facilement repérable dans la liste du menu !'], // tombe
+	['Le moteur de recherche utilise les titres de vos recettes pour vous aidez à les retrouvez plus facilement. Choisissez les bien !'], // pleure
+	['Vous pouvez filtrer vos recettes par lettre dans la liste du menu ! Soyez judicieux dans votre choix. Exemple, pour une recette intitulée "les meringues au citron", privilégiez le "L" de "LES meringues..." ou le "M" de "meringue" ! C\'est vous qui voyez!'], // blazé
+	['Choisissez la catégorie où ranger votre recette, sinon, elle sera rangé par défaut dans la catégorie "Autres" !'], // mignon
+	['Votre recette sera pour combien de personne ? Cette indication servira au calcul des quantité d\'ingrédient pour vos listes de course !'], // pete un cable
+	['Il s\'agit du temps total pour la réalisation de votre recette. Il se calcule automatiquement suivant le temps de chacune des étapes de votre recette que vous indiquerez !'], // uiiiii
+	['Indiquez le coût financier de votre recette.'], // happy
+	['Indiquez le niveau de difficulté de votre recette.'], // danse
+	['Cette partie est consacrées au regroupement de vos ingrédients necessaire pour cette recette. Ce sera cette même liste qui sera utilisez pour compléter automatiquement vos listes de course!'], // costaud
+	['Ajoutez des étapes de préaparation à votre recette pour vous faciliter la lecture! Pensez à notter le temps de chaque étape pour mettre à jour l\'indicateur du temps total pour réaliser votre recette !'],
+	['Ajoutez une photo pour illustrer votre recette ?'],
+	['Ajoutez une quantité et un ingrédient dans les zones indiquées. Kajoo possède un moteur de recherche et va vous présenter, juste en dessous, les ingrédients qu\'il connait déjà. Si un ingrédient n\'existe pas, vous pouvez l\'enregister dans le lexique pour l\'utilisez ensuite et permettre en même temps à la communoté de l\'utiliser à son tour !'],
+	['Vous pouvez enregistrer ici des ingrédients qui n\'existe pas déjà dans le lexique de Kajoo! Il est important d\'inscrire correctement le nom de l\'ingrédient, de le mettre au singulier et de sélectionner la bonne unité de mesure ! Votre ingrédient sera non seulement visible par les autres utilisateurs de Kajoo, mais il servira aussi à générer correcteemnt les quantités pour vos listes de courses !'],
+	['Les ingrédients ici présent, proviennent de la base de donnée de Kajoo que les utilisateur ont enrechit au fur et à mesure. Choisissez un ingrédient dans la liste et cela complètera automatiquement les champs prévus pour l\'afficher ainsi que son unité de mesure ! '],
+	['Votre recette est tellement incroyable que vous ne voulez pas la partager ? Mettez la en privée et elle ne sera pas visible sur les comptes de vos amis !']
+];
+
+
   var srcImgMess = "public/img/kajoo/";
 
   var aContainImg = [
-  					[srcImgMess+"kajoo1.png", "Kajoo, la noix de cajou"], // pas content
-  					[srcImgMess+"kajoo2.png", "Kajoo, la noix de cajou"], // content
-  					[srcImgMess+"kajoo3.png", "Kajoo, la noix de cajou"], // attention
-  					[srcImgMess+"kajoo4.png", "Kajoo, la noix de cajou"] // neutre
+  					[srcImgMess+"kajoo1.png", "Kajoo, la noix de cajou"], // tombe
+  					[srcImgMess+"kajoo2.png", "Kajoo, la noix de cajou"], // pleure
+  					[srcImgMess+"kajoo3.png", "Kajoo, la noix de cajou"], // blazé
+  					[srcImgMess+"kajoo4.png", "Kajoo, la noix de cajou"], // mignon
+			 		[srcImgMess+"kajoo5.png", "Kajoo, la noix de cajou"], // pete un cable
+				  	[srcImgMess+"kajoo6.png", "Kajoo, la noix de cajou"], // uiiiii
+				  	[srcImgMess+"kajoo7.png", "Kajoo, la noix de cajou"], // happy
+				  	[srcImgMess+"kajoo8.png", "Kajoo, la noix de cajou"] // danse
+	  				[srcImgMess+"kajoo9.png", "Kajoo, la noix de cajou"] // costaud
   					];
 
 //remplace le htmlspecialchar de php pour éviter les injections XSS lors de l'affichage (échappement)
@@ -44,78 +69,64 @@ if(!Array.isArray) {
 }
 
 // requete ajax format JSON, résulat renvoyé et message si erreur
-function useAjaxReqestJson(urlRequest, typeSend, typeReturn, dataToSend, callback){
-	//console.log(dataToSend)  
-	//var data = false;
-	$.ajax({url:urlRequest, type:typeSend, dataType:typeReturn, data: dataToSend}) //data: "{cle:'" + valeur + "'}"
-// Appel réussi : on réagit à la valeur de retour du code serveur contenue dans le paramètre response (ou response.d avec ASP.NET)
-//response : un objet représentant les données retournées par le code serveur
-//textStatus : une chaîne indiquant l'état de l'opération (valeur : success)
-//l'objet jqXHR : un objet contenant des informations sur l'appel AJAX.
-		.done(function (response, textStatus, jqXHR) {	
-			console.log(response)			
+function useAjaxReqestJson(urlRequest, typeSend, typeReturn, dataToSend, contentTypeData, processDataData, callback){
+if(contentTypeData == false){
+	$.ajax({url:urlRequest, type:typeSend, dataType:typeReturn, data: dataToSend, contentType:contentTypeData, processData:processDataData})
+		// Appel réussi : on réagit à la valeur de retour du code serveur contenue dans le paramètre response (ou response.d avec ASP.NET)
+		//response : un objet représentant les données retournées par le code serveur
+		//textStatus : une chaîne indiquant l'état de l'opération (valeur : success)
+		//l'objet jqXHR : un objet contenant des informations sur l'appel AJAX.
+		.done(function (response, textStatus, jqXHR) {
+			//console.log(response)
+			if((Array.isArray(response))||(typeof response == 'object')){
+				callback.call(this, response);
+			}
+		})
+		//Un appel AJAX ne sera pas réussi si les éléments de configuration de jQuery.ajax() ne sont pas corrects ou encore si le code serveur plante.
+		// l'objet jqXHR : un objet contenant des informations sur l'appel AJAX. La propriété jqXHR.responseText contient le code HTML donnant de l'information complète sur l'erreur. Faites bien attention de ne jamais afficher ce texte à l'écran. Le débogueur JavaScript sera votre meilleur outil pour vérifier le contenu de cette propriété.
+		//  textStatus : une chaîne indiquant l'état de l'erreur. Les valeurs possibles sont null, « timeout », « error », « abort » et« parsererror ».
+		// errorThrown : texte donnant de l'information sur l'erreur. Ex : « Not Found », « Internal Server Error ».
+		.fail(function (jqXHR, textStatus, errorThrown) {
+			//console.log(textStatus +   "errorThrown " +errorThrown+  "jqXHR " + jqXHR.responseText) // code erreur connexion réussis (resultat.status) : 200
+			if(jqXHR.status == 200){
+				showAjax("Oups ! "+jqXHR.responseText);
+				callback.call(this, jqXHR.responseText);
+			}
+		})
+		//La fonction jqXHR.always() reçoit en paramètre une fonction de rappel qui permet de préciser le comportement du programme après l'appel AJAX, que l'appel ait été réussi ou non.
+		.always(function (jqXHR, textStatus, errorThrown) {
+		});
+	//return data;
+}else {
+	$.ajax({url:urlRequest, type:typeSend, dataType:typeReturn, data: dataToSend})
+		.done(function (response, textStatus, jqXHR) {
 			if((Array.isArray(response))||(typeof response == 'object')){	
 				callback.call(this, response);
 			}
 		})
-//Un appel AJAX ne sera pas réussi si les éléments de configuration de jQuery.ajax() ne sont pas corrects ou encore si le code serveur plante.
-// l'objet jqXHR : un objet contenant des informations sur l'appel AJAX. La propriété jqXHR.responseText contient le code HTML donnant de l'information complète sur l'erreur. Faites bien attention de ne jamais afficher ce texte à l'écran. Le débogueur JavaScript sera votre meilleur outil pour vérifier le contenu de cette propriété.
-//  textStatus : une chaîne indiquant l'état de l'erreur. Les valeurs possibles sont null, « timeout », « error », « abort » et« parsererror ».
-// errorThrown : texte donnant de l'information sur l'erreur. Ex : « Not Found », « Internal Server Error ».
 		.fail(function (jqXHR, textStatus, errorThrown) {
-	 		console.log(textStatus +   "errorThrown " +errorThrown+  "jqXHR " + jqXHR.responseText) // code erreur connexion réussis (resultat.status) : 200
+	 		//console.log(textStatus +   "errorThrown " +errorThrown+  "jqXHR " + jqXHR.responseText) // code erreur connexion réussis (resultat.status) : 200
 	 		if(jqXHR.status == 200){
 	 			showAjax("Oups ! "+jqXHR.responseText);
 				callback.call(this, jqXHR.responseText);
 	 		}
 	 	})
-//La fonction jqXHR.always() reçoit en paramètre une fonction de rappel qui permet de préciser le comportement du programme après l'appel AJAX, que l'appel ait été réussi ou non. 
 	 	.always(function (jqXHR, textStatus, errorThrown) { 
 		});
-	 //return data;
+	}
 }
 //----------------------------------------------------------
 // affiche messahe d'erreur
 function showError(mess){
-	console.log('ok')
-	$('#errorMessSimple').clearQueue();
-	//$('#errorMessSimple').fadeOut(0);
-	$('#errorMessSimple').html('');
-	$('#errorMessSimple').html('<p>'+mess+'</p>');
-	$('#errorMessSimple').fadeIn(500);
-	$('#errorMessSimple').delay(2000).fadeOut(500);
+	animPopupMess('#errorMessSimple', '#errorMessSimpleTxt', mess, '#errorMessSimpleImg', aContainImg[2][0])
 }
-function closeError(){
-	$('#errorMessSimple').fadeOut(0);
-	$('#errorMessSimple').html('');
-};
-
-/*$(document).on( "click", function(e){
-	//console.log(e.target.id)
-		if ( e.target.id != ""){
-			if($('#errorMessSimple:visible')){
-				closeError();
-			}if($('#errorMessImgNoBtn:visible')){
-				closeErrorWithImg();
-			}
-	}
-});*/
 
 //----------------------------------------------------------
 // affiche message avec image (pas de bouton pour valider ou fermer)
 function showErrorWithImg(mess, urlImg, altImg){
-	$('#messErrorMessNoBtn').html(mess);
-	$('#imgErrorMessNoBtn').attr('src', urlImg);
-	$('#imgErrorMessNoBtn').attr('alt', altImg);
-	$('#errorMessImgNoBtn').fadeIn(500);
-	setTimeout(closeErrorWithImg,5000);
+	animPopupMess('#errorMessImgNoBtn', '#messErrorMessNoBtn', mess, '#imgErrorMessNoBtn', aContainImg[2][0])
 }
-function closeErrorWithImg(){
-	$('#messErrorMessNoBtn').html('');
-	$('#imgErrorMessNoBtn').attr('src', "");
-	$('#imgErrorMessNoBtn').attr('alt', "");
-	$('#errorMessImgNoBtn').fadeOut(300);
-}
+
 //----------------------------------------------------------
 // affiche message avec image ( avec bouton pour valider ou fermer)
 function showMessWithImgAndBtn(mess, urlImg, altImg, idValidBtn, idAnnulBtn){
@@ -124,26 +135,137 @@ function showMessWithImgAndBtn(mess, urlImg, altImg, idValidBtn, idAnnulBtn){
 	$('#imgErrorMess').attr('alt', altImg);
 	$('#messageBtn p#confirmDivInfo').attr('id',idValidBtn);
 	$('#messageBtn p#closeDivInfo').attr('id',idAnnulBtn);
-	$('#errorMessImgWithBtn').fadeIn(500);
+	$('#errorMessImgWithBtn').css({'display':'block'});
+
+	widthDiv = $('body').width();
+	width2 = widthDiv*70/100;
+
+	$('#containMessAndError').delay(100).animate({'height':'5px'}, {'duration':0});
+	$('#containMessAndError').delay(100).animate({'width':width2+40}, 200);
+
+	setTimeout(function () {
+		var heightAll = $('#errorMessImgWithBtn').outerHeight()
+		$('#containMessAndError').delay(0).animate({'height': heightAll}, 300);		
+	}, 500)
+	$('#bacgroundBlackWithBtn').fadeIn(300)
 }
 
 function closeErrorWithImgAndBtn(idValidBtn, idAnnulBtn){
-	$('#messErrorMess').html('');
-	$('#imgErrorMess').attr('src', "");
-	$('#imgErrorMess').attr('alt', "");
-	$('#messageBtn p#'+idValidBtn).attr('id','confirmDivInfo');
-	$('#messageBtn p#'+idAnnulBtn).attr('id','closeDivInfo');
-	$('#errorMessImgWithBtn').fadeOut(100);
+	closeAnimPopupMess()
 }
 //----------------------------------------------------------
 function showAjax(mess){
-	$('#errorMessAjax').html('<p>'+mess+'</p>');
-	$('#errorMessAjax').fadeIn(500);
-	$('#errorMessAjax').click(function(){
-		$('#errorMessAjax').html('');
-		$('#errorMessAjax').fadeOut(100);
-	})
+	animPopupMess('#errorMessAjax', '#errorMessAjaxTxt', mess, '#errorMessAjaxImg', aContainImg[0][0])
 }
+
+//-----------------------------------------------------------
+function animPopupMess(divSelect, divText, pText, divImg, numImg) {
+	$(divText).clearQueue();
+	$(divImg).clearQueue();
+	$(divSelect).clearQueue();
+		$('#bacgroundBlackWithBtn').clearQueue();
+	$('#containMessAndError').clearQueue();
+	$(divText).html(pText);
+	$(divImg).attr('src', numImg);
+	$(divSelect).css({'display':'block'});
+
+	widthDiv = $('body').width();
+	width2 = widthDiv*70/100;
+
+	$('#containMessAndError').delay(100).animate({'height':'5px'}, {'duration':0});
+	$('#containMessAndError').delay(100).animate({'width':width2+40}, 200);
+
+	setTimeout(function () {
+		var heightAll = $(divSelect).outerHeight();
+		$('#containMessAndError').delay(0).animate({'height': heightAll}, 300);
+		
+	}, 500)
+
+	$('#bacgroundBlackWithBtn').fadeIn(300)	
+	$(divSelect).animate({'opacity': '1'}, 400);
+}
+
+function resizeAnimPopupMess(){
+	var heightDiv = $('#containMessAndError > div').outerHeight();
+	$('#containMessAndError').animate({'height': heightDiv}, 200);
+}
+function closeAnimPopupMess(){
+	var childDivClose = $('#containMessAndError > div');
+	for(var i = 0 ; i < childDivClose.length ; i++){
+		if($(childDivClose[i]).attr('id')=="errorMessImgWithBtn"){
+			$('#messErrorMess').html('');
+			$('#imgErrorMess').attr('src', "");
+			$('#imgErrorMess').attr('alt', "");
+			$('#messageBtn p:nth-child(1n)').attr('id','confirmDivInfo');
+			$('#messageBtn p:nth-child(2n)').attr('id','closeDivInfo');
+		}else{
+			var idText = $(childDivClose[i]).children('div').children('p').attr('id')
+			var idimg = $(childDivClose[i]).children('div').children('img').attr('id')
+			$('#'+idText).html('');
+			$('#'+idimg).attr('src', '');
+			$('#'+idimg).attr('alt', '');
+		}
+		$('#bacgroundBlackWithBtn').fadeOut(400)
+		$('#containMessAndError').delay(150).animate({'height':'0px', 'width':'0px'}, {'duration':300});
+		$(childDivClose[i]).css({'display':'none'});	
+	}
+}
+
+$('#containMessAndError > div').click(function(){
+	closeAnimPopupMess()
+})
+$('#bacgroundBlackWithBtn').click(function(){
+	closeAnimPopupMess()
+})
+$('#popHeart').click(function(){
+	animPopupMess('#popupInfo','#popTxt',aContainPopMess[0][0],'#popImg', aContainImg[6][0]);
+})
+$('#popTitle').click(function(){
+	animPopupMess('#popupInfo','#popTxt',aContainPopMess[1][0],'#popImg', aContainImg[6][0]);
+})
+$('#popAlpha').click(function(){
+	animPopupMess('#popupInfo','#popTxt',aContainPopMess[2][0],'#popImg', aContainImg[6][0]);
+})
+$('#popCateg').click(function(){
+	animPopupMess('#popupInfo','#popTxt',aContainPopMess[3][0],'#popImg', aContainImg[6][0]);
+})
+$('#popPeople').click(function(){
+	animPopupMess('#popupInfo','#popTxt',aContainPopMess[4][0],'#popImg', aContainImg[6][0]);
+})
+$('#popTimeGlobal').click(function(){
+	animPopupMess('#popupInfo','#popTxt',aContainPopMess[5][0],'#popImg', aContainImg[6][0]);
+})
+$('#popPrice').click(function(){
+	animPopupMess('#popupInfo','#popTxt',aContainPopMess[6][0],'#popImg', aContainImg[6][0]);
+})
+$('#popEasy').click(function(){
+	animPopupMess('#popupInfo','#popTxt',aContainPopMess[7][0],'#popImg', aContainImg[6][0]);
+})
+$('#popIng').click(function(){
+	animPopupMess('#popupInfo','#popTxt',aContainPopMess[8][0],'#popImg', aContainImg[6][0]);
+})
+$('#popEtape').click(function(){
+	animPopupMess('#popupInfo','#popTxt',aContainPopMess[9][0],'#popImg', aContainImg[6][0]);
+})
+$('#popCam').click(function(){
+	animPopupMess('#popupInfo','#popTxt',aContainPopMess[10][0],'#popImg', aContainImg[6][0]);
+})
+
+$('#popPushIng').click(function(){
+	animPopupMess('#popupInfo','#popTxt',aContainPopMess[11][0],'#popImg', aContainImg[6][0]);
+})
+$('#popCreateIng').click(function(){
+	animPopupMess('#popupInfo','#popTxt',aContainPopMess[12][0],'#popImg', aContainImg[6][0]);
+})
+$('div#contentNewFood').on('click', 'div.titleIngRecipe span#popSearch', function(){
+	animPopupMess('#popupInfo','#popTxt', aContainPopMess[13][0], '#popImg',aContainImg[6][0]);
+})
+$('div#contentModifFood').on('click', 'div.titleIngRecipe span#popSearch', function(){
+	animPopupMess('#popupInfo','#popTxt', aContainPopMess[13][0], '#popImg',aContainImg[6][0]);
+});
+$('#popPrivate').click(function(){
+	animPopupMess('#popupInfo','#popTxt', aContainPopMess[14][0],'#popImg', aContainImg[6][0]);
+})
 
 //****************************************************************************************************************
                         //ANIMATIONS CATEGORIES
@@ -194,7 +316,6 @@ $('#actionCategory h2.divModifCateg').click(function(){
 	}else{
 		showError('Les catégories "Autres", Toutes" et "Privées", ne peuvent ni être modifiées, ni supprimées');
 	}
-
 });
 
 $('#actionCategory h2.divDelCateg').click(function(){
@@ -234,11 +355,11 @@ function animMenuRecipe(){
 	heightForm += $('#contentRecipesMenu #paginationRecipe').outerHeight();
 	heightForm += $('#contentRecipesMenu #recipes').outerHeight();
 
-	$('#contentRecipesMenu').animate({'height': heightForm+20},500)
+	$('#contentRecipesMenu').animate({'height': heightForm+40},200)
 
-	$('#contentRecipesMenu #recipesAlpha').animate({'opacity':'9'},1500)
-	$('#contentRecipesMenu #paginationRecipe').animate({'opacity':'9'},1500)
-	$('#contentRecipesMenu #recipes').animate({'opacity':'9'},1500)
+	$('#contentRecipesMenu #recipesAlpha').animate({'opacity':'9'},500)
+	$('#contentRecipesMenu #paginationRecipe').animate({'opacity':'9'},500)
+	$('#contentRecipesMenu #recipes').animate({'opacity':'9'},500)
 	
 }
 function closeanimMenuRecipe(){
@@ -247,11 +368,11 @@ function closeanimMenuRecipe(){
 	$('#contentRecipesMenu #recipes').clearQueue();
 	$('#contentRecipesMenu').clearQueue();
 	
-	$('#contentRecipesMenu #recipesAlpha').animate({'opacity':'0'},500)
-	$('#contentRecipesMenu #paginationRecipe').animate({'opacity':'0'},500)
-	$('#contentRecipesMenu #recipes').animate({'opacity':'0'},500)
+	$('#contentRecipesMenu #recipesAlpha').animate({'opacity':'0'},200)
+	$('#contentRecipesMenu #paginationRecipe').animate({'opacity':'0'},200)
+	$('#contentRecipesMenu #recipes').animate({'opacity':'0'},200)
 
-	$('#contentRecipesMenu').animate({'height':'0px'},500)
+	$('#contentRecipesMenu').animate({'height':'40px'},200)
 }
 
 $('#newBlockTwoTitle').click(function(){
@@ -297,13 +418,16 @@ function resizeDivEtapeFood(block, divHide){
 	$(block).animate({'height': heightForm+40},400)
 }
 function resizeDivImg(block, divHide){
-	var heightForm = $(divHide).outerHeight();
-	$(block).animate({'height': heightForm+200},400)
+	setTimeout(function () {
+		var heightForm = $(divHide).outerHeight();
+		$(block).animate({'height': heightForm+40},400)
+		
+	}, 500)
+
 }
 
 //adapte textarea
 function updateTextareaHeight(input) {
-	//console.log(input)
 	input.style.height = 'auto';
 	input.style.height = input.scrollHeight+'px';
 }
@@ -328,8 +452,39 @@ function updateTextareaHeightInit(divTextArea){
 	var regPsw     = /^(?=.*[A-Z])(?=.*[0-9]).{8,}$/; 
 	var regPseudo  = /^[a-zA-Z0-9]{3,}$/; 
 	var regNbr     = /^([0-9]){1,2}$/;
+	var regNbrIng     = /^\d+(?:[.,]\d+)?$/;
 
 	var btnSub     = document.getElementsByName('registration');
+
+function numberInput(el){
+
+	var value = el.value;
+	if(!regNbrIng.test(value)){
+		el.value = 1
+	}else{
+		var chars = value.split("");
+		var size = chars.length;
+		var stringValue = "";
+		for(var i = 0 ; i < chars.length ; i++){
+			if(chars[i] == ","){
+				chars[i] = ".";
+			}
+			stringValue += chars[i];
+		}
+		var valueInt = parseFloat(stringValue);
+		el.value = Math.round(valueInt*100)/100
+	}
+
+}
+
+$('#newTitleRecipe').change(function(){
+	titleNew = $('#newTitleRecipe').val();
+	$('#newAlphaRecipe').val(titleNew.charAt(0).toUpperCase())
+})
+$('#titleNewModifRecipe').change(function(){
+	title = $('#titleNewModifRecipe').val();
+	$('#alphaNewModifRecipe').val(title.charAt(0).toUpperCase())
+})
 //----------------------------------------------------
 	$('#subEmail').change(function(){
 		var value = $('#subEmail').val();
@@ -410,7 +565,7 @@ function updateTextareaHeightInit(divTextArea){
 		}		
 	});
 //-------------------------------------------------
-		$('#newPseudo').change(function(){
+	$('#newPseudo').change(function(){
 		var value = $('#newPseudo').val();
 		if(!regPseudo.test(value))
 		{
@@ -500,7 +655,7 @@ $('#containAllInvitation button').click(function(){
 	$('#errorMessImgWithBtn #messageBtn #'+aContainNotice[12][1]).click(function(){
 		$('#errorMessImgWithBtn #messageBtn #'+aContainNotice[12][1]).unbind('click').click(function(){});
 		var idcategory = $('#selectDelCateg').val();
-		useAjaxReqestJson('index.php?action=annulInviteFriend', 'POST', 'json', {friendId:friendId}, function(data){
+		useAjaxReqestJson('index.php?action=annulInviteFriend', 'POST', 'json', {friendId:friendId}, true,true,function(data){
 			closeErrorWithImgAndBtn(aContainNotice[12][1], aContainNotice[12][2]);
 			if((Object.keys(data).length === 1)&&("false" in data)){
 				showErrorWithImg('Linviation a bien été supprimée !', aContainImg[1][0], aContainImg[1][1]);
@@ -560,19 +715,56 @@ function animFriendUserProfil(block, btn, divHide){
 //****************************************************************************************************************
 
 // animation du menu sur mobile
+$('#bacgroundBlack').click(function(){
+	$('#btnMenuMobileOff').click();
+	closeAnimPopupMess()
+})
+$('#menuMobile li#btnRecette').click(function(e){
+	e.stopPropagation()
+	$(this).find('a')[0].click();
+})
+
+$('#menuMobile li#btnHome').click(function(e){
+	e.stopPropagation()
+	$(this).find('a')[0].click();
+})
+$('#menuMobile li#btnPlaning').click(function(e){
+	e.stopPropagation()
+	$(this).find('a')[0].click();
+})
+$('#menuMobile li#btnCourse').click(function(e){
+	e.stopPropagation()
+	$(this).find('a')[0].click();
+})
+$('#menuMobile li#btnHelp').click(function(e){
+	e.stopPropagation()
+	$(this).find('a')[0].click();
+})
+$('#menuMobile li#btnUser').click(function(e){
+	e.stopPropagation()
+	$(this).find('a')[0].click();
+})
+
 $('#btnMenuMobile').click(function(){
 	$('#btnMenuMobileOff').fadeIn(100);
+	$('#bacgroundBlack').fadeIn(100);
 	$('#btnMenuMobile').fadeOut(0);
-	$('#fondMenuMobile').delay(0).animate({'right':'-50px'}, {'duration':400});
-	$('#menuMobile').delay(0).animate({'right':'15px'}, {'duration':400});
+	$('#fondMenuMobile').fadeIn(100)
+	$('#fondMenuMobile').delay(100).animate({'height':'5px'}, {'duration':0});
+	$('#fondMenuMobile').delay(100).animate({'width':'280px'}, {'duration':200});
+	$('#fondMenuMobile').delay(200).animate({'height':'500px'}, {'duration':300});
+	$('#menuMobile ul').delay(800).animate({'opacity':'1'}, {'duration':400});
 });
 $('#btnMenuMobileOff').click(function(){
-	$('#btnMenuMobile').fadeIn(100)
+	$('#btnMenuMobile').fadeIn(100);
 	$('#btnMenuMobileOff').fadeOut(0);
-	$('#fondMenuMobile').delay(0).animate({'right':'-150px'}, {'duration':400});
-	$('#menuMobile').delay(0).animate({'right':'-80px'}, {'duration':400});
-		
+	$('#fondMenuMobile').fadeOut(100);
+	$('#bacgroundBlack').fadeOut(100);
+	$('#fondMenuMobile').delay(150).animate({'height':'0px', 'width':'0px'}, {'duration':0});
+	$('#menuMobile ul').delay(150).animate({'opacity':'0'}, {'duration':0});
 });
+
+
 
 //****************************************************************************************************************
                         //ANIMATION FOND HEADER
@@ -581,241 +773,51 @@ var repairTab = $('#repairTab').css("display");
 var repairMob = $('#repairMob').css("display");
 var repairMobXs = $('#repairMobXs').css("display");
 
-var hauteur = 50; // 100, c'est le nombre de pixels à partir duquel on déclenche le tout
-
-$(window).resize(function() {
-	if(repairTab == 'block'){
-		$('header').css({'height':'150px'}); // "et vice et versa"
-		$('header #logo img').css({'width':'200px', 'height':'150px','margin-left': '0px', 'margin-top': '0px'});
-		$('header #logo').css({'width':'200px', 'height':'150px'});
-		$('header #logo div').css({'width':'200px', 'height':'200px', 'top':'-20px', 'left':'0px'});
-		$('header #baniere').css({'height':'150px'});
-		$('header #login').css({'top':'30px', 'right':'25px'});
-		$('header #login div').css({'top':'-100px','width':'300px', 'height':'300px'});
-		$('header div#login img').css({'width':'130px'});
-		$('aside#planningRapel').css({'top':'250px','width':'40px'})
-		$('aside#shopRapel').css({'top':'350px','width':'40px'});
-		$('#menuLoging').css({'top':'80px', 'z-index':'9000'});
-		$('header nav#menu').css({'width':'350px'});
-		$('header nav#menu li').css({'height':'105px'});
-		$('header #login a:nth-child(2)').css({'top':'130px', 'right':'50px'});
-		$('#validAllPlanningWeek').css({'top':'240px'});
-
-	}else if(repairMob == 'block'){
-		$('header').css({'height':'100px'}); // "et vice et versa"
-		$('header #logo img').css({'width':'200px', 'height':'150px','margin-left': '0px', 'margin-top': '0px'});
-		$('header #logo').css({'width':'200px', 'height':'200px'});
-		$('header #logo div').css({'width':'200px', 'height':'200px', 'top':'-40px', 'left':'0px'});
-		$('header #baniere').css({'height':'100px'});
-		$('#validAllPlanningWeek').css({'top':'200px'});
-		$('#validAllPlanningWeek').css({'top':'120px'});
-	}else if(repairMobXs == 'block'){
-		$('header').css({'height':'80px'}); // "et vice et versa"
-		$('header #logo img').css({'width':'150px', 'height':'100px','margin-left': '0px', 'margin-top': '0px'});
-		$('header #logo').css({'width':'200px', 'height':'200px'});
-		$('header #logo div').css({'width':'150px', 'height':'150px', 'top':'-20px', 'left':'0px'});
-		$('header #baniere').css({'height':'80px'});
-		$('#validAllPlanningWeek').css({'top':'120px'});
-	}else{
-		$('header').css({'height':'180px'}); // "et vice et versa"
-		$('header #logo img').css({'width':'300px', 'height':'200px','margin-left': '0px', 'margin-top': '0px'});
-		$('header #logo').css({'width':'300px', 'height':'260px'});
-		$('header #logo div').css({'width':'300px', 'height':'300px', 'top':'-50px', 'left':'0px'});
-		$('header #baniere').css({'height':'180px'});
-		$('header #login').css({'top':'50px', 'right':'55px'});
-		$('header #login div').css({'top':'-150px','width':'350px', 'height':'350px'});
-		$('header div#login img').css({'width':'130px'});
-		$('aside#planningRapel').css({'top':'280px','width':'70px'})
-		$('aside#shopRapel').css({'top':'410px','width':'70px'});
-		$('#menuLoging').css({'top':'80px'});
-		$('header nav#menu li').css({'height':'125px'});
-		$('header #login a:nth-child(2)').css({'color': '#d2cebe', 'top':'130px', 'right':'50px'});
-		$('#validAllPlanningWeek').css({'top':'200px'});
-	}
+$('#btnRecette').hover(function(){
+	changeImgMenuHover($(this), "public/img/btn/bouton12.png")
+},function(){
+	changeImgMenuHover($(this), "public/img/btn/bouton10.png")
+});
+$('#btnHome').hover(function(){
+	changeImgMenuHover($(this), "public/img/btn/home2.png")
+},function(){
+	changeImgMenuHover($(this), "public/img/btn/home.png")
+});
+$('#btnPlaning').hover(function(){
+	changeImgMenuHover($(this), "public/img/btn/bouton22.png")
+},function(){
+	changeImgMenuHover($(this), "public/img/btn/bouton21.png")
+});
+$('#btnCourse').hover(function(){
+	changeImgMenuHover($(this), "public/img/btn/bouton32.png")
+},function(){
+	changeImgMenuHover($(this), "public/img/btn/bouton31.png")
+});
+$('#btnHelp').hover(function(){
+	changeImgMenuHover($(this), "public/img/btn/aide2.png")
+},function(){
+	changeImgMenuHover($(this), "public/img/btn/aide.png")
+});
+$('#btnUser').hover(function(){
+	changeImgMenuHover($(this), "public/img/btn/compte2.png")
+},function(){
+	changeImgMenuHover($(this), "public/img/btn/compte.png")
 });
 
-
-   $(function(){
-       $(window).scroll(function () {//Au scroll dans la fenetre on déclenche la fonction
-          if ($(this).scrollTop() > hauteur) { //si on a défile de plus de XXX (variable "hauteur) pixels du haut vers le bas
-            if(repairTab == 'block'){ 
-                $('header').css({'height':'80px'}); // "et vice et versa"
-                $('header #logo img').css({'width':'150px', 'height':'100px','margin-left': '20px', 'margin-top': '17px'});
-                $('header #logo').css({'width':'150px', 'height':'100px'});
-                $('header #logo div').css({'width':'350px', 'height':'400px', 'top':'-250px', 'left':'-130px'});
-                $('header #baniere').css({'height':'80px'});
-                $('header #login').css({'top':'10px', 'right':'15px'});
-                $('header #login div').css({'top':'-100px','width':'250px', 'height':'250px'});
-                $('header div#login img').css({'width':'120px'});
-                $('aside#planningRapel').css({'top':'170px','width':'40px'})
-                $('aside#shopRapel').css({'top':'280px','width':'40px'});
-                $('#menuLoging').css({'top':'5px'});
-                $('header nav#menu').css({'width':'320px'});
-                $('header nav#menu li').css({'height':'85px'});
-                $('header #login a:nth-child(2)').css({'top':'160px', 'right':'0px'});
-                $('#validAllPlanningWeek').css({'top':'120px'});
-            }else if(repairMob == 'block'){
-                $('header').css({'height':'60px'}); // "et vice et versa"
-                $('header #logo img').css({'width':'150px', 'height':'100px','margin-left': '0px', 'margin-top': '0px'});
-                $('header #logo').css({'width':'150px', 'height':'100px'});
-                $('header #logo div').css({'width':'350px', 'height':'400px', 'top':'-300px', 'left':'-130px'});
-                $('header #baniere').css({'height':'60px'});
-                $('header #login').css({'top':'10px', 'right':'15px'});
-                $('header #login div').css({'top':'-100px','width':'250px', 'height':'250px'});
-                $('header div#login img').css({'width':'120px'});
-                $('#validAllPlanningWeek').css({'top':'90px'});
-            }else if(repairMobXs == 'block'){
-                $('header').css({'height':'60px'}); // "et vice et versa"
-                $('header #logo img').css({'width':'120px', 'height':'80px','margin-left': '0px', 'margin-top': '0px'});
-                $('header #logo').css({'width':'150px', 'height':'100px'});
-                $('header #logo div').css({'width':'300px', 'height':'400px', 'top':'-300px', 'left':'-130px'});
-                $('header #baniere').css({'height':'60px'});
-                $('#validAllPlanningWeek').css({'top':'90px'});
-            }else{
-                $('header').css({'height':'80px'}); // "et vice et versa"
-                $('header #logo img').css({'width':'150px', 'height':'100px','margin-left': '20px', 'margin-top': '17px'});
-                $('header #logo').css({'width':'150px', 'height':'100px'});
-                $('header #logo div').css({'width':'400px', 'height':'400px', 'top':'-250px', 'left':'-150px'});
-                $('header #baniere').css({'height':'80px'});
-                $('header #login').css({'top':'20px', 'right':'35px'});
-              	$('header #login div').css({'top':'-150px','width':'300px', 'height':'300px'});
-              	$('header div#login img').css({'width':'120px'});
-                $('aside#planningRapel').css({'top':'200px','width':'60px'})
-                $('aside#shopRapel').css({'top':'330px','width':'60px'});
-                $('#menuLoging').css({'top':'5px'});
-                $('header nav#menu li').css({'height':'105px'});
-                $('header #login a:nth-child(2)').css({'color': '#864002', 'top':'160px', 'right':'0px'});
-                $('#validAllPlanningWeek').css({'top':'120px'});
-            }
-
-          }else {
-            if(repairTab == 'block'){ 
-               $('header').css({'height':'150px'}); // "et vice et versa"
-              $('header #logo img').css({'width':'200px', 'height':'150px','margin-left': '0px', 'margin-top': '0px'});
-              $('header #logo').css({'width':'200px', 'height':'150px'});
-              $('header #logo div').css({'width':'200px', 'height':'200px', 'top':'-20px', 'left':'0px'});
-              $('header #baniere').css({'height':'150px'});
-              $('header #login').css({'top':'30px', 'right':'25px'});
-              $('header #login div').css({'top':'-100px','width':'300px', 'height':'300px'});
-              $('header div#login img').css({'width':'130px'});
-              $('aside#planningRapel').css({'top':'250px','width':'40px'})
-              $('aside#shopRapel').css({'top':'350px','width':'40px'});
-              $('#menuLoging').css({'top':'80px', 'z-index':'9000'});
-              $('header nav#menu').css({'width':'350px'});
-              $('header nav#menu li').css({'height':'105px'});
-              $('header #login a:nth-child(2)').css({'top':'130px', 'right':'50px'});
-              $('#validAllPlanningWeek').css({'top':'240px'});
-
-            }else if(repairMob == 'block'){
-               $('header').css({'height':'100px'}); // "et vice et versa"
-              $('header #logo img').css({'width':'200px', 'height':'150px','margin-left': '0px', 'margin-top': '0px'});
-              $('header #logo').css({'width':'200px', 'height':'200px'});
-              $('header #logo div').css({'width':'200px', 'height':'200px', 'top':'-40px', 'left':'0px'});
-              $('header #baniere').css({'height':'100px'});
-              $('#validAllPlanningWeek').css({'top':'200px'});
-              $('#validAllPlanningWeek').css({'top':'120px'});
-            }else if(repairMobXs == 'block'){
-               $('header').css({'height':'80px'}); // "et vice et versa"
-              $('header #logo img').css({'width':'150px', 'height':'100px','margin-left': '0px', 'margin-top': '0px'});
-              $('header #logo').css({'width':'200px', 'height':'200px'});
-              $('header #logo div').css({'width':'150px', 'height':'150px', 'top':'-20px', 'left':'0px'});
-              $('header #baniere').css({'height':'80px'});
-              $('#validAllPlanningWeek').css({'top':'120px'});
-            }else{
-              $('header').css({'height':'180px'}); // "et vice et versa"
-              $('header #logo img').css({'width':'300px', 'height':'200px','margin-left': '0px', 'margin-top': '0px'});
-              $('header #logo').css({'width':'300px', 'height':'260px'});
-              $('header #logo div').css({'width':'300px', 'height':'300px', 'top':'-50px', 'left':'0px'});
-              $('header #baniere').css({'height':'180px'});
-              $('header #login').css({'top':'50px', 'right':'55px'});
-              $('header #login div').css({'top':'-150px','width':'350px', 'height':'350px'});
-              $('header div#login img').css({'width':'130px'});
-              $('aside#planningRapel').css({'top':'280px','width':'70px'})
-              $('aside#shopRapel').css({'top':'410px','width':'70px'});
-              $('#menuLoging').css({'top':'80px'});
-              $('header nav#menu li').css({'height':'125px'});
-              $('header #login a:nth-child(2)').css({'color': '#d2cebe', 'top':'130px', 'right':'50px'});
-              $('#validAllPlanningWeek').css({'top':'200px'});
-            }
-          }
-       });
-     });
-
-//****************************************************************************************************************
-                        //POPUP KAJOO
-//****************************************************************************************************************
-// animation de la pop-up info
-
-function animPopupRecipe(txt, heightDiv){
-	$('#popupInfo div').clearQueue();
-	$('#popupInfo #popTxt').clearQueue();
-	$('#popupInfo > div').clearQueue();
-	$('#popupInfo').clearQueue();
-	$('#popupInfo div div#popTxt').clearQueue();
-
-	if($('#popupInfo div').is(":visible")){ 	
-		$('#popupInfo #popTxt').fadeOut(100);
-		$('#popupInfo > div').fadeOut(200);
-		$('#popupInfo').delay(200).animate({'height':'0px', 'padding':'0px', 'width':'0px'}, {'duration':500});	
-		$('#popupInfo div div#popTxt').html('');
+function changeImgMenuHover(btn, imgUrl){
+	$(btn).children('img').clearQueue();
+	$(btn).css({'box-shadow': 'none'})
+	$(btn).children('img').stop(false,true)
+	$(btn).children('img').animate({'width': '0px'}, 200)
+	var cible = $(btn).children('img')
+	setTimeout(function () {
+		$(cible).attr('src', imgUrl)
+		$(btn).css({'box-shadow': '2px 2px 5px black'})
+	}, 200)
+	if(repairTab == 'block') {
+		$(btn).children('img').animate({'width': '70px'}, 200)
 	}else{
-		$('#popupInfo div div#popImg').html('<img src="public/img/kajoo/kajoo3.png">')
-		$('#popupInfo div div#popTxt').html(txt);
-		$('#popupInfo').delay(0).animate({'height':heightDiv, 'padding':'10px', 'width':'300px'}, {'duration':500});
-		$('#popupInfo > div').delay(800).fadeIn(400);
-		$('#popupInfo #popTxt').delay(0).fadeIn(200)
+		$(btn).children('img').animate({'width': '90px'}, 200)
 	}
 }
-$('#popupInfo').click(function(){
-	$('#popupInfo #popTxt').fadeOut(100);
-	$('#popupInfo > div').fadeOut(200);
-	$('#popupInfo').delay(200).animate({'height':'0px', 'padding':'0px', 'width':'0px'}, {'duration':500});	
-	$('#popupInfo div div#popTxt').html('');
-});
-$('#popHeart').click(function(){
-	animPopupRecipe('<p>Activer la fraise pour repérer vos recettes préférées que vous avez déjà essayé!</p>', '90px');
-})
-$('#popTitle').click(function(){
-		animPopupRecipe('<p>Le moteur de recherche utilise les titres de vos recettes pour vous aidez à les retrouvez plus facilement. Choisissez les bien!</p>', '120px');
-})
-$('#popAlpha').click(function(){
-		animPopupRecipe('<p>Utilisez la première lettre de votre titre </p>', '90px');
-})
-$('#popCateg').click(function(){
-		animPopupRecipe('<p>Choisissez la catégorie où ranger votre recette</p>', '90px');
-})
-$('#popPeople').click(function(){
-		animPopupRecipe('<p>Votre recette sera pour combien de personne?</p>', '100px');
-})
-$('#popTimeGlobal').click(function(){
-		animPopupRecipe('<p>Le temps total pour la réalisation de votre recette. Elle se calcul automatiquement suivant le temps de chacune des étape de votre recette</p>', '120px');
-})
-$('#popPrice').click(function(){
-	animPopupRecipe('<p>Indiquez le coût financier de votre recette</p>', '90px');
-})
-$('#popEasy').click(function(){
-	animPopupRecipe('<p>Indiquez le niveau de difficulté de votre recette</p>', '90px');
-})
 
-$('#popIng').click(function(){
-	animPopupRecipe('<p>Cette partie est consacrées au regroupement de vos ingrédients necessaire pour cette recette. Ce sera cette même liste qui sera utilisez pour compléter vos liste de course!</p>', '165px');
-})
-
-$('#popEtape').click(function(){
-	animPopupRecipe('<p>Ajoutez des étapes de préaparation à votre recette pour vous faciliter la lecture! Pensez à notter le temps de ces étapes !</p>', '125px');
-})
-$('#popCam').click(function(){
-	animPopupRecipe('<p>Ajoutez une photo pour illustrer votre recette.</p>', '90px');
-})
-
-$('#popPushIng').click(function(){
-	animPopupRecipe('<p>Ajoutez un ingrédient dans la zone indiquée. Le moteur de recherche va vous présenter les ingrédients existant que vous pourrez utiliser. Si un ingrédient n\'existe pas, vous pouvez l\'enregister dans le lexique pour l\'utilisez ensuite.</p>', '195px');
-})
-
-$('#popCreateIng').click(function(){
-	animPopupRecipe('<p>Vous pouvez enregistrer des ingrédients et leur unité de mesure dans le lexique de Kajoo!</p>', '100px');
-})
-
-$('#popSearch').click(function(){
-	animPopupRecipe('<p>Choisissez un ingrédient dans la liste ci-dessous.</p>', '100px');
-})
