@@ -51,6 +51,9 @@
 	section {
 		margin-bottom: 40px;
 	}
+	footer div div {
+		width: 100%;
+	}
 	#recipesAlpha nav ul {
 		flex-wrap: wrap;
 		padding-left: 0;
@@ -59,13 +62,14 @@
 	#recipes div#listRecipeGroup {
 		text-align: center;
 	}
-	#contentModifEtape>div.etapeRecipeFlex>div>div>div.flexrow,
+/*	#contentModifEtape>div.etapeRecipeFlex>div>div>div.flexrow,
 		#contentNewEtape>div.etapeRecipeFlex>div>div>div.flexrow,
 		#contentEtape>div.etapeRecipeFlex>div>div>div.flexrow {
 		flex-wrap: wrap;
-	}
+	}*/
 	section#recetteContainDiv div.etapeRecipeFlex select {
 		width: 50px;
+		margin: 0;
 	}
 	#contentRecipesMenu {
 		width: 100%;
@@ -79,7 +83,7 @@
 		padding-right: 0;
 	}
 	#contentModifViewRecipe textarea, #contentNewViewRecipe textarea {
-		max-width: 350px;
+		width:90%
 	}
 	section#recetteContainDiv #contentNewRecipe span.fa-camera, section#recetteContainDiv #contentModifViewRecipe span.fa-camera
 		{
@@ -91,7 +95,7 @@
 	.formLogin {
 		width: auto;
 	}
-	section #btnCategory {
+	section #btnCategory,#btnCategoryFriend,#btnCategoryOther {
 		flex-wrap: wrap;
 		margin-bottom: 20px;
 	}

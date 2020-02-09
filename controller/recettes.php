@@ -127,6 +127,23 @@ function searchBarIngredient($val)
     $ingredient = new Ingredient();
     $aIngredient = $ingredient->getsearchBar('title', htmlspecialchars($val));
 
+    if($aIngredient != false){
+        for ($i = 0; $i < count($aIngredient); $i ++) {
+            foreach ($aIngredient[$i] as $key => $value) {
+                if ($key == 'id_ingredient') {
+                    if (file_exists('public/img_ing/' . $aIngredient[$i]['id_ingredient'] . '.png')) { // si le fichier existe déjà
+                        $aIngredient[$i]['thumb'] = 'public/img_ing/' . $aIngredient[$i]['id_ingredient'] . '.png';
+                    } elseif (file_exists('public/img_ing/' . $aIngredient[$i]['id_ingredient'] . '.jpg')) {
+                        $aIngredient[$i]['thumb'] = 'public/img_ing/' . $aIngredient[$i]['id_ingredient'] . '.jpg';
+                    } elseif (file_exists('public/img_ing/' . $aIngredient[$i]['id_ingredient'] . '.jpeg')) {
+                        $aIngredient[$i]['thumb'] = 'public/img_ing/' . $aIngredient[$i]['id_ingredient'] . '.jpeg';
+                    } else {
+                        $aIngredient[$i]['thumb'] = 'public/img_ing/null.png';
+                    }
+                }
+            }
+        }
+    }
     $res = responseAjax($aIngredient);
     echo json_encode($res);
 }

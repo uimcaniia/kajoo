@@ -8,7 +8,7 @@ $('#contentNewRecipe h2').click(function(){
 	$('#contentViewRecipe').fadeOut(0);
 	$('#contentModifViewRecipe').fadeOut(0);
 	closeCateg();
-	closeanimMenuRecipe()
+	closeanimMenuRecipe();
 
 	$('#Newlove').html('<span class="fas fa-heart emptySpan"></span>');
 	$('#newTitleRecipe').val('');
@@ -18,44 +18,47 @@ $('#contentNewRecipe h2').click(function(){
 	$('#NewPriceRecipe').html('<div class="price"></div>');
 	$('#NeweasyRecipe').html('<div class="hard"></div>');
 
-	$('#imgNew').attr('src', '');
+	const $imgNewRecipe_span_first_child = $('#imgNewRecipe span:first-child');
+	const $imgNew = $('#imgNew');
+
+	$imgNew.attr('src', '');
 	$('#submitImgRecipeModif').click(false);
-	var inputFile = $($('#imgNewRecipe #file'));
+	let inputFile = $('#imgNewRecipe #file');
 	inputFile.replaceWith(inputFile.val('').clone(true)); // on reset le input file
 	$('#imgNewRecipe #submitImgRecipeNew').next('p').html('');
-	$('#imgNew').attr("src", '');
-	$('#imgNewRecipe span:first-child').removeClass('fa-times');
-	$('#imgNewRecipe span:first-child').addClass('fa-camera');
-	$('#formImgRecipe').css('display', 'none'); 
+	$imgNew.attr("src", '');
+	$imgNewRecipe_span_first_child.removeClass('fa-times');
+	$imgNewRecipe_span_first_child.addClass('fa-camera');
+	$('#formImgRecipe').css('display', 'none');
 
-			var childIng = $('#contentAllOfNewIng').children('div.whiteSpace');
-			var sizeChildIng = childIng.length;
-			for(var x = 0 ; x < sizeChildIng ; x++){
+	let childIng = $('#contentAllOfNewIng').children('div.whiteSpace');
+	let sizeChildIng = childIng.length;
+			for(let x = 0 ; x < sizeChildIng ; x++){
 				$(childIng[x]).remove();
 			}
 
 
-	var elemEtape = $('#contentNewEtape div.etapeRecipeFlex').children().children('div.flexColumn');
+	let elemEtape = $('#contentNewEtape div.etapeRecipeFlex').children().children('div.flexColumn');
 	$('#newEtapeHour0').val('00'); // reset select temps etape
 	$('#newEtapeMinute0').val('00');
 	$('#newEtapeSecond0').val('00');
 	$('#newEtapeText0').val('');
 
-	for (var i = 1 ; i < elemEtape.length ; i++){ // on supprime toutes les étape sauf la première
+	for (let i = 1 ; i < elemEtape.length ; i++){ // on supprime toutes les étape sauf la première
 		$(elemEtape[i]).remove();
 	}
-	var heightTwo = $('#newBlockTwo').css("height");
-	var heightThree = $('#newBlockThree').css("height");
-	var heightFour = $('#newBlockFour').css("height");
+	let heightTwo = $('#newBlockTwo').css("height");
+	let heightThree = $('#newBlockThree').css("height");
+	let heightFour = $('#newBlockFour').css("height");
 
-	if(heightTwo != '0px'){
-		$('#newBlockTwoTitle').click()
+	if(heightTwo !== "0px"){
+		$('#newBlockTwoTitle').click();
 	}
-	if(heightThree != '0px'){
-		$('#newBlockThreeTitle').click()
+	if(heightThree !== "0px"){
+		$('#newBlockThreeTitle').click();
 	}
-	if(heightFour != '0px'){
-		$('#newBlockFourTitle').click()
+	if(heightFour !== "0px"){
+		$('#newBlockFourTitle').click();
 	}
 });
 
@@ -88,25 +91,27 @@ function makePrivateSPan(btn){
 //----------------------------------------
 //pour modifier l'indicateur de prix
 function addPriceSpan(newOrModif){
-	if(newOrModif == 'new'){
+	let divNewOrModif;
+	if (newOrModif === "new") {
 		divNewOrModif = '#NewPriceRecipe';
-	}else{
+	} else {
 		divNewOrModif = '#ModifPriceRecipe';
 	}
-	var price = $(divNewOrModif).children().length;
-	if (price == 3){
+	let price = $(divNewOrModif).children().length;
+	if (price === "3"){
 	}else{
 		$(divNewOrModif).append('<div class="price"></div>');
 	}
 }
 function removePriceSpan(newOrModif){
-	if(newOrModif == 'new'){
+	let divNewOrModif;
+	if (newOrModif === "new") {
 		divNewOrModif = '#NewPriceRecipe';
-	}else{
+	} else {
 		divNewOrModif = '#ModifPriceRecipe';
 	}
-	var price = $(divNewOrModif).children().length;
-	if (price == 1){
+	let price = $(divNewOrModif).children().length;
+	if (price === "1"){
 	}else{
 		$(divNewOrModif+' div:first-child').remove();
 	}
@@ -114,22 +119,24 @@ function removePriceSpan(newOrModif){
 //----------------------------------------
 //pour modifier l'indicateur du nbr de personne
 function addPeopleSpan(newOrModif){
-	if(newOrModif == 'new'){
+	let divNewOrModif;
+	if (newOrModif === "new") {
 		divNewOrModif = '#NewnbrPeopleRecipe';
-	}else{
+	} else {
 		divNewOrModif = '#ModifnbrPeopleRecipe';
 	}
-	var people = $(divNewOrModif).html();
+	let people = $(divNewOrModif).html();
 	$(divNewOrModif).html(parseInt(people)+1);
 }
 function removePeopleSpan(newOrModif){
-	if(newOrModif == 'new'){
+	let divNewOrModif;
+	if (newOrModif === "new") {
 		divNewOrModif = '#NewnbrPeopleRecipe';
-	}else{
+	} else {
 		divNewOrModif = '#ModifnbrPeopleRecipe';
 	}
-	var people = $(divNewOrModif).html();
-	if (people == 1){
+	let people = $(divNewOrModif).html();
+	if (people === "1"){
 	}else{
 		$(divNewOrModif).html(parseInt(people)-1);
 	}
@@ -137,25 +144,27 @@ function removePeopleSpan(newOrModif){
 //----------------------------------------
 //pour modifier l'indicateur de la facilité
 function addEasySpan(newOrModif){
-	if(newOrModif == 'new'){
+	let divNewOrModif;
+	if (newOrModif === "new") {
 		divNewOrModif = '#NeweasyRecipe';
-	}else{
+	} else {
 		divNewOrModif = '#ModifeasyRecipe';
 	}
-	var price = $(divNewOrModif).children().length;
-	if (price == 3){
+	let price = $(divNewOrModif).children().length;
+	if (price === "3"){
 	}else{
 		$(divNewOrModif).append('<div class="hard"></div>');
 	}
 }
 function removeEasySpan(newOrModif){
-	if(newOrModif == 'new'){
+	let divNewOrModif;
+	if (newOrModif === "new") {
 		divNewOrModif = '#NeweasyRecipe';
-	}else{
+	} else {
 		divNewOrModif = '#ModifeasyRecipe';
 	}
-	var price = $(divNewOrModif).children().length;
-	if (price == 1){
+	let price = $(divNewOrModif).children().length;
+	if (price === "1"){
 	}else{
 		$(divNewOrModif+' div:first-child').remove();
 	}
@@ -163,85 +172,101 @@ function removeEasySpan(newOrModif){
 //----------------------------------------
  //on supprime un ingrédient
 function delIngInRecipe(newOrModif, btn) {
-	if(newOrModif == 'new'){
+	let divNewOrModif;
+	let idSpanRemove;
+	let idQt;
+	let idIng;
+	let idAjout;
+	let divBlockNum;
+	let divBlockHidden;
+	if (newOrModif === "new") {
 		divNewOrModif = '#contentNewFood #contentAllOfNewIng';
 		idSpanRemove = 'removeNewIng';
-		idQt = 'qtNewIngRecipe'
-		idIng = 'searchNewIngRecipe'
-		idAjout = 'ajoutNew'
-		divBlockNum= '#newBlockFour';
-		divBlockHidden='#newBlockFour div.hideDivAnim';
-	}else{
+		idQt = 'qtNewIngRecipe';
+		idIng = 'searchNewIngRecipe';
+		idAjout = 'ajoutNew';
+		divBlockNum = '#newBlockFour';
+		divBlockHidden = '#newBlockFour div.hideDivAnim';
+	} else {
 		divNewOrModif = '#contentModifFood #contentAllOfModifIng';
 		idSpanRemove = 'removeIng';
-		idQt = 'qtIngRecipe'
-		idIng = 'searchIngRecipe'
-		idAjout = 'ajoutModif'
-		divBlockNum= '#modifBlockFour';
-		divBlockHidden='#modifBlockFour div.hideDivAnim';
+		idQt = 'qtIngRecipe';
+		idIng = 'searchIngRecipe';
+		idAjout = 'ajoutModif';
+		divBlockNum = '#modifBlockFour';
+		divBlockHidden = '#modifBlockFour div.hideDivAnim';
 	}
 
 	$(btn).parent().remove();
 
-	var nbrIngRestant = document.querySelectorAll(divNewOrModif+' > div.whiteSpace');
-	var nbrIdRestant = nbrIngRestant.length;
-	var nbrchildRestant = $(nbrIngRestant).children();
+	let nbrIngRestant = document.querySelectorAll(divNewOrModif+' > div.whiteSpace');
+	let nbrIdRestant = nbrIngRestant.length;
+	//var nbrchildRestant = $(nbrIngRestant).children();
 
-	for (var i = 0; i < nbrIdRestant; i++) {
+	for (let i = 0; i < nbrIdRestant; i++) {
 		$(nbrIngRestant[i]).children('span').attr('id', idSpanRemove + [i]);
 		$(nbrIngRestant[i]).children('p:nth-child(2)').attr('id', idQt + [i]);
 		$(nbrIngRestant[i]).children('p:nth-child(4)').attr('id', idIng + [i]);
 		$(nbrIngRestant[i]).children('input').attr('id', idAjout + [i]);
 	}
-	resizeDivEtapeFood('#modifBlockFour', '#modifBlockFour div.hideDivAnim');
+	resizeDivEtapeFood(divBlockNum, divBlockHidden);
 }
 
 
 //-------------------------------------------------
 function pushNewEtapeInRecipe(newOrModif, btnClick){
-	if(newOrModif == 'new'){
-		var divselect = 'contentNewEtape';
-		var numBlock = '#newBlockFour';
-		var numBlockHidden = '#newBlockFour div.hideDivAnim';
-		var etapeHour = 'newEtapeHour';
-		var etapeMin = 'newEtapeMinute';
-		var etapeSec = 'newEtapeSecond';
-		var etapeText = 'newEtapeText';
-		var etapeImg = 'imgNewEtape';
-	}else{
-		var divselect = 'contentModifEtape';
-		var numBlock = '#modifBlockFour';
-		var numBlockHidden = '#modifBlockFour div.hideDivAnim';
-		var etapeHour = 'modifEtapeHour';
-		var etapeMin = 'modifEtapeMinute';
-		var etapeSec = 'modifEtapeSecond';
-		var etapeText = 'modifEtapeText';
-		var etapeImg = 'imgEtape';
+	let divselect;
+	let numBlock;
+	let numBlockHidden;
+	let etapeHour;
+	let etapeMin;
+	let etapeSec;
+	let etapeText;
+	let etapeImg;
+
+	if (newOrModif === "new") {
+		divselect = 'contentNewEtape';
+		numBlock = '#newBlockFour';
+		numBlockHidden = '#newBlockFour div.hideDivAnim';
+		etapeHour = 'newEtapeHour';
+		etapeMin = 'newEtapeMinute';
+		etapeSec = 'newEtapeSecond';
+		etapeText = 'newEtapeText';
+		etapeImg = 'imgNewEtape';
+	} else {
+		divselect = 'contentModifEtape';
+		numBlock = '#modifBlockFour';
+		numBlockHidden = '#modifBlockFour div.hideDivAnim';
+		etapeHour = 'modifEtapeHour';
+		etapeMin = 'modifEtapeMinute';
+		etapeSec = 'modifEtapeSecond';
+		etapeText = 'modifEtapeText';
+		etapeImg = 'imgEtape';
 	}
 
 	$(btnClick).unbind('click'); // block les double action
-	var divParent = $(btnClick).parent();
-	var etape = '';
+	let divParent = $(btnClick).parent();
+	let etape = '';
 	// création des select du temps de l'étape
-	var selecttime = '<div class="flexrow"><label for=""></label><select id="">';
-	for(var j = 0 ; j <= 48 ; j++){
-		var dizaine = 0;
+	let selecttime = '<div class="flexrow"><label for=""></label><select id="">';
+	for(let j = 0 ; j <= 48 ; j++){
+		let dizaine = 0;
 		if(j > 9){
 			dizaine = '';
 		}
 		selecttime = selecttime +'<option value="'+dizaine+''+j+'">'+j+'</option>';
 	}
 	selecttime = selecttime+'</select><p>H</p><label for=""></label><select id="" class="flexrow">';
-	for(var j = 0 ; j <= 60 ; j++){
-		var dizaine = 0;
+	for(let j = 0 ; j <= 60 ; j++){
+		let dizaine = 0;
 		if(j > 9){
 			dizaine = '';
 		}
 		selecttime = selecttime +'<option value="'+dizaine+''+j+'">'+j+'</option>';
 	}
 	selecttime = selecttime+'</select><p>min</p><label for=""></label><select id="" class="flexrow">';
-	for(var j = 0 ; j <= 60 ; j++){
-		var dizaine = 0;
+	for(let j = 0 ; j <= 60 ; j++){
+		let dizaine = 0;
 		if(j > 9){
 			dizaine = '';
 		}
@@ -250,31 +275,31 @@ function pushNewEtapeInRecipe(newOrModif, btnClick){
 	}
 	selecttime = selecttime+'</select><p>sec</p></div>';
 
-	etape2 = '<div class="flexColumn"><div class="flexrow"><p><span id ="" class="fas fa-minus"></span><p>Etape n°</p><p class="numEtape"></p>';
-	etape3 = '<p>temps</p>'+selecttime+'</div>';
-	etape4 = '<div class="flexrow"><label for=""></label><textarea id="" class="" name="" autocomplete="off" oninput="updateTextareaHeight(this);"></textarea>';
-	etape5 = '</div><hr><span class="pushEtapeInside fas fa-plus flexrow"><p>Ajouter une étape intermédiaire?</p></span><hr></div>';
+	let etape2 = '<div class="flexColumn"><div class="flexrow"><p><span id ="" class="fas fa-minus"></span><p>Etape n°</p><p class="numEtape"></p>';
+	let etape3 = '<p>temps</p>' + selecttime + '</div>';
+	let etape4 = '<div class="flexrow"><label for=""></label><textarea id="" class="" name="" autocomplete="off" oninput="updateTextareaHeight(this);"></textarea>';
+	let etape5 = '</div><hr><span class="pushEtapeInside fas fa-plus flexrow"><p>Ajouter une étape intermédiaire?</p></span><hr></div>';
 	etape  = etape+etape2+etape3+etape4+etape5;
 
 	$(etape).insertAfter(divParent);
 	resizeDivEtapeFood(numBlock, numBlockHidden);
 
-	var nbrElement = $('div#'+divselect+' div.etapeRecipeFlex div div.flexColumn').length; // on calcule le nouveau nbr d'étape
+	let nbrElement = $('div#'+divselect+' div.etapeRecipeFlex div div.flexColumn').length; // on calcule le nouveau nbr d'étape
 
-	var elemDelEtapeInside = $('div#'+divselect+' div.etapeRecipeFlex div div p span.fa-minus');
-	var baliseNum          = $('div#'+divselect+' div.etapeRecipeFlex div div.flexColumn div:nth-child(1) p.numEtape');
-	var selectDivLabel1    = $('div#'+divselect+' div.etapeRecipeFlex div div.flexColumn div:nth-child(1) div label:nth-child(1)');
-	var selectDivSelect1   = $('div#'+divselect+' div.etapeRecipeFlex div div.flexColumn div:nth-child(1) div select:nth-child(2)');
-	var selectDivLabel2    = $('div#'+divselect+' div.etapeRecipeFlex div div.flexColumn div:nth-child(1) div label:nth-child(4)');
-	var selectDivSelect2   = $('div#'+divselect+' div.etapeRecipeFlex div div.flexColumn div:nth-child(1) div select:nth-child(5)');
-	var selectDivLabel3    = $('div#'+divselect+' div.etapeRecipeFlex div div.flexColumn div:nth-child(1) div label:nth-child(7)');
-	var selectDivSelect3   = $('div#'+divselect+' div.etapeRecipeFlex div div.flexColumn div:nth-child(1) div select:nth-child(8)');
+	let elemDelEtapeInside = $('div#'+divselect+' div.etapeRecipeFlex div div p span.fa-minus');
+	let baliseNum          = $('div#'+divselect+' div.etapeRecipeFlex div div.flexColumn div:nth-child(1) p.numEtape');
+	let selectDivLabel1    = $('div#'+divselect+' div.etapeRecipeFlex div div.flexColumn div:nth-child(1) div label:nth-child(1)');
+	let selectDivSelect1   = $('div#'+divselect+' div.etapeRecipeFlex div div.flexColumn div:nth-child(1) div select:nth-child(2)');
+	let selectDivLabel2    = $('div#'+divselect+' div.etapeRecipeFlex div div.flexColumn div:nth-child(1) div label:nth-child(4)');
+	let selectDivSelect2   = $('div#'+divselect+' div.etapeRecipeFlex div div.flexColumn div:nth-child(1) div select:nth-child(5)');
+	let selectDivLabel3    = $('div#'+divselect+' div.etapeRecipeFlex div div.flexColumn div:nth-child(1) div label:nth-child(7)');
+	let selectDivSelect3   = $('div#'+divselect+' div.etapeRecipeFlex div div.flexColumn div:nth-child(1) div select:nth-child(8)');
 
-	var textareaDivLabel   = $('div#'+divselect+' div.etapeRecipeFlex div div.flexColumn div:nth-child(2) label');
-	var textareaDiv        = $('div#'+divselect+' div.etapeRecipeFlex div div.flexColumn div:nth-child(2) textarea');
-	var textareaImg        = $('div#'+divselect+' div.etapeRecipeFlex div div.flexColumn div:nth-child(2) img');
+	let textareaDivLabel   = $('div#'+divselect+' div.etapeRecipeFlex div div.flexColumn div:nth-child(2) label');
+	let textareaDiv        = $('div#'+divselect+' div.etapeRecipeFlex div div.flexColumn div:nth-child(2) textarea');
+	let textareaImg        = $('div#'+divselect+' div.etapeRecipeFlex div div.flexColumn div:nth-child(2) img');
 
-	for(var i = 0 ; i < nbrElement ; i++){ // on renomme les attributs de chaque input pour leur attribuer le bon ordre afin de pouvoir enregistrer
+	for(let i = 0 ; i < nbrElement ; i++){ // on renomme les attributs de chaque input pour leur attribuer le bon ordre afin de pouvoir enregistrer
 		$(elemDelEtapeInside[i]).attr('id', 'removeEtape'+[i]);
 		$(selectDivLabel1[i]).attr('for', etapeHour+[i]);
 		$(selectDivLabel2[i]).attr('for', etapeMin+[i]);
@@ -292,49 +317,58 @@ function pushNewEtapeInRecipe(newOrModif, btnClick){
 		$(textareaDiv[i]).attr('name', etapeText+[i]);
 		$(textareaImg[i]).attr('name', etapeImg+[i]);
 	}
-};
+}
 //----------------------------------------------
 	// on supprime une étape et on renumérote les étapes restante
 function delEtapeAndRewriteOrder(newOrModi, btnDel) {
-	if (newOrModi == 'new') {
+	let divNewOrModif;
+	let divBlockNum;
+	let divBlockHidden;
+	let labelHour;
+	let labelMin;
+	let labelSecond;
+	let labelArea;
+	let nameImg;
+
+	if (newOrModi === "new") {
 		divNewOrModif = 'contentNewEtape';
-		divBlockNum= '#newBlockFour';
-		divBlockHidden='#newBlockFour div.hideDivAnim';
-		labelHour='newEtapeHour';
-		labelMin='newEtapeMinute';
-		labelSecond='newEtapeSecond';
-		labelArea='newEtapeText';
-		nameImg='imgEtapeNew'
+		divBlockNum = '#newBlockFour';
+		divBlockHidden = '#newBlockFour div.hideDivAnim';
+		labelHour = 'newEtapeHour';
+		labelMin = 'newEtapeMinute';
+		labelSecond = 'newEtapeSecond';
+		labelArea = 'newEtapeText';
+		nameImg = 'imgEtapeNew'
 	} else {
 		divNewOrModif = 'contentModifEtape';
-		divBlockNum= '#modifBlockFour';
-		divBlockHidden='#modifBlockFour div.hideDivAnim';
-		labelHour='modifEtapeHour';
-		labelMin='modifEtapeMinute';
-		labelSecond='modifEtapeSecond';
-		labelArea='modifEtapeText';
-		nameImg='imgEtape'
+		divBlockNum = '#modifBlockFour';
+		divBlockHidden = '#modifBlockFour div.hideDivAnim';
+		labelHour = 'modifEtapeHour';
+		labelMin = 'modifEtapeMinute';
+		labelSecond = 'modifEtapeSecond';
+		labelArea = 'modifEtapeText';
+		nameImg = 'imgEtape'
 	}
-	elemDelOneEtape = $('div#'+divNewOrModif+' div.etapeRecipeFlex div').children('div.flexColumn');
+	let elemDelOneEtape = $('div#'+divNewOrModif+' div.etapeRecipeFlex div').children('div.flexColumn');
 
-	if (elemDelOneEtape.length != 1) {
+	if (elemDelOneEtape.length !== 1) {
 		$(btnDel).parent().parent().parent().remove();
-		var nbrRestantEtape = $(elemDelOneEtape).length;
+		//var nbrRestantEtape = $(elemDelOneEtape).length;
 
-		var nbrRestantEtape = $(elemDelOneEtape).length;// on calcule le nouveau nbr d'étape
-		var elemDelEtapeInside = $('div#'+divNewOrModif+' div.etapeRecipeFlex div div p span.fa-minus');
-		var baliseNum = $('div#'+divNewOrModif+' div.etapeRecipeFlex div div.flexColumn div:nth-child(1) p.numEtape');
-		var selectDivLabel1 = $('div#'+divNewOrModif+' div.etapeRecipeFlex div div.flexColumn div:nth-child(1) div label:nth-child(1)');
-		var selectDivSelect1 = $('div#'+divNewOrModif+' div.etapeRecipeFlex div div.flexColumn div:nth-child(1) div select:nth-child(2)');
-		var selectDivLabel2 = $('div#'+divNewOrModif+' div.etapeRecipeFlex div div.flexColumn div:nth-child(1) div label:nth-child(4)');
-		var selectDivSelect2 = $('div#'+divNewOrModif+' div.etapeRecipeFlex div div.flexColumn div:nth-child(1) div select:nth-child(5)');
-		var selectDivLabel3 = $('div#'+divNewOrModif+' div.etapeRecipeFlex div div.flexColumn div:nth-child(1) div label:nth-child(7)');
-		var selectDivSelect3 = $('div#'+divNewOrModif+' div.etapeRecipeFlex div div.flexColumn div:nth-child(1) div select:nth-child(8)');
-		var textareaDivLabel = $('div#'+divNewOrModif+' div.etapeRecipeFlex div div.flexColumn div:nth-child(2) label');
-		var textareaDiv = $('div#'+divNewOrModif+' div.etapeRecipeFlex div div.flexColumn div:nth-child(2) textarea');
-		var textareaImg = $('div#'+divNewOrModif+' div.etapeRecipeFlex div div.flexColumn div:nth-child(2) img');
+		let nbrRestantEtape = $(elemDelOneEtape).length;// on calcule le nouveau nbr d'étape
+		let elemDelEtapeInside = $('div#'+divNewOrModif+' div.etapeRecipeFlex div div p span.fa-minus');
+		let baliseNum = $('div#'+divNewOrModif+' div.etapeRecipeFlex div div.flexColumn div:nth-child(1) p.numEtape');
+		let selectDivLabel1 = $('div#'+divNewOrModif+' div.etapeRecipeFlex div div.flexColumn div:nth-child(1) div label:nth-child(1)');
+		let selectDivSelect1 = $('div#'+divNewOrModif+' div.etapeRecipeFlex div div.flexColumn div:nth-child(1) div select:nth-child(2)');
+		let selectDivLabel2 = $('div#'+divNewOrModif+' div.etapeRecipeFlex div div.flexColumn div:nth-child(1) div label:nth-child(4)');
+		let selectDivSelect2 = $('div#'+divNewOrModif+' div.etapeRecipeFlex div div.flexColumn div:nth-child(1) div select:nth-child(5)');
+		let selectDivLabel3 = $('div#'+divNewOrModif+' div.etapeRecipeFlex div div.flexColumn div:nth-child(1) div label:nth-child(7)');
+		let selectDivSelect3 = $('div#'+divNewOrModif+' div.etapeRecipeFlex div div.flexColumn div:nth-child(1) div select:nth-child(8)');
+		let textareaDivLabel = $('div#'+divNewOrModif+' div.etapeRecipeFlex div div.flexColumn div:nth-child(2) label');
+		let textareaDiv = $('div#'+divNewOrModif+' div.etapeRecipeFlex div div.flexColumn div:nth-child(2) textarea');
+		let textareaImg = $('div#'+divNewOrModif+' div.etapeRecipeFlex div div.flexColumn div:nth-child(2) img');
 
-		for (var i = 0; i < nbrRestantEtape; i++) {// on renomme les attributs de chaque input pour leur attribuer le bon ordre afin de pouvoir enregistrer
+		for (let i = 0; i < nbrRestantEtape; i++) {// on renomme les attributs de chaque input pour leur attribuer le bon ordre afin de pouvoir enregistrer
 
 			$(elemDelEtapeInside).attr('id', 'removeEtape' + [i]);
 			$(selectDivLabel1[i]).attr('for', labelHour + [i]);
@@ -370,7 +404,7 @@ function showFormImgRecipe(btn,divBlock, divBlockHiden,divImg, divMess,inputFile
 		$(idForm).css('display', 'none');
 
 		$(divImg).attr('src', '');
-		var inputFile = $($(inputFileBtn));
+		let inputFile = $(inputFileBtn);
 		inputFile.replaceWith(inputFile.val('').clone(true)); // on reset le input file
 		$(divMess).next('p').html('');
 		resizeDivEtapeFood(divBlock, divBlockHiden);
@@ -382,19 +416,19 @@ function makeCanvasWithInputFileImg(inputTypeFile, divMess, divImg, divBlock, di
 	if (!$(inputTypeFile)[0].files[0]) {
 		$(divMess).next('p').html('Vous devez choisir une image avant de l\'importer.');
 	}else{
-		var isGoodFormat = $(inputTypeFile)[0].files[0].type;
+		let isGoodFormat = $(inputTypeFile)[0].files[0].type;
 		if (!isGoodFormat.match(/image.*/)) {
 			$(divMess).next('p').html('Seule les images sont acceptées.');
 		} else {
-			var current_file = $(inputTypeFile)[0].files[0];
-			var reader = new FileReader();
-			var canvas = document.createElement('canvas');
+			let current_file = $(inputTypeFile)[0].files[0];
+			let reader = new FileReader();
+			let canvas = document.createElement('canvas');
 
 			reader.onload = function (event) {
-				var image = new Image();
+				let image = new Image();
 				image.src = event.target.result;
 				image.onload = function () {
-					var maxWidth = 500,
+					let maxWidth = 500,
 						maxHeight = 500,
 						imageWidth = image.width,
 						imageHeight = image.height;
@@ -423,8 +457,9 @@ function makeCanvasWithInputFileImg(inputTypeFile, divMess, divImg, divBlock, di
 				}
 
 			}
+			reader.readAsDataURL(current_file);
 		}
-		reader.readAsDataURL(current_file);
+
 		
 	}
 }
@@ -645,14 +680,17 @@ function saveOrUpdateInBdd(divPrice, divEasy, divPeople, divEtape, divCateg,
 		//-----------------------------------------------------------
 		function saveRecipeInBdd(id_recipe) {
 			$('#loading').fadeIn(0);
+			let newMessErrorSaveFinal;
+
 			useAjaxReqestJson('index.php?action=delIngRecipe', 'POST', 'json', {id_recette: id_recipe}, true,true,function (data) {
 
-				if ((Object.keys(data).length == 1) && ("false" in data)) { // si les anciens ingrédient se sont bien fait supprimés on continue
-					var arrIng = new Object();
+				if ((Object.keys(data).length === 1) && ("false" in data)) { // si les anciens ingrédient se sont bien fait supprimés on continue
+					var arrIng = {};
+					//arrIng[i] = new Object();
 					var elemIngRecipe = $(divIng).children(' div.whiteSpace');
 
 					for (var i = 0; i < elemIngRecipe.length; i++) {
-						arrIng[i] = new Object(); // initialisation de l'object qui contiendra les données
+						arrIng[i] = {}; // initialisation de l'object qui contiendra les données
 
 						//var valueQt = $(divQtIng + i).html();
 						arrIng[i]['quantity'] = $(divQtIng + i).html();
@@ -667,13 +705,14 @@ function saveOrUpdateInBdd(divPrice, divEasy, divPeople, divEtape, divCateg,
 
 					useAjaxReqestJson('index.php?action=actualizeIngRecipe', 'POST', 'json', {arrIng: dataIng}, true,true,function (data) {
 						//console.log(data)
+
 						if ((Object.keys(data).length == 1) && ("false" in data)) {
 							$('#loading').fadeOut(1000);
 							newMessErrorSaveFinal += "La recette ,' pas pu être correctement sauvegardée. <br>";
 							showErrorWithImg(newMessErrorSaveFinal, aContainImg[1][0], aContainImg[1][1]);
 							$(btnValidSave).html('Sauvegarde incomplète');
 						} else {
-							useAjaxReqestJson('index.php?action=delEtapeRecipe', 'POST', 'json', {id_recette: id_recipe}, true,true,function (data) {
+							useAjaxReqestJson('index.php?action=delEtapeRecipe', 'POST', 'json', {id_recette: id_recipe}, true, true, function (data) {
 								if ((Object.keys(data).length == 1) && ("false" in data)) {
 									var arrEtape = new Object();
 									var elemEtapeRecipe = $(divContentEtape); // on sauvegarde les étapes, leur temps
@@ -690,46 +729,46 @@ function saveOrUpdateInBdd(divPrice, divEasy, divPeople, divEtape, divCateg,
 										arrEtape[i]['id_recette'] = id_recipe;
 									}
 									var dataEtape = JSON.stringify(arrEtape);
-									useAjaxReqestJson('index.php?action=actualizeEtapeRecipe', 'POST', 'json', {arrEtape: dataEtape}, true,true,function (aData) {
-										if ((Object.keys(aData).length == 1) && ("false" in aData)) {
+									useAjaxReqestJson('index.php?action=actualizeEtapeRecipe', 'POST', 'json', {arrEtape: dataEtape}, true, true, function (aData) {
+										if ((Object.keys(aData).length === 1) && ("false" in aData)) {
 											$('#loading').fadeOut(1000);
 											newMessErrorSaveFinal += "La recette ,' pas pu être correctement sauvegardée. <br>";
 											showErrorWithImg(newMessErrorSaveFinal, aContainImg[1][0], aContainImg[1][1]);
 											$(btnValidSave).html('Sauvegarde incomplète');
 										} else {
 											if ($(divImgSpan).is(":visible")) { // si le formulaire est ouvert
-												var form = document.getElementById(divFormImg); // id du formulaire
+												let form = document.getElementById(divFormImg); // id du formulaire
 												if ($(form).children('img').attr('src') != "") {
 													if ($(fileImg)[0].files[0]) { // on vérifie si il y a une image de chargée
-														var current_file = $(fileImg)[0].files[0];
-														var reader = new FileReader();
-														var canvas = document.createElement('canvas');
+														let current_file = $(fileImg)[0].files[0];
+														let reader = new FileReader();
+														let canvas = document.createElement('canvas');
 
 														reader.onload = function (event) {
 
-																var image = new Image();
-																image.src = event.target.result;
-																image.onload = function () {
-																	var maxWidth = 500,
-																		maxHeight = 500,
-																		imageWidth = image.width,
-																		imageHeight = image.height;
+															var image = new Image();
+															image.src = event.target.result;
+															image.onload = function () {
+																var maxWidth = 500,
+																	maxHeight = 500,
+																	imageWidth = image.width,
+																	imageHeight = image.height;
 
-																	if (imageWidth > imageHeight) {
-																		if (imageWidth > maxWidth) {
-																			imageHeight *= maxWidth / imageWidth;
-																			imageWidth = maxWidth;
-																		}
-																	} else {
-																		if (imageHeight > maxHeight) {
-																			imageWidth *= maxHeight / imageHeight;
-																			imageHeight = maxHeight;
-																		}
+																if (imageWidth > imageHeight) {
+																	if (imageWidth > maxWidth) {
+																		imageHeight *= maxWidth / imageWidth;
+																		imageWidth = maxWidth;
 																	}
-																	canvas.width = imageWidth;
-																	canvas.height = imageHeight;
-																	image.width = imageWidth;
-																	image.height = imageHeight;
+																} else {
+																	if (imageHeight > maxHeight) {
+																		imageWidth *= maxHeight / imageHeight;
+																		imageHeight = maxHeight;
+																	}
+																}
+																canvas.width = imageWidth;
+																canvas.height = imageHeight;
+																image.width = imageWidth;
+																image.height = imageHeight;
 																var ctx = canvas.getContext("2d");
 																ctx.drawImage(this, 0, 0, image.width, image.height);
 																var dataURL = canvas.toDataURL();
@@ -739,37 +778,37 @@ function saveOrUpdateInBdd(divPrice, divEasy, divPeople, divEtape, divCateg,
 																	newMessResFinalOk = "La recette a bien été sauvegardée. <br>";
 																	showErrorWithImg(newMessResFinalOk, aContainImg[6][0], aContainImg[6][1]);
 																	$(btnValidSave).html('Recette sauvegardée!');
-																	//refresh(2000);
+																	refresh(2000);
 																});
 															}
 														}
 														reader.readAsDataURL(current_file);
-													}else{ // si image pas changée
+													} else { // si image pas changée
 														$('#loading').fadeOut(1000);
 														newMessResFinalOk = "La recette a bien été sauvegardée. <br>";
 														showErrorWithImg(newMessResFinalOk, aContainImg[6][0], aContainImg[6][1]);
 														$(btnValidSave).html('Recette sauvegardée!');
-														//refresh(2000);
+														refresh(2000);
 													}
 
-												}else{ // si formulaire ouvert mais pas d'image
+												} else { // si formulaire ouvert mais pas d'image
 
 													useAjaxReqestJson('index.php?action=deleteImgRecipe', 'POST', 'json', {id_recette: id_recipe}, true, true, function (aData) {
 														$('#loading').fadeOut(1000);
 														newMessResFinalOk = "La recette a bien été sauvegardée. <br>";
 														showErrorWithImg(newMessResFinalOk, aContainImg[6][0], aContainImg[6][1]);
 														$(btnValidSave).html('Recette sauvegardée!');
-														//refresh(2000);
+														refresh(2000);
 													});
 												}
-											}else { // si formulaire fermé
+											} else { // si formulaire fermé
 
 												useAjaxReqestJson('index.php?action=deleteImgRecipe', 'POST', 'json', {id_recette: id_recipe}, true, true, function (aData) {
 													$('#loading').fadeOut(1000);
 													newMessResFinalOk = "La recette a bien été sauvegardée. <br>";
 													showErrorWithImg(newMessResFinalOk, aContainImg[6][0], aContainImg[6][1]);
 													$(btnValidSave).html('Recette sauvegardée!');
-													//refresh(2000);
+													refresh(2000);
 
 												});
 											}

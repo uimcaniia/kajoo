@@ -3,13 +3,7 @@
 
 <section id='homeSection' class='flexColumn'>
 	<p class="errorRouteur"><?=$alertMessRouteur?></p>
-	<!--	<div class="flexrow" id="friseKajoo">
-		<img src="public/img/kajoo/kajoo2.png" alt="kajoo bienvenue">
-		<img src="public/img/kajoo/kajoo2.png" alt="kajoo bienvenue">
-		<img src="public/img/kajoo/kajoo2.png" alt="kajoo bienvenue">
-		<img src="public/img/kajoo/kajoo2.png" alt="kajoo bienvenue">
-		<img src="public/img/kajoo/kajoo2.png" alt="kajoo bienvenue">
-	</div>-->
+
 	<div class="fondTitle">
 		<!--<h1>Bienvenue sur Kajoo!</h1>-->
 		<!--<hr class="barreTitle">-->

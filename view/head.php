@@ -42,6 +42,6 @@
 
    <meta name="format-detection" content="telephone=no"/><!--enlève le soulignement du tel sur edge--> 
 
-   <link rel="icon" sizes="16x16" type="image/ico" href="https://www.kajoo.uimainon.com/public/img/icon.ico" />
+   <link rel="icon" sizes="32x32" type="image/ico" href="https://www.kajoo.uimainon.com/public/img/icon.ico" />
    <link rel="shortcut icon" sizes="16x16" type="image/ico" href="https://www.kajoo.uimainon.com/public/img/icon.ico"/>
    <link rel="apple-touch-icon" href="https://www.kajoo.uimainon.com/public/img/icon.ico">

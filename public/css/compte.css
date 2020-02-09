@@ -28,12 +28,11 @@ section#userAccompte #containSpaceInfoDiv>div {
 
 section#userAccompte #containSpaceInfoDiv #partOneSpaceUser>div {
 	margin: 20px 0;
-	padding: 20px 0;
-}
 
-section#userAccompte #containSpaceInfoDiv #partOneSpaceUser #invitationSendContain #formInvitationToSend
-	{
-	margin: 10px 0;
+}
+#userAccompte .formLogin p.messErrorStyle{
+	color:#80baee;
+
 }
 
 #invitationSendContain>div:nth-child(3)>p:nth-child(1) {
@@ -47,10 +46,22 @@ section#userAccompte #containSpaceInfoDiv #partOneSpaceUser #invitationSendConta
 }
 
 section#userAccompte #containSpaceInfoDiv #partOneSpaceUser #relationShipContain,
-	#containSpaceInfoDiv, #invitationSendContain {
+	#containSpaceInfoDiv {
 	border-top: 1px solid #9f0505;
 }
 
+section#userAccompte form.formLogin label {
+	width: auto;
+	margin-top: 0;
+}
+
+section#userAccompte form.formLogin input {
+	margin-bottom: 10px;
+}
+
+section#userAccompte form.formLogin fieldset {
+	text-align: center;
+}
 section#userAccompte #containSpaceInfoDiv #partOneSpaceUser #relationShipContain>div
 	{
 	margin: 10px 0;
@@ -68,7 +79,9 @@ section#userAccompte .formLogin label {
 	display: flex;
 	justify-content: center;
 }
+/*section#userAccompte .formLogin p.legende{
 
+}*/
 section#userAccompte #containSpaceInfoDiv #partOneSpaceUser #relationShipContain #relationShip,
 	section#userAccompte #containSpaceInfoDiv #partOneSpaceUser #invitationSendContain #invitationSend,
 	section#userAccompte #containSpaceInfoDiv #partOneSpaceUser #invitationReceiveContain #invitationReceive
@@ -82,6 +95,11 @@ section#userAccompte #containSpaceInfoDiv #partOneSpaceUser #relationShipContain
 	section#userAccompte #containSpaceInfoDiv #partOneSpaceUser #invitationReceiveContain #containAllInvitationReceive
 	{
 	opacity: 0;
+
+}
+section#userAccompte #containSpaceInfoDiv #partOneSpaceUser #invitationSendContain #containAllInvitation,
+section#userAccompte #containSpaceInfoDiv #partOneSpaceUser #invitationReceiveContain #containAllInvitationReceive
+{
 	border-bottom: 1px solid #9f0505;
 }
 
@@ -96,16 +114,38 @@ section#userAccompte #containSpaceInfoDiv #partOneSpaceUser form.formLogin input
 	{
 	margin: 0;
 }
-
+#invitationSendContain div:nth-child(2n){
+	text-align: center;
+}
 section#userAccompte #containSpaceInfoDiv #partOneSpaceUser label {
 	width: auto;
-	font-family: 'Open Sans Condensed', sans-serif;
+/*	font-family: 'Open Sans Condensed', sans-serif;
 	font-size: 1em;
-	color: #9f0505;
+	color: #9f0505;*/
 	text-shadow: 0px 0px 1px #020202;
 }
 
 section#userAccompte #containSpaceInfoDiv #partOneSpaceUser form#formInvitationToSend div div.flexrow
 	{
 	align-items: center;
+}
+#containAllRelation > div{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+section#userAccompte .formLogin .legende{
+	color:antiquewhite;
+	font-size: 1em;
+	margin-top:0;
+	font-size: 0.9em;
+	font-weight: unset;
+}
+section#userAccompte .formLogin h3{
+	color:antiquewhite;
+	font-size: 1.5em;
+	margin: 10px 0 0 0;
+}
+section#userAccompte .formLogin button, section#userAccompte .formLogin input[type="submit"]{
+	padding: 8px 15px 35px 15px;
 }

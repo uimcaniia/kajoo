@@ -19,37 +19,35 @@
 			<div></div>
 		</div>
                 <?php include('header.php') ?>
-                <!--<div id="baniere"></div>-->
-
 	</header>
         <?php include('headerMobile.php') ?>
 
         <div id="loading">
-		<img src="public/img/loading.gif">
+		<img src="public/img/loading.gif" alt="loading kajoo">
 	</div>
 
 	<div id="containMessAndError">
 		<div id="popupInfo">
 			<div class="flexrow">
-				<img src="" id="popImg" alt="">
+				<img src="public/img/kajoo/kajoo4.png" id="popImg" alt="image kajoo">
 				<p id="popTxt"></p>
 			</div>
 		</div>
 		<div id="errorMessAjax">
 			<div class="flexrow">
-				<img src="" id="errorMessAjaxImg" alt="">
+				<img src="public/img/kajoo/kajoo4.png" id="errorMessAjaxImg" alt="image kajoo">
 				<p id="errorMessAjaxTxt"></p>
 			</div>
 		</div>
 		<div id="errorMessSimple">
 			<div class="flexrow">
-				<img src="" id="errorMessSimpleImg" alt="">
+				<img src="public/img/kajoo/kajoo4.png" id="errorMessSimpleImg" alt="image kajoo">
 				<p id="errorMessSimpleTxt"></p>
 			</div>
 		</div>
 		<div id="errorMessImgWithBtn">
 			<div class="flexrow">
-				<img id="imgErrorMess" src="" alt="">
+				<img id="imgErrorMess" src="public/img/kajoo/kajoo4.png" alt="image kajoo">
 				<p id="messErrorMess"></p>
 			</div>
 			<div id="messageBtn" class="flexrow">
@@ -63,7 +61,7 @@
 		</div>
 		<div id="errorMessImgNoBtn">
 			<div class="flexrow">
-				<img id="imgErrorMessNoBtn" src="" alt="">
+				<img id="imgErrorMessNoBtn" src="public/img/kajoo/kajoo4.png" alt="image kajoo">
 				<p id="messErrorMessNoBtn"></p>
 			</div>
 		</div>

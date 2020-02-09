@@ -18,7 +18,7 @@
 
 
 		<div id="newBlockTwoTitle" class="flexrow">
-			<h4>INFOS DE LA RECETTE</h4>
+            <a href="#newBlockTwo">INFOS DE LA RECETTE</a>
 			<span class="fas fa-sort-down"></span>
 		</div>
 		<div id="newBlockTwo">
@@ -70,7 +70,7 @@
 		</div>
 
 		<div id="newBlockThreeTitle" class="flexrow">
-			<h4>ATTRIBUTS DE LA RECETTE</h4>
+            <a href="#newBlockThree">ATTRIBUTS DE LA RECETTE</a>
 			<span class="fas fa-sort-down"></span>
 		</div>
 		<div id="newBlockThree">
@@ -136,7 +136,7 @@
 		</div>
 
 		<div id="newBlockFourTitle" class="flexrow">
-			<h4>INGREDIENTS ET ETAPES</h4>
+            <a href="#newBlockThree">INGREDIENTS ET ETAPES</a>
 			<span class="fas fa-sort-down"></span>
 		</div>
 		<div id="newBlockFour">

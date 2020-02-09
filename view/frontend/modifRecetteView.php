@@ -16,7 +16,7 @@
 
 		</div>
 		<div id="modifBlockTwoTitle" class="flexrow">
-			<h4>INFOS DE LA RECETTE</h4>
+            <a href="#modifBlockTwo">INFOS DE LA RECETTE</a>
 			<span class="fas fa-sort-down"></span>
 		</div>
 		<div id="modifBlockTwo">
@@ -57,7 +57,7 @@
 
 
 		<div id="modifBlockThreeTitle" class="flexrow">
-			<h4>ATTRIBUTS DE LA RECETTE</h4>
+            <a href="#modifBlockThree">ATTRIBUTS DE LA RECETTE</a>
 			<span class="fas fa-sort-down"></span>
 		</div>
 		<div id="modifBlockThree">
@@ -111,7 +111,7 @@
 
 
 		<div id="modifBlockFourTitle" class="flexrow">
-			<h4>INGREDIENTS ET ETAPES</h4>
+            <a href="#modifBlockFour">INGREDIENTS ET ETAPES</a>
 			<span class="fas fa-sort-down"></span>
 		</div>
 		<div id="modifBlockFour">

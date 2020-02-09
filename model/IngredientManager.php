@@ -71,16 +71,47 @@ class IngredientManager extends Bdd
     // lit une entrée de la table ingrédient
     public function getsearchBar($param, $value)
     {
-        $request = 'SELECT * FROM ' . self::TAB_ING . ' WHERE ' . $param . ' LIKE :value ';
+        $keywordVrac = explode(' ', $value);
+        $size  = count($keywordVrac);
+        //if($size < 2){
+            for($j = 0 ; $j <$size ; $j++){
+                if($keywordVrac[$j] == ""){
+                    unset($keywordVrac[array_search("", $keywordVrac)]);
+                }
+            }
+       // }
 
-        $arr = array(
-            array(
-                ":value",
-                $value . '%'
-            )
-        );
-        $aRes = parent::reqPrepaExecSEl($request, $arr);
-        return $aRes;
+        $keyword = array_values($keywordVrac);
+        $jk = count($keyword);
+        if($jk != null){
+            $arr = array();
+
+            $request = 'SELECT * FROM ' . self::TAB_ING . ' WHERE ';
+            // $request = 'SELECT * FROM ' . self::TAB_ING . ' WHERE ' . $param . ' LIKE :value ';
+ /*           if($jk === 1){
+                array_push($arr, array(":value",  $keyword[0].'%'));
+                $request .= $param . ' LIKE :value ';
+            }else{*/
+                for($i = 0 ; $i < $jk ; $i++){
+                    if ($i < count($keyword) - 1) {
+                        $separateur = 'AND';
+                    }else{
+                        $separateur = '';
+                    }
+                    array_push($arr, array(":value" . $i,   '%'.$keyword[$i].'%'));
+                    $request .= $param . ' LIKE :value'. $i .' ' .$separateur.' ';
+                }
+    //       }
+
+            $request .= ';';
+
+            $aRes = parent::reqPrepaExecSEl($request, $arr);
+  //          print_r($aRes);
+            return $aRes;
+        }else{
+            return false;
+        }
+
     }
 
     // *****************************************************************************************************************

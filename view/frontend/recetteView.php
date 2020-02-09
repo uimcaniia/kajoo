@@ -12,20 +12,21 @@
 if ($aUserCategory != false) :
     for ($i = 0; $i < count($aUserCategory); $i ++) :
         ?>
-		<button class="<?=$aUserCategory[$i]['id_category']?>" type="submit"
-			name="<?=$aUserCategory[$i]['title']?>"><?=htmlspecialchars($aUserCategory[$i]['title'])?></button>
+        <a href="#contentRecipesMenu"><button class="<?=$aUserCategory[$i]['id_category']?>" type="submit"
+			name="<?=$aUserCategory[$i]['title']?>"><?=htmlspecialchars($aUserCategory[$i]['title'])?></button></a>
 <?php endfor; ?>
 <?php endif; ?>
-
-		<button class="otherRecipe" type="submit" name="otherRecipe">Autres</button>
-		<button class="allrecipes" type="submit" name="allrecipes">Toutes</button>
-		<button class="privateRecipes" type="submit" name="privateRecipes">Privées</button>
+    </div>
+    <div id="btnCategoryOther">
+        <a href="#contentRecipesMenu"><button class="otherRecipe" type="submit" name="otherRecipe">Autres</button></a>
+        <a href="#contentRecipesMenu"><button class="allrecipes" type="submit" name="allrecipes">Toutes</button></a>
+            <a href="#contentRecipesMenu"><button class="privateRecipes" type="submit" name="privateRecipes">Privées</button></a>
 	</div>
 <?php     if($getRelationShip != false): ?>
     <div id="btnCategoryFriend">
 <?php   for($i = 0 ; $i <count($getRelationShip) ; $i++): ?>
-        <button class="<?=$getRelationShip[$i]['id_friend']?>"
-			type="submit" name="<?=$getRelationShip[$i]['pseudo']?>"><?=htmlspecialchars($getRelationShip[$i]['pseudo'])?></button>
+        <a href="#contentRecipesMenu"><button class="<?=$getRelationShip[$i]['id_friend']?>"
+			type="submit" name="<?=$getRelationShip[$i]['pseudo']?>"><?=htmlspecialchars($getRelationShip[$i]['pseudo'])?></button></a>
 <?php endfor; ?>
     </div>
 <?php endif; ?>
@@ -159,10 +160,10 @@ endif;
 		<?php include ('newRecetteView.php'); ?>
 	</div>
 	<div id='contentRecipesMenu'>
-		<div id='recipesAlpha'></div>
-		<div id="paginationRecipe"></div>
+		<div id='recipesAlpha'><nav><ul></ul class=""></nav></div>
+		<div id="paginationRecipe"><nav><ul class=""></ul></nav></div>
 		<div id='recipes' class="flexColumn">
-			<div id="listRecipeGroup"></div>
+			<div id="listRecipeGroup"><nav><ul><div></div></ul></nav></div>
 		</div>
 	</div>
 	<?php include ('showRecetteView.php'); ?>

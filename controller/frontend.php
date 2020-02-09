@@ -351,7 +351,7 @@ function acceptFriend($friendIdToAccept)
 
     $delInvit = $invit->delete($friendIdToAccept, $_SESSION['idUser']); // on supprime l'invitation
 
-    spaceUser("L'invitation a bien été Acceptée !", "", "", "", "", "");
+    spaceUser("L'invitation a bien été Acceptée !", "", "", "", "", "","");
 }
 
 // ************************************************************************

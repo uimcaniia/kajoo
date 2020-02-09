@@ -2,223 +2,61 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29eb0646-5cf7-4267-a527-81f3c64b3e49" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/img/bandeau/bandeau1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/btn/aide.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/btn/aide2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/btn/bouton10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/btn/bouton12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/btn/bouton21.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/btn/bouton22.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/btn/bouton31.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/btn/bouton32.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/btn/compte.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/btn/compte2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/btn/home.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/btn/home2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/btn/logout.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/btn/logout2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/deco_accueil.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/kajoo/kajoo10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/kajoo/kajoo5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/kajoo/kajoo6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/kajoo/kajoo7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/kajoo/kajoo8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/img/kajoo/kajoo9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/upload/3_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/upload/3_30.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/upload/3_35.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/upload/3_36.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/upload/3_38.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/upload/3_39.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/upload/3_40.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/upload/3_6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/upload/3_7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/upload/4_11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/upload/4_118_1579016242.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/upload/4_27_1579016265.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/frontend/errorView.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/headerMobile.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img_ing/pasta-3709214_640.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img_ing/pepper-4693769_640.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img_ing/pitahaya-3738608_640.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img_ing/sesame-4535592_640.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img_recette/110893229_o.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img_recette/36529855.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img_recette/75183365_p.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img_recette/76128_w420h344c1cx1872cy2808cxt0cyt0cxb3744cyb5616.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img_recette/78569_w600cxt0cyt0cxb4800cyb3200.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img_recette/93153_w1024h768c1cx2220cy1728cxt0cyt0cxb4441cyb3456.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img_recette/A0B1EE28-94D2-4922-B871-CFB63832A281.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img_recette/Creme-glacee-frite.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img_recette/b8d9102850b57c558e9cfc2a0a0b209a--fondant-baking-recipes.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img_recette/creme-beurre-1200.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img_recette/i131418-punch-des-iles-curacao-rondelles-d-orange-menthe-fraiche-et-cerises-confites.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img_recette/i94631-boeuf-bourguignon.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img_recette/img_0819_1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img_recette/kouglof-400x300.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img_recette/l29_630x480-crop.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img_recette/meringue-francaise-1200.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img_recette/mousse-au-chocolat.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img_recette/muffins-au-nutella-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img_recette/tarte-au-citron-meringuee--454167p704064.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img_recette/verrine_de_mousse_davocat_et_saumon_fume.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/view/frontend/addIngRecipe.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Uim_Caniia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/Uim_Caniia.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/categories.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/categories.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/frontend.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/frontend.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/load.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/load.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/planning.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/planning.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/recettes.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/recettes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Bdd.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/Bdd.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Calendar.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/Calendar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/CategoryManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/CategoryManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/EtapeRecette.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/EtapeRecette.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/EtapeRecetteManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/EtapeRecetteManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Form.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/Form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/ImgRecipe.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/ImgRecipe.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/ImgRecipegManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/ImgRecipegManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Ingredient.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/Ingredient.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/IngredientManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/IngredientManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/IngredientRecette.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/IngredientRecette.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/IngredientRecetteManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/IngredientRecetteManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Invitation.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/Invitation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/InvitationManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/InvitationManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/ListShop.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/ListShop.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Liste.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/Liste.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Mention.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/Mention.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Planning.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/Planning.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/PlanningDay.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/PlanningDay.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/PlanningDayManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/PlanningDayManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/PlanningManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/PlanningManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Politique.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/Politique.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Preference.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/Preference.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/PreferenceManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/PreferenceManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Recette.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/Recette.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/RecetteManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/RecetteManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/RelationUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/RelationUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/RelationUserManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/RelationUserManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Shop.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/Shop.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/UserManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/UserManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/calendar.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/calendar.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/compte.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/compte.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/font/font.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/font/font.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/mobile.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/mobile.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/mobileXs.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/mobileXs.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/recette.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/recette.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/tablette.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/tablette.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/[Fichiers originaux]/pain.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/[Fichiers originaux]/postit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/[Fichiers originaux]/roasted-beef-png-clipart_455023.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/baniere.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/cashew-cores-1549580_1920.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/cerise.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/cerise2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/course11.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/course2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/fond.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/fond.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/fondCajou.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/kajoo/kajoo1.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/kajoo/kajoo1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/kajoo/kajoo2.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/kajoo/kajoo2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/kajoo/kajoo3.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/kajoo/kajoo3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/kajoo/kajoo4.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/kajoo/kajoo4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/pain.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/planing1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/planing2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/postit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/recette1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/recette2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/roasted-beef-png-clipart_455023.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/dropzone.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img_recette/20170731_130413.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img_recette/29017_w600.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img_recette/311561_1214213755.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img_recette/32163_w420h344c1cx720cy1280.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img_recette/47505_w420h344c1cx2592cy1728.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img_recette/79724_w420h344c1cx1944cy2592cxt0cyt0cxb3888cyb5184.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img_recette/burger-maison.jpeg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/frontend/modifRecette.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/frontend/modifRecette.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/frontend/newRecette.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/frontend/newRecette.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/frontend/recette.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/frontend/recette.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/frontend/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/frontend/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/20181208_012247.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/20181208_012254.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/29017_w600.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/3_1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/3_25" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/3_30" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/3_35" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/3_36" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/3_38" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/3_39" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/3_40" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/3_50" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/3_6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/3_7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_100" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_101" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_102" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_103" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_104" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_105" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_106" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_107" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_108" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_109" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_11" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_110" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_111" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_112" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_113" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_114" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_115" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_117" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_118" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_60" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_61" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_62" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_63" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_64" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_65" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_66" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_67" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_68" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_69" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_70" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_71" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_72" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_73" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_74" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_75" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_76" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_77" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_78" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_79" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_80" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_81" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_82" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_83" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_84" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_85" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_86" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_87" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_88" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_89" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_90" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_91" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_92" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_93" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_94" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_95" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_96" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_97" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_98" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/4_99" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/82431_w420h344c1cx2592cy1728cxt0cyt0cxb5176cyb3453.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/93106_w420h344c1cx3744cy2104cxt0cyt0cxb7488cyb4208.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/burger-maison.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/upload/sitOC.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/autoload.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/autoload.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/aside.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/aside.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/footer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/frontend/homeView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/frontend/homeView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/frontend/loginView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/frontend/loginView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/frontend/mentionView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/frontend/mentionView.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/frontend/modifRecetteView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/frontend/modifRecetteView.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/frontend/newRecetteView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/frontend/newRecetteView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/frontend/planingMonthView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/frontend/planingMonthView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/frontend/planingweekView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/frontend/planingweekView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/frontend/politiqueView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/frontend/politiqueView.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/frontend/recetteView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/frontend/recetteView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/frontend/showRecetteView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/frontend/showRecetteView.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/frontend/spaceView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/frontend/spaceView.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/frontend/updateMdpView.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/frontend/updateMdpView.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/head.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/head.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/header.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/template.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/template.php" afterDir="false" />
@@ -263,7 +101,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sabra/index.php" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../openclassroom/formation/webagency_images/index.html" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -271,7 +109,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -313,7 +151,13 @@
       <workItem from="1579108601056" duration="20039000" />
       <workItem from="1579342176528" duration="688000" />
       <workItem from="1579944031899" duration="284000" />
-      <workItem from="1579944564233" duration="552000" />
+      <workItem from="1579944564233" duration="2860000" />
+      <workItem from="1579947488569" duration="2007000" />
+      <workItem from="1579962606635" duration="20100000" />
+      <workItem from="1580145729722" duration="6932000" />
+      <workItem from="1580406831789" duration="14107000" />
+      <workItem from="1580558716477" duration="23661000" />
+      <workItem from="1581009612159" duration="14992000" />
     </task>
     <task id="LOCAL-00001" summary="ajax simplifié pour étapes et ingrédients, (1 seule requete pour l'envoie de tous les ingrédients) + requete sql d'insertion des étapes et ingrédient en une seule insertion + redimentionnement auto des textarea">
       <created>1578385066138</created>
@@ -322,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578385066138</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fenêtre erreur ajoutée">
+      <created>1579945207952</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1579945207952</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -331,35 +182,42 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="ajax simplifié pour étapes et ingrédients, (1 seule requete pour l'envoie de tous les ingrédients) + requete sql d'insertion des étapes et ingrédient en une seule insertion + redimentionnement auto des textarea" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajax simplifié pour étapes et ingrédients, (1 seule requete pour l'envoie de tous les ingrédients) + requete sql d'insertion des étapes et ingrédient en une seule insertion + redimentionnement auto des textarea" />
+    <MESSAGE value="fenêtre erreur ajoutée" />
+    <option name="LAST_COMMIT_MESSAGE" value="fenêtre erreur ajoutée" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="552" y="177" key="#Inspections" timestamp="1576668988440">
+    <state x="552" y="177" key="#Inspections" timestamp="1579972109826">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="177" key="#Inspections/0.0.1920.1040/-821.1080.1920.1040/-1210.-520.1200.1560@0.0.1920.1040" timestamp="1576668988440" />
+    <state x="552" y="177" key="#Inspections/0.0.1920.1040/-821.1080.1920.1040/-1210.-520.1200.1560@0.0.1920.1040" timestamp="1579972109826" />
     <state x="-930" y="-5" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1579944281469">
       <screen x="-1210" y="-520" width="1200" height="1560" />
     </state>
     <state x="-930" y="-5" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040/-821.1080.1920.1040/-1210.-520.1200.1560@-1210.-520.1200.1560" timestamp="1579944281469" />
-    <state x="-985" y="-147" key="CommitChangelistDialog2" timestamp="1578385060072">
+    <state x="-1210" y="-147" key="CommitChangelistDialog2" timestamp="1579945199286">
       <screen x="-1210" y="-520" width="1200" height="1560" />
     </state>
     <state x="-985" y="-147" key="CommitChangelistDialog2/-1210.-520.1200.1560/-821.1080.1920.1040/0.0.1920.1040@-1210.-520.1200.1560" timestamp="1578385060072" />
-    <state x="-830" y="14" key="FileChooserDialogImpl" timestamp="1579010643121">
+    <state x="-1210" y="-147" key="CommitChangelistDialog2/0.0.1920.1040/-821.1080.1920.1040/-1210.-520.1200.1560@-1210.-520.1200.1560" timestamp="1579945199286" />
+    <state x="-830" y="14" key="FileChooserDialogImpl" timestamp="1580546469160">
       <screen x="-1210" y="-520" width="1200" height="1560" />
     </state>
     <state x="-830" y="14" key="FileChooserDialogImpl/-1210.-520.1200.1560/-821.1080.1920.1040/0.0.1920.1040@-1210.-520.1200.1560" timestamp="1578502102344" />
     <state x="608" y="356" key="FileChooserDialogImpl/-1210.-520.1200.1560/-821.1080.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1578403476472" />
-    <state x="-830" y="14" key="FileChooserDialogImpl/0.0.1920.1040/-821.1080.1920.1040/-1210.-520.1200.1560@-1210.-520.1200.1560" timestamp="1579010643121" />
+    <state x="-830" y="14" key="FileChooserDialogImpl/0.0.1920.1040/-821.1080.1920.1040/-1210.-520.1200.1560@-1210.-520.1200.1560" timestamp="1580546469160" />
     <state x="-775" y="182" key="NewPhpFileDialog" timestamp="1579027438771">
       <screen x="-1210" y="-520" width="1200" height="1560" />
     </state>
     <state x="-775" y="182" key="NewPhpFileDialog/0.0.1920.1040/-821.1080.1920.1040/-1210.-520.1200.1560@-1210.-520.1200.1560" timestamp="1579027438771" />
-    <state x="463" y="164" key="SettingsEditor" timestamp="1576668228705">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="-1008" y="-274" key="SettingsEditor" timestamp="1579947295052">
+      <screen x="-1210" y="-520" width="1200" height="1560" />
     </state>
+    <state x="-1008" y="-274" key="SettingsEditor/0.0.1920.1040/-821.1080.1920.1040/-1210.-520.1200.1560@-1210.-520.1200.1560" timestamp="1579947295052" />
     <state x="463" y="164" key="SettingsEditor/0.0.1920.1040/-821.1080.1920.1040/-1210.-520.1200.1560@0.0.1920.1040" timestamp="1576668228705" />
+    <state x="-1018" y="-7" key="Vcs.Push.Dialog.v2" timestamp="1579945233086">
+      <screen x="-1210" y="-520" width="1200" height="1560" />
+    </state>
+    <state x="-1018" y="-7" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-821.1080.1920.1040/-1210.-520.1200.1560@-1210.-520.1200.1560" timestamp="1579945233086" />
     <state x="-793" y="-1" key="com.intellij.ide.util.TipDialog" timestamp="1578312414667">
       <screen x="-1210" y="-520" width="1200" height="1560" />
     </state>

@@ -292,7 +292,7 @@ border-left: 0;*!
 	span#validNewRecipe, span#validModifRecipe {
 		width: 170px;
 	}
-	section #btnCategory {
+	section #btnCategory,#btnCategoryFriend,#btnCategoryOther {
 		width: 95%;
 	}
 	.calendar button, div.month {
@@ -466,4 +466,5 @@ border-left: 0;*!
 	#partTwoSpaceUser form.formLogin>fieldset {
 		margin-bottom: 20px;
 	}
+
 }

@@ -20,7 +20,7 @@ try {
         // accueil du site
         // *******************************************************************************
         if ($_GET['action'] == 'spaceHome') {
-            spaceHome();
+            spaceHome("");
         }
         // *******************************************************************************
         // espace client
@@ -74,7 +74,7 @@ try {
           // *******************************************************************************
         elseif ($_GET['action'] == 'disconnect') {
             disconnect();
-            // spaceConnect();
+
         } // *******************************************************************************
           // ESPACE CONNECTE
         elseif ($_GET['action'] == 'space') // si on veut aller dans son espace.
@@ -82,12 +82,14 @@ try {
             if (isset($_SESSION['idUser']) && isset($_SESSION['admin']) && $_SESSION['admin'] == 0) // test id pour les utilisateur
             {
                 spaceUser("", "", "", "", "", "", ""); // va dans l'espace utilisateur
-            } elseif (isset($_SESSION['idUser']) && isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
-                admin(); // va dans l'espace admin
-            } else {
+/*            } elseif (isset($_SESSION['idUser']) && isset($_SESSION['admin']) && $_SESSION['admin'] == 1) {
+                admin(); // va dans l'espace admin*/
+            }
+            else {
                 throw new Exception('Aucun compte n\'a été trouvé');
             }
-        } // *******************************************************************************
+       }
+    // *******************************************************************************
           // Changer les préférence du compte
         elseif ($_GET['action'] == 'changePref') {
             if (isset($_SESSION['idUser']) && isset($_SESSION['admin']) && $_SESSION['admin'] == 0) {
@@ -119,10 +121,10 @@ try {
                 if (isset($_POST['friendId'])) {
                     annulInviteFriend($_POST['friendId']);
                 } else {
-                    throw new Exception('Aucun compte ami n\'est trouvé pour annuler l\'invitation');
+                    echo'Aucun compte ami n\'est trouvé pour annuler l\'invitation';
                 }
             } else {
-                throw new Exception('Aucun compte n\'a été trouvé pour envoyer l\'invitaion');
+                echo'Aucun compte n\'a été trouvé pour envoyer l\'invitaion';
             }
         } // *******************************************************************************
           // accepter la demande d'ami d'un ami kajoo
@@ -180,10 +182,10 @@ try {
                 {
                     addCategorie($_POST['newCateg'], $_POST['rangNewCateg']);
                 } else {
-                    throw new Exception('Aucun nom n\'est trouvé pour la nouvelle catégorie');
+                    echo'Aucun nom n\'est trouvé pour la nouvelle catégorie';
                 }
             } else {
-                throw new Exception('Aucun compte n\'a été trouvé pour ajouter une catégorie, Vous devez vous reconnecter');
+                echo'Aucun compte n\'a été trouvé pour ajouter une catégorie, Vous devez vous reconnecter';
             }
         } // *******************************************************************************
           // modifier une catégorie de recette
@@ -195,10 +197,10 @@ try {
                 {
                     modifLibelCategorie($_POST['idCategory'], $_POST['labelCateg']);
                 } else {
-                    throw new Exception('Aucune categorie n\'est trouvée pour la modifier');
+                    echo'Aucune categorie n\'est trouvée pour la modifier';
                 }
             } else {
-                throw new Exception('Aucun compte n\'a été trouvé pour modifier une catégorie, Vous devez vous reconnecter');
+                echo'Aucun compte n\'a été trouvé pour modifier une catégorie, Vous devez vous reconnecter';
             }
         } // *******************************************************************************
           // modifier le rang d'une catégorie de recette
@@ -210,10 +212,10 @@ try {
                 {
                     modifRangCategorie($_POST['idCategory'], $_POST['rangCateg']);
                 } else {
-                    throw new Exception('Aucune categorie n\'est trouvée pour modifier son rang');
+                    echo'Aucune categorie n\'est trouvée pour modifier son rang';
                 }
             } else {
-                throw new Exception('Aucun compte n\'a été trouvé pour modifier le rang de la catégorie, Vous devez vous reconnecter');
+                echo'Aucun compte n\'a été trouvé pour modifier le rang de la catégorie, Vous devez vous reconnecter';
             }
         } // *******************************************************************************
           // Ajouter une catégorie de recette
@@ -225,10 +227,10 @@ try {
                 {
                     delCategorie($_POST['idcategory']);
                 } else {
-                    throw new Exception('Aucune categorie n\'est trouvée pour la supprimer');
+                    echo'Aucune categorie n\'est trouvée pour la supprimer';
                 }
             } else {
-                throw new Exception('Aucun compte n\'a été trouvé pour supprimer une catégorie, Vous devez vous reconnecter');
+                echo'Aucun compte n\'a été trouvé pour supprimer une catégorie, Vous devez vous reconnecter';
             }
         } // *******************************************************************************
           // voir les recettes de la catégorie
@@ -240,10 +242,10 @@ try {
                 {
                     showRecipesCateg($_POST['idcategory'], $_POST['offset'], $_POST['alpha']);
                 } else {
-                    throw new Exception('Aucune categorie n\'est trouvée pour sélectionner les recettes');
+                   echo'Aucune categorie n\'est trouvée pour sélectionner les recettes';
                 }
             } else {
-                throw new Exception('Aucun compte n\'a été trouvé pour afficher les recettes de la catégorie, Vous devez vous reconnecter');
+                echo'Aucun compte n\'a été trouvé pour afficher les recettes de la catégorie, Vous devez vous reconnecter';
             }
         } // *******************************************************************************
           // voir les recettes des amis
@@ -255,10 +257,10 @@ try {
                 {
                     showFriendRecipes($_POST['idFriend'], $_POST['offset'], $_POST['alpha']);
                 } else {
-                    throw new Exception('Aucune categorie n\'est trouvée pour sélectionner les recettes');
+                    echo 'Aucun identifiant d\'amis n\'est trouvée pour sélectionner les recettes';
                 }
             } else {
-                throw new Exception('Aucun compte n\'a été trouvé pour afficher les recettes de la catégorie, Vous devez vous reconnecter');
+                echo'Aucun compte n\'a été trouvé pour afficher les recettes de la catégorie, Vous devez vous reconnecter';
             }
         } // *******************************************************************************
           // voir les recettes sans catégorie
@@ -270,10 +272,10 @@ try {
                 {
                     showOtherRecipes($_POST['offset'], $_POST['alpha']);
                 } else {
-                    throw new Exception('Aucune categorie "autre" n\'est trouvée pour sélectionner les recettes');
+                    echo 'Aucune categorie "autre" n\'est trouvée pour sélectionner les recettes';
                 }
             } else {
-                throw new Exception('Aucun compte n\'a été trouvé pour afficher les recettes sans catégorie, Vous devez vous reconnecter');
+                echo'Aucun compte n\'a été trouvé pour afficher les recettes sans catégorie, Vous devez vous reconnecter';
             }
         } // *******************************************************************************
           // voir les recettes privée
@@ -285,10 +287,10 @@ try {
                 {
                     showPrivateRecipes($_POST['offset'], $_POST['alpha']);
                 } else {
-                    throw new Exception('Aucune categorie "privée" n\'est trouvée pour sélectionner les recettes');
+                    echo'Aucune categorie "privée" n\'est trouvée pour sélectionner les recettes';
                 }
             } else {
-                throw new Exception('Aucun compte n\'a été trouvé pour afficher les recettes privée, Vous devez vous reconnecter');
+                echo'Aucun compte n\'a été trouvé pour afficher les recettes privée, Vous devez vous reconnecter';
             }
         } // *******************************************************************************
           // voir toutes les recettes
@@ -298,7 +300,7 @@ try {
             {
                 showRecipes($_POST['offset'], $_POST['alpha']);
             } else {
-                throw new Exception('Aucun compte n\'a été trouvé pour consulter la recette, Vous devez vous reconnecter');
+                echo'Aucun compte n\'a été trouvé pour consulter la recette, Vous devez vous reconnecter';
             }
         } // *******************************************************************************
           // compte toutes les recettes privées et retourne le nombre de pages a afficher
@@ -308,7 +310,7 @@ try {
             {
                 countNumberPrivateRecipe($_POST['alpha']);
             } else {
-                throw new Exception('Aucun compte n\'a été trouvé pour compter le nombre de recette privée de la catégorie');
+                echo'Aucun compte n\'a été trouvé pour compter le nombre de recette privée de la catégorie';
             }
         } // *******************************************************************************
           // compte toutes les recettes des amis et retourne le nombre de pages a afficher
@@ -318,7 +320,7 @@ try {
             {
                 countNumberFriendRecipe($_POST['idFriend'], $_POST['alpha']);
             } else {
-                throw new Exception('Aucun compte n\'a été trouvé pour compter le nombre de recette des amis');
+                echo'Aucun compte n\'a été trouvé pour compter le nombre de recette des amis';
             }
         } // *******************************************************************************
           // compte toutes les recettes et retourne le nombre de pages a afficher
@@ -328,7 +330,7 @@ try {
             {
                 countNumberRecipeInCategorie($_POST['idcategory'], $_POST['alpha']);
             } else {
-                throw new Exception('Aucun compte n\'a été trouvé pour compter le nombre de recette de la catégorie');
+                echo'Aucun compte n\'a été trouvé pour compter le nombre de recette de la catégorie';
             }
         } // *******************************************************************************
           // compte toutes les recettes de la categorie et retourne le nombre de pages a afficher
@@ -338,7 +340,7 @@ try {
             {
                 countNumberRecipe($_POST['alpha']);
             } else {
-                throw new Exception('Aucun compte n\'a été trouvé pour compter le nombre de recette');
+                echo'Aucun compte n\'a été trouvé pour compter le nombre de recette';
             }
         } // *******************************************************************************
           // compte toutes les recettes sans categorie et retourne le nombre de pages a afficher
@@ -348,7 +350,7 @@ try {
             {
                 countNumberOtherRecipe($_POST['alpha']);
             } else {
-                throw new Exception('Aucun compte n\'a été trouvé pour compter le nombre de recette sans catégorie');
+                echo'Aucun compte n\'a été trouvé pour compter le nombre de recette sans catégorie';
             }
         } // *******************************************************************************
           // supprimer une recette
@@ -361,15 +363,15 @@ try {
                 {
                     delRecipes($_POST['idRecette']);
                 } else {
-                    throw new Exception('Aucune recette n\'est trouvée pour la supprimer');
+                    echo'Aucune recette n\'est trouvée pour la supprimer';
                 }
             } else {
-                throw new Exception('Aucun compte n\'a été trouvé pour supprimer la recette');
+                echo'Aucun compte n\'a été trouvé pour supprimer la recette';
             }
         } // *******************************************************************************
           // copier une recette
           // *******************************************************************************
-        elseif ($_GET['action'] == 'copyRecipes') // supprimer une recette
+        elseif ($_GET['action'] == 'copyRecipes') // copier une recette
         {
             if (isset($_SESSION['idUser']) && $_SESSION['idUser'] > 0) // test id pour les utilisateur
             {
@@ -377,10 +379,10 @@ try {
                 {
                     copyRecipes($_POST['idRecette']);
                 } else {
-                    throw new Exception('Aucune recette n\'est trouvée pour la copier');
+                    echo'Aucune recette n\'est trouvée pour la copier';
                 }
             } else {
-                throw new Exception('Aucun compte n\'a été trouvé pour copier la recette');
+                echo'Aucun compte n\'a été trouvé pour copier la recette';
             }
         } // *******************************************************************************
           // voir une recette sélectionnée
@@ -393,10 +395,10 @@ try {
                 {
                     showOneRecipes($_POST['idRecette']);
                 } else {
-                    throw new Exception('Aucune recette n\'est trouvée pour la consulter');
+                    echo'Aucune recette n\'est trouvée pour la consulter';
                 }
             } else {
-                throw new Exception('Aucun compte n\'a été trouvé pour consulter la recette');
+                echo'Aucun compte n\'a été trouvé pour consulter la recette';
             }
         } // *******************************************************************************
           // sauvegarde une recette
@@ -408,10 +410,10 @@ try {
                 if (isset($_POST['price']) && isset($_POST['private']) && isset($_POST['easy']) && isset($_POST['people']) && isset($_POST['love']) && isset($_POST['id_category']) && isset($_POST['title']) && isset($_POST['alpha']) && isset($_POST['prepare_time'])) {
                     saveNewRecipes($_POST['private'], $_POST['price'], $_POST['easy'], $_POST['people'], $_POST['love'], $_POST['id_category'], $_POST['title'], $_POST['alpha'], $_POST['prepare_time']);
                 } else {
-                    throw new Exception('Aucun renseignement pour créer la nouvelle recette n\'est trouvés');
+                    echo'Aucun renseignement pour créer la nouvelle recette n\'est trouvés';
                 }
             } else {
-                throw new Exception('Aucun compte n\'a été trouvé pour créer la recette');
+                echo'Aucun compte n\'a été trouvé pour créer la recette';
             }
         } // *******************************************************************************
           // vérifie avant sauvegarde si le titre existe déjà en BDD
@@ -422,10 +424,10 @@ try {
                 if (isset($_POST['title'])) {
                     verifTitle($_POST['title']);
                 } else {
-                    throw new Exception('Aucun titre n\'est renseigné');
+                    echo'Aucun titre n\'est renseigné';
                 }
             } else {
-                throw new Exception('Aucun compte n\'a été trouvé pour vérifier le titre');
+                echo'Aucun compte n\'a été trouvé pour vérifier le titre';
             }
         } // *******************************************************************************
           // sauvegarde les ingrédients d'une recette existante (lors de modification)
@@ -437,10 +439,10 @@ try {
                 {
                     actualizeIngRecipe($_POST['arrIng']);
                 } else {
-                    throw new Exception('Aucun ingrédient n\'est trouvée pour sauvegarder');
+                    echo'Aucun ingrédient n\'est trouvée pour sauvegarder';
                 }
             } else {
-                throw new Exception('Aucun compte n\'a été trouvé pour sauvegarder les ingrédients de la recette');
+                echo'Aucun compte n\'a été trouvé pour sauvegarder les ingrédients de la recette';
             }
         } // *******************************************************************************
           // supprime les ingrédients d'une recette
@@ -451,10 +453,10 @@ try {
                 if (isset($_POST['id_recette'])) {
                     delIngRecipe($_POST['id_recette']);
                 } else {
-                    throw new Exception('Aucune recette est trouvée pour supprimer ses ingrédients');
+                    echo'Aucune recette est trouvée pour supprimer ses ingrédients';
                 }
             } else {
-                throw new Exception('Aucun compte n\'a été trouvé pour supprimer les ingrédients de la recette');
+                echo'Aucun compte n\'a été trouvé pour supprimer les ingrédients de la recette';
             }
         } // *******************************************************************************
           // supprime les étapes d'une recette
@@ -465,10 +467,10 @@ try {
                 if (isset($_POST['id_recette'])) {
                     delEtapeRecipe($_POST['id_recette']);
                 } else {
-                    throw new Exception('Aucune recette est trouvée pour supprimer ses étapes');
+                    echo'Aucune recette est trouvée pour supprimer ses étapes';
                 }
             } else {
-                throw new Exception('Aucun compte n\'a été trouvé pour supprimer les étape de la recette');
+                echo'Aucun compte n\'a été trouvé pour supprimer les étape de la recette';
             }
         } // *******************************************************************************
           // sauvegarde les étapes d'une recette existante (lors de modification)
@@ -480,10 +482,10 @@ try {
                 if (isset($_POST['arrEtape'])) {
                     actualizeEtapeRecipe($_POST['arrEtape']);
                 } else {
-                    throw new Exception('Aucune étapes n\'est trouvée pour sauvegarder');
+                    echo'Aucune étapes n\'est trouvée pour sauvegarder';
                 }
             } else {
-                throw new Exception('Aucun compte n\'a été trouvé pour sauvegarder les étape de la recette');
+                echo'Aucun compte n\'a été trouvé pour sauvegarder les étape de la recette';
             }
         } // *******************************************************************************
           // barre de recherche ingrédient lors d'une modification dans la recette
@@ -494,10 +496,10 @@ try {
                 if (isset($_POST['value'])) {
                     searchBaringredient($_POST['value']);
                 } else {
-                    throw new Exception('Aucun ingrédient n\'est trouvée pour le sélectionner');
+                    echo'Aucun ingrédient n\'est trouvée pour le sélectionner';
                 }
             } else {
-                throw new Exception('Aucun compte n\'a été trouvé pour sélectionner un ingrédient');
+                echo'Aucun compte n\'a été trouvé pour sélectionner un ingrédient';
             }
         } // *******************************************************************************
           // sauvegarde les indicateur d'une recette existante (lors de modification)
@@ -507,13 +509,13 @@ try {
                 if (isset($_POST['id_recette']) && isset($_POST['private']) && isset($_POST['price']) && isset($_POST['easy']) && isset($_POST['people']) && isset($_POST['love']) && isset($_POST['id_category']) && isset($_POST['title']) && isset($_POST['alpha']) && isset($_POST['prepare_time'])) {
                     actualizeRecipes($_POST['id_recette'], $_POST['price'], $_POST['easy'], $_POST['people'], $_POST['love'], $_POST['id_category'], $_POST['title'], $_POST['alpha'], $_POST['prepare_time'], $_POST['private']);
                 } else {
-                    throw new Exception('Aucun indicateur n\'est trouvés pour sauvegarder');
+                    echo'Aucun indicateur n\'est trouvés pour sauvegarder';
                 }
             } else {
-                throw new Exception('Aucun compte n\'a été trouvé pour sauvegarder les indicateurs de la recette');
+                echo'Aucun compte n\'a été trouvé pour sauvegarder les indicateurs de la recette';
             }
         } // *******************************************************************************
-          // créer un nouvel ingrédient dans la BDD
+          // AJAX ! créer un nouvel ingrédient dans la BDD
           // *******************************************************************************
         elseif ($_GET['action'] == 'addNewIngBdd') {
             if (isset($_SESSION['idUser']) && $_SESSION['idUser'] > 0) // test id pour les utilisateur
@@ -521,10 +523,10 @@ try {
                 if (isset($_POST['newIngLabel']) && isset($_POST['newIngUnit'])) {
                     addNewIngBdd($_POST['newIngLabel'], $_POST['newIngUnit']);
                 } else {
-                    throw new Exception('Aucun ingrédient n\'est trouvée pour l\'ajouter en bdd');
+                    echo'Aucun ingrédient n\'est trouvée pour l\'ajouter en bdd';
                 }
             } else {
-                throw new Exception('Aucun compte n\'a été trouvé pour ajouter l\'ingrédient en bdd');
+                echo'Aucun compte n\'a été trouvé pour ajouter l\'ingrédient en bdd';
             }
         } // *******************************************************************************
           // ajouter un image à la recette
@@ -532,15 +534,14 @@ try {
         elseif ($_GET['action'] == 'uploadImgRecipe') {
             if (isset($_SESSION['idUser']) && $_SESSION['idUser'] > 0) // test id pour les utilisateur
             {
-
                 uploadImgRecipe();
             } else {
-                throw new Exception('Aucun compte n\'a été trouvé pour ajouter l\'image à la recette');
+                echo'Aucun compte n\'a été trouvé pour ajouter l\'image à la recette';
             }
         } // *******************************************************************************
           // sauvegarder une image à la recette
           // *******************************************************************************
-        elseif ($_GET['action'] == 'saveImgRecipe') {
+ /*       elseif ($_GET['action'] == 'saveImgRecipe') {
             if (isset($_SESSION['idUser']) && $_SESSION['idUser'] > 0) // test id pour les utilisateur
             {
                 // echo var_dump($_FILES);
@@ -548,17 +549,19 @@ try {
             } else {
                 throw new Exception('Aucun compte n\'a été trouvé pour sauvegarder l\'image à la recette');
             }
-        } // *******************************************************************************
+        } */
+        // *******************************************************************************
           // supprimer une image chargée
           // *******************************************************************************
-        elseif ($_GET['action'] == 'delImgLoad') {
+/*        elseif ($_GET['action'] == 'delImgLoad') {
             if (isset($_SESSION['idUser']) && $_SESSION['idUser'] > 0) // test id pour les utilisateur
             {
                 delImgLoad();
             } else {
                 throw new Exception('Aucun compte n\'a été trouvé pour supprimer l\'image chargée');
             }
-        } // *******************************************************************************
+        } */
+        // *******************************************************************************
           // supprimer une image de la recette
           // *******************************************************************************
         elseif ($_GET['action'] == 'deleteImgRecipe') {
@@ -743,7 +746,7 @@ try {
         // *******************************************************************************
         // cloner le planing d'une autre journée
         // *******************************************************************************
-        elseif ($_GET['action'] == 'clonePlanningDay') {
+    /*    elseif ($_GET['action'] == 'clonePlanningDay') {
             if (isset($_SESSION['idUser']) && $_SESSION['idUser'] > 0) // test id pour les utilisateur
             {
                 if (isset($_POST['dateDayClone']) && $_POST['dateDayClone'] > 0 && isset($_POST['dateDay']) && $_POST['dateDay'] > 0) // test de la date de la journée
@@ -844,7 +847,7 @@ try {
             } else {
                 throw new Exception('Aucun compte n\'a été trouvé pour sauvegarder la liste de course');
             }
-        }
+        }*/
     } else {
         spaceHome("");
     }

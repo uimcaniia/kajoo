@@ -15,8 +15,9 @@
 		height: 100px;
 	}
 	header #logo div {
-		top: -20px;
+		top: -45px;
 		height: 150px;
+		left: -0px;
 	}
 	section {
 		width: 100%;
@@ -35,6 +36,13 @@
 	}
 	header #btnMenuMobile, header #btnMenuMobileOff {
 		right: 50px;
+	}
+	footer {
+		height: 150px;
+	}
+	footer > div.flexrow {
+		flex-direction: column;
+		justify-content: space-evenly;
 	}
 	section #divAddCateg form, section #divModifCateg form, section #divDelCateg form
 		{
@@ -100,7 +108,14 @@
 text-align: justify;
 padding: 10px;
 }
-
+	section #divAddCateg form, section #divModifCateg form, section #divDelCateg form, section#userAccompte .formLogin {
+		padding: 10px 10px;
+		width: auto;
+		text-align: center;
+	}
+	section#userAccompte .formLogin input{
+		width: auto;
+	}
 
 
 

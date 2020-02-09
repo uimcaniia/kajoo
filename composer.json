@@ -9,8 +9,9 @@
 	],
 	"minimum-stability": "stable",
 	"require": {
-		"php": ">=7.0"
-	},
+		"php": ">=7.0",
+      "ext-json": "*"
+    },
 	"autoload": {
 		"psr-4": {
 			"Model\\":"model"

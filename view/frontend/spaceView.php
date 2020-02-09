@@ -14,7 +14,7 @@
 			ainsi partagées ! Vous pourrez non seulement les consultées, mais
 			également les copier sur votre compte pour pouvoir les modifier à
 			votre sauce, où changer le titre ou même la photo !</p>
-		<p>Bien sûr, les recettes secrètes peuvent être mises en "privée"
+		<p>Bien sûr, les recettes secrètes peuvent être mises en "privée" <span class="fas fa-lock"></span>
 			et ne seront visible que par vous !</p>
 		<img class="imgCenter" src="public/img/kajoo/kajoo8.png"
 			alt="kajoo mignon">
@@ -54,8 +54,7 @@
 							<div class="flexrow">
 								<form method="post" class="formLogin"
 									action="index.php?action=acceptFriend">
-									<input type="hidden"
-										value="<?=$getInviationReceive[0]['id_send']?>"
+									<input type="hidden" value="<?=$getInviationReceive[0]['id_send']?>"
 										id="friendIdToAccept" name="friendIdToAccept">
 									<button type="submit" id="acceptInvit<?=$i?>"
 										name="acceptInvit<?=$i?>">Accepter</button>
@@ -75,10 +74,10 @@
                     </div>
 				</div>
         <?php }else{ ?>
-				<div id="invitationReceiveTitle" class="flexrow">
+<!--				<div id="invitationReceiveTitle" class="flexrow">
 					<p>Vous n'avez pas reçue d'inviation pour le moment.</p>
 				</div>
-				<div id="invitationReceive" class="flexColumn"></div>
+				<div id="invitationReceive" class="flexColumn"></div>-->
 			<?php }?>
 			</div>
 			<!-- -------------------------------------------------------------------------------------------- -->
@@ -118,18 +117,18 @@
 				</div>
 		<?php }?>
 				<div>
-					<p>Voulez-vous envoyer une invitation?</p>
+					<p>Inviter un(e) ami(e)?</p>
 					<form method="post" id="formInvitationToSend" class="formLogin"
 						action="index.php?action=inviteFriend">
 						<div>
-							<label for="friendEmail" class="legende">E-mail de votre ami(e) :</label><br>
+							<label for="friendEmail">E-mail de votre ami(e)</label><br>
 							<div class="flexrow">
 								<input type="email" id="friendEmail" name="friendEmail" value=""
 									placeholder="" contenteditable="true" autocomplete="off">
 								<button type="submit" id="sendInvitationToFriend"
 									name="sendInvitationToFriend">Inviter</button>
 							</div>
-							<p id="errorMessInvitation"><?=$errorInvitMailFriend?></p>
+							<p id="errorMessInvitation" class="messErrorStyle"><?=$errorInvitMailFriend?></p>
 						</div>
 					</form>
 				</div>
@@ -152,8 +151,7 @@
                         <div id="relationShip<?=$i?>"
 							class="<?=$getRelationShip[$i]['id_friend']?>">
 							<div>
-								<p>Pseudo : <?=htmlspecialchars($getRelationShip[$i]['pseudo'])?></p>
-								<p>Mail :  <?=htmlspecialchars($getRelationShip[$i]['email'])?></p>
+								<p><?=htmlspecialchars($getRelationShip[$i]['pseudo'])?> - <?=htmlspecialchars($getRelationShip[$i]['email'])?></p>
 							</div>
 							<!--                            <div id="autorisation<?/*=$i*/?>">
                                 <label for="modifPlanning">Autoriser à modifier votre planning ?</label>
@@ -164,12 +162,12 @@
                             </div>-->
 
 							<div id="deleteRelation<?=$i?>">
-								<form method="post" class="formLogin"
+								<form method="post" class=""
 									action="index.php?action=delFriend">
 									<input type="hidden"
 										value="<?=$getRelationShip[$i]['id_friend']?>"
 										id="friendIdToDelete" name="friendIdToDelete">
-									<p>Supprimer cet ami(e) de vos partages?</p>
+									<!--<p>Supprimer cet ami(e) de vos partages?</p>-->
 									<button type="submit" id="delFriendRelation<?=$i?>"
 										name="delFriendRelation<?=$i?>">Supprimer</button>
 								</form>
@@ -200,59 +198,57 @@
 
 			<form method="post" class="formLogin"
 				action="index.php?action=changePref">
-				<fieldset>
-					<legend> Gérer vos infos !</legend>
+
+					<h3>Gérer vos paramètres comme un grand !</h3>
 					<!-- fake inputs to avoid chrome autofills the wrong fields -->
 					<input style="display: none" type="password"
 						name="fakepasswordremembered" />
 
-					<p class='newEmail'><?= $alertErrorMail ?></p>
+					<p class='newEmail messErrorStyle'><?= $alertErrorMail ?></p>
 					<label for="newEmail">Votre nouvel e-mail</label><br> <input
 						type="email" id="newEmail" name="newEmail" value=""
 						placeholder="<?=htmlspecialchars($getInfosUser[0]['email'])?>"
 						contenteditable="true" autocomplete="off">
 
 
-					<p class='newPseudo'><?= $alertErrorPseudo ?></p>
+					<p class='newPseudo messErrorStyle'><?= $alertErrorPseudo ?></p>
 					<label for="newPseudo">Votre nouveau pseudo</label><br>
 					<p class="legende">3 caractères minimum.</p>
 					<input type="text" id="newPseudo" name="newPseudo" value=""
 						placeholder="<?=htmlspecialchars($getInfosUser[0]['pseudo'])?>"
 						contenteditable="true" autocomplete="off">
 
-					<p class='newPsw'><?= $alertErrorPsw ?></p>
+					<p class='newPsw messErrorStyle'><?= $alertErrorPsw ?></p>
 					<label for="newPsw">Votre nouveau mot de pass</label><br>
 					<p class="legende">8 caractères minimum avec au moins une
 						majuscule et un chiffre</p>
 					<input type="password" id="newPsw" name="newPsw" value=""
 						placeholder="" contenteditable="true" autocomplete="off">
 
-					<p class='newPswConfirm'></p>
-					<label for="newPswConfirm">répéter votre mot de pass</label><br>
+					<p class='newPswConfirm messErrorStyle'></p>
+					<label for="newPswConfirm">On répète son mot de pass</label><br>
 					<input type="password" id="newPswConfirm" name="newPswConfirm"
 						value="" placeholder="" contenteditable="true" autocomplete="off">
-				</fieldset>
 
-				<fieldset>
-					<legend> Gérer vos paramètres comme un grand !</legend>
 
-					<p class='nbrPeople'><?= $alertErrorNbrPeople ?></p>
-					<label for="nbrPeople">Nombre de personne par défault pour la
+					<p class='nbrPeople messErrorStyle'><?= $alertErrorNbrPeople ?></p>
+					<label for="nbrPeople ">Nombre de personne par défault pour la
 						créations de recette</label><br>
 					<p class="legende">Ce nombre pourra être si besoin, changé lors
 						de l'édition de recette.</p>
 					<input type="text" id="nbrPeople" name="nbrPeople" value=""
 						placeholder="<?=$_SESSION['people_recipe']?>"
 						contenteditable="true" autocomplete="off"> <br>
-					<p class='nbrPagination'><?= $alertErrorPagination ?></p>
+
+					<p class='nbrPagination messErrorStyle'><?= $alertErrorPagination ?></p>
 					<label for="nbrPagination">Nombre de recette par pages</label><br>
 					<p class="legende"></p>
 					<input type="text" id="nbrPagination" name="nbrPagination" value=""
 						placeholder="<?=$_SESSION['limit_pagination']?>"
 						contenteditable="true" autocomplete="off"> <br>
-				</fieldset>
 
-				<input type="submit" value="Envoyer" name='changePref'>
+
+				<input id="changePrefUser" type="submit" value="Envoyer" name='changePref'>
 
 			</form>
 		</div>
